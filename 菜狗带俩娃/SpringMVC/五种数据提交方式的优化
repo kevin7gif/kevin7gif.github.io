@@ -1,0 +1,218 @@
+### 单个提交数据
+
+页面：
+
+```html
+<form action="<%=request.getContextPath()%>/test1" method="post">
+    <input name="myName"><br>
+    <input name="age"><br>
+    <input type="submit">
+</form>
+```
+
+```java
+ @RequestMapping(value = "/test1",method = RequestMethod.POST)
+    public String test1(String myName,int age){           //自动注入，并且类型转换，名字与页面中指定的名字要一致
+        System.out.println("myName="+myName+"，age="+age);
+        return "main";
+    }
+```
+
+
+
+
+
+
+
+### 对象封装提交数据
+
+在提交请求中，保证请求参数的名称与实体类中成员变量的名称一致，则可以自动创建对象，自动提交数据，自动类型转换，自动封装数据到对象中
+
+先准备一个实体类
+
+```java
+package com.xiehn.bean;
+
+public class User {
+    private String name;
+    private int age;
+
+    public User() {
+    }
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+```
+
+页面：
+
+```html
+<form action="<%=request.getContextPath()%>/test2" method="post">
+    <input name="name"><br>
+    <input name="age"><br>
+    <input type="submit" value="提交">
+</form>
+```
+
+```java
+ @RequestMapping(value = "/test2",method = RequestMethod.POST)
+    public String test2(User user){ //只需要保证页面中的name值与user类的成员变量值一样即可
+        System.out.println(user);
+        return "main";
+    }
+```
+
+
+
+
+
+
+
+### 动态占位符提交
+
+仅限于超链接或地址栏提交，是一杠一值，一杠一大括号，使用@PathVariable注解来解析
+
+@PathVariable：**用来解析路径中的请求参数**
+
+页面：
+
+```html
+<a href="<%=request.getContextPath()%>/test3/王五/30">动态提交</a>
+```
+
+```java
+@RequestMapping("/test3/{name}/{age}")
+    public String test3(@PathVariable String name, @PathVariable int age){
+        System.out.println("name="+name+"，age="+age);
+        return "main";
+    }
+```
+
+
+
+
+
+
+
+### 映射名称不一致
+
+提交请求参数与方法的形参名称不一致，使用@RequestParam注解来解析
+
+@RequestParam：**用来解决名称不一致的问题**
+
+页面：
+
+```html
+<form action="<%=request.getContextPath()%>/test4" method="post">
+    <input name="name"><br>
+    <input name="age"><br>
+    <input type="submit" value="提交">
+</form>
+```
+
+```java
+ @RequestMapping(value = "/test4",method = RequestMethod.POST)
+    public String test4(@RequestParam("name")String uname,@RequestParam("age")int uage){
+        System.out.println("uname="+uname+"，uage="+uage);
+        return "main";
+    }
+```
+
+
+
+
+
+
+
+### 手工提取数据
+
+采用原始的servlet中的方法
+
+页面：
+
+```html
+<form action="<%=request.getContextPath()%>/test5" method="post">
+    <input name="name"><br>
+    <input name="age"><br>
+    <input type="submit" value="提交">
+</form>
+```
+
+```java
+@RequestMapping(value = "/test5",method = RequestMethod.POST)
+    public String test4(HttpServletRequest request){
+        String name=request.getParameter("name");
+        int age=Integer.parseInt(request.getParameter("age"));
+        System.out.println("name="+name+"，age="+age);
+        return "main";
+    }
+```
+
+
+
+
+
+
+
+### 文件上传
+
+原理：
+
+* 当form表单修改为多部分表单时，request.getParameter()将失效
+* enctype="aplication/x-www-form-urlencode"时，form表单提交的正文内容格式是：
+  * key=value&key=value&key=value
+* 当form表单的enctype取值为Mutlipart/form-data时，请求正文内容就变成多部份格式
+
+![image-20230412173424489](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230412173424489.png)
+
+
+
+**文件上传客户端三要素：**
+
+* 表单项type=file
+
+* 表单的提交方式是post
+
+* 表单的enctype属性是多部份表单形式，以及enctype="Mutlipart/form-data"
+
+  
+
+#### 单文件上传步骤：
+
+* 第一步：在pom.xml中添加相关依赖
+
+* ```xml
+  <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>1.5</version>
+  </dependency>
+  
+  <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.11.0</version>
+  </dependency>
+  ```
+
+* 
