@@ -1,0 +1,1800 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('../home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>菜菜</h1>
+                <h3>开发小白</h3>
+                <h5>Kevin's blog</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 命令/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="2-命令（Command）"><a href="#2-命令（Command）" class="headerlink" title="2. 命令（Command）"></a>2. 命令（Command）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>将命令封装成对象中，具有以下作用：</p>
+<ul>
+<li>使用命令来参数化其它对象</li>
+<li>将命令放入队列中进行排队</li>
+<li>将命令的操作记录到日志中</li>
+<li>支持可撤销的操作</li>
+</ul>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><ul>
+<li>Command：命令</li>
+<li>Receiver：命令接收者，也就是命令真正的执行者</li>
+<li>Invoker：通过它来调用命令</li>
+<li>Client：可以设置命令与命令的接收者</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c44a0342-f405-4f17-b750-e27cf4aadde2.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>设计一个遥控器，可以控制电灯开关。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e6bded8e-41a0-489a-88a6-638e88ab7666.jpg"/> </div><br>
+
+<pre><code class="java">public interface Command &#123;
+    void execute();
+&#125;
+</code></pre>
+<pre><code class="java">public class LightOnCommand implements Command &#123;
+    Light light;
+
+    public LightOnCommand(Light light) &#123;
+        this.light = light;
+    &#125;
+
+    @Override
+    public void execute() &#123;
+        light.on();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class LightOffCommand implements Command &#123;
+    Light light;
+
+    public LightOffCommand(Light light) &#123;
+        this.light = light;
+    &#125;
+
+    @Override
+    public void execute() &#123;
+        light.off();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Light &#123;
+
+    public void on() &#123;
+        System.out.println(&quot;Light is on!&quot;);
+    &#125;
+
+    public void off() &#123;
+        System.out.println(&quot;Light is off!&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * 遥控器
+ */
+public class Invoker &#123;
+    private Command[] onCommands;
+    private Command[] offCommands;
+    private final int slotNum = 7;
+
+    public Invoker() &#123;
+        this.onCommands = new Command[slotNum];
+        this.offCommands = new Command[slotNum];
+    &#125;
+
+    public void setOnCommand(Command command, int slot) &#123;
+        onCommands[slot] = command;
+    &#125;
+
+    public void setOffCommand(Command command, int slot) &#123;
+        offCommands[slot] = command;
+    &#125;
+
+    public void onButtonWasPushed(int slot) &#123;
+        onCommands[slot].execute();
+    &#125;
+
+    public void offButtonWasPushed(int slot) &#123;
+        offCommands[slot].execute();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        Invoker invoker = new Invoker();
+        Light light = new Light();
+        Command lightOnCommand = new LightOnCommand(light);
+        Command lightOffCommand = new LightOffCommand(light);
+        invoker.setOnCommand(lightOnCommand, 0);
+        invoker.setOffCommand(lightOffCommand, 0);
+        invoker.onButtonWasPushed(0);
+        invoker.offButtonWasPushed(0);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">java.lang.Runnable</a></li>
+<li><a href="https://github.com/Netflix/Hystrix/wiki">Netflix Hystrix</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/javax/swing/Action.html">javax.swing.Action</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 命令/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 原型模式/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="6-原型模式（Prototype）"><a href="#6-原型模式（Prototype）" class="headerlink" title="6. 原型模式（Prototype）"></a>6. 原型模式（Prototype）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>使用原型实例指定要创建对象的类型，通过复制这个原型来创建新对象。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/b8922f8c-95e6-4187-be85-572a509afb71.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><pre><code class="java">public abstract class Prototype &#123;
+    abstract Prototype myClone();
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcretePrototype extends Prototype &#123;
+
+    private String filed;
+
+    public ConcretePrototype(String filed) &#123;
+        this.filed = filed;
+    &#125;
+
+    @Override
+    Prototype myClone() &#123;
+        return new ConcretePrototype(filed);
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return filed;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        Prototype prototype = new ConcretePrototype(&quot;abc&quot;);
+        Prototype clone = prototype.myClone();
+        System.out.println(clone.toString());
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="html">abc
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone%28%29">java.lang.Object#clone()</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 原型模式/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 代理/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="代理（Proxy）"><a href="#代理（Proxy）" class="headerlink" title="代理（Proxy）"></a>代理（Proxy）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>控制对其它对象的访问。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><p>代理有以下四类：</p>
+<ul>
+<li>远程代理（Remote Proxy）：控制对远程对象（不同地址空间）的访问，它负责将请求及其参数进行编码，并向不同地址空间中的对象发送已经编码的请求。</li>
+<li>虚拟代理（Virtual Proxy）：根据需要创建开销很大的对象，它可以缓存实体的附加信息，以便延迟对它的访问，例如在网站加载一个很大图片时，不能马上完成，可以用虚拟代理缓存图片的大小信息，然后生成一张临时图片代替原始图片。</li>
+<li>保护代理（Protection Proxy）：按权限控制对象的访问，它负责检查调用者是否具有实现一个请求所必须的访问权限。</li>
+<li>智能代理（Smart Reference）：取代了简单的指针，它在访问对象时执行一些附加操作：记录对象的引用次数；当第一次引用一个对象时，将它装入内存；在访问一个实际对象前，检查是否已经锁定了它，以确保其它对象不能改变它。</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/9b679ff5-94c6-48a7-b9b7-2ea868e828ed.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>以下是一个虚拟代理的实现，模拟了图片延迟加载的情况下使用与图片大小相等的临时内容去替换原始图片，直到图片加载完成才将图片显示出来。</p>
+<pre><code class="java">public interface Image &#123;
+    void showImage();
+&#125;
+</code></pre>
+<pre><code class="java">public class HighResolutionImage implements Image &#123;
+
+    private URL imageURL;
+    private long startTime;
+    private int height;
+    private int width;
+
+    public int getHeight() &#123;
+        return height;
+    &#125;
+
+    public int getWidth() &#123;
+        return width;
+    &#125;
+
+    public HighResolutionImage(URL imageURL) &#123;
+        this.imageURL = imageURL;
+        this.startTime = System.currentTimeMillis();
+        this.width = 600;
+        this.height = 600;
+    &#125;
+
+    public boolean isLoad() &#123;
+        // 模拟图片加载，延迟 3s 加载完成
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime &gt; 3000;
+    &#125;
+
+    @Override
+    public void showImage() &#123;
+        System.out.println(&quot;Real Image: &quot; + imageURL);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class ImageProxy implements Image &#123;
+
+    private HighResolutionImage highResolutionImage;
+
+    public ImageProxy(HighResolutionImage highResolutionImage) &#123;
+        this.highResolutionImage = highResolutionImage;
+    &#125;
+
+    @Override
+    public void showImage() &#123;
+        while (!highResolutionImage.isLoad()) &#123;
+            try &#123;
+                System.out.println(&quot;Temp Image: &quot; + highResolutionImage.getWidth() + &quot; &quot; + highResolutionImage.getHeight());
+                Thread.sleep(100);
+            &#125; catch (InterruptedException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        highResolutionImage.showImage();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class ImageViewer &#123;
+
+    public static void main(String[] args) throws Exception &#123;
+        String image = &quot;http://image.jpg&quot;;
+        URL url = new URL(image);
+        HighResolutionImage highResolutionImage = new HighResolutionImage(url);
+        ImageProxy imageProxy = new ImageProxy(highResolutionImage);
+        imageProxy.showImage();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li>java.lang.reflect.Proxy</li>
+<li>RMI</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 代理/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 享元/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="享元（Flyweight）"><a href="#享元（Flyweight）" class="headerlink" title="享元（Flyweight）"></a>享元（Flyweight）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>利用共享的方式来支持大量细粒度的对象，这些对象一部分内部状态是相同的。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><ul>
+<li>Flyweight：享元对象</li>
+<li>IntrinsicState：内部状态，享元对象共享内部状态</li>
+<li>ExtrinsicState：外部状态，每个享元对象的外部状态不同</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/5f5c22d5-9c0e-49e1-b5b0-6cc7032724d4.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><pre><code class="java">public interface Flyweight &#123;
+    void doOperation(String extrinsicState);
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteFlyweight implements Flyweight &#123;
+
+    private String intrinsicState;
+
+    public ConcreteFlyweight(String intrinsicState) &#123;
+        this.intrinsicState = intrinsicState;
+    &#125;
+
+    @Override
+    public void doOperation(String extrinsicState) &#123;
+        System.out.println(&quot;Object address: &quot; + System.identityHashCode(this));
+        System.out.println(&quot;IntrinsicState: &quot; + intrinsicState);
+        System.out.println(&quot;ExtrinsicState: &quot; + extrinsicState);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class FlyweightFactory &#123;
+
+    private HashMap&lt;String, Flyweight&gt; flyweights = new HashMap&lt;&gt;();
+
+    Flyweight getFlyweight(String intrinsicState) &#123;
+        if (!flyweights.containsKey(intrinsicState)) &#123;
+            Flyweight flyweight = new ConcreteFlyweight(intrinsicState);
+            flyweights.put(intrinsicState, flyweight);
+        &#125;
+        return flyweights.get(intrinsicState);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+
+    public static void main(String[] args) &#123;
+        FlyweightFactory factory = new FlyweightFactory();
+        Flyweight flyweight1 = factory.getFlyweight(&quot;aa&quot;);
+        Flyweight flyweight2 = factory.getFlyweight(&quot;aa&quot;);
+        flyweight1.doOperation(&quot;x&quot;);
+        flyweight2.doOperation(&quot;y&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="html">Object address: 1163157884
+IntrinsicState: aa
+ExtrinsicState: x
+Object address: 1163157884
+IntrinsicState: aa
+ExtrinsicState: y
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><p>Java 利用缓存来加速大量小对象的访问时间。</p>
+<ul>
+<li>java.lang.Integer#valueOf(int)</li>
+<li>java.lang.Boolean#valueOf(boolean)</li>
+<li>java.lang.Byte#valueOf(byte)</li>
+<li>java.lang.Character#valueOf(char)</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 享元/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 中介者/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="5-中介者（Mediator）"><a href="#5-中介者（Mediator）" class="headerlink" title="5. 中介者（Mediator）"></a>5. 中介者（Mediator）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>集中相关对象之间复杂的沟通和控制方式。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><ul>
+<li>Mediator：中介者，定义一个接口用于与各同事（Colleague）对象通信。</li>
+<li>Colleague：同事，相关对象</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/30d6e95c-2e3c-4d32-bf4f-68128a70bc05.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>Alarm（闹钟）、CoffeePot（咖啡壶）、Calendar（日历）、Sprinkler（喷头）是一组相关的对象，在某个对象的事件产生时需要去操作其它对象，形成了下面这种依赖结构：</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/82cfda3b-b53b-4c89-9fdb-26dd2db0cd02.jpg"/> </div><br>
+
+<p>使用中介者模式可以将复杂的依赖结构变成星形结构：</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/5359cbf5-5a79-4874-9b17-f23c53c2cb80.jpg"/> </div><br>
+
+<pre><code class="java">public abstract class Colleague &#123;
+    public abstract void onEvent(Mediator mediator);
+&#125;
+</code></pre>
+<pre><code class="java">public class Alarm extends Colleague &#123;
+
+    @Override
+    public void onEvent(Mediator mediator) &#123;
+        mediator.doEvent(&quot;alarm&quot;);
+    &#125;
+
+    public void doAlarm() &#123;
+        System.out.println(&quot;doAlarm()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class CoffeePot extends Colleague &#123;
+    @Override
+    public void onEvent(Mediator mediator) &#123;
+        mediator.doEvent(&quot;coffeePot&quot;);
+    &#125;
+
+    public void doCoffeePot() &#123;
+        System.out.println(&quot;doCoffeePot()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Calender extends Colleague &#123;
+    @Override
+    public void onEvent(Mediator mediator) &#123;
+        mediator.doEvent(&quot;calender&quot;);
+    &#125;
+
+    public void doCalender() &#123;
+        System.out.println(&quot;doCalender()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Sprinkler extends Colleague &#123;
+    @Override
+    public void onEvent(Mediator mediator) &#123;
+        mediator.doEvent(&quot;sprinkler&quot;);
+    &#125;
+
+    public void doSprinkler() &#123;
+        System.out.println(&quot;doSprinkler()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public abstract class Mediator &#123;
+    public abstract void doEvent(String eventType);
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteMediator extends Mediator &#123;
+    private Alarm alarm;
+    private CoffeePot coffeePot;
+    private Calender calender;
+    private Sprinkler sprinkler;
+
+    public ConcreteMediator(Alarm alarm, CoffeePot coffeePot, Calender calender, Sprinkler sprinkler) &#123;
+        this.alarm = alarm;
+        this.coffeePot = coffeePot;
+        this.calender = calender;
+        this.sprinkler = sprinkler;
+    &#125;
+
+    @Override
+    public void doEvent(String eventType) &#123;
+        switch (eventType) &#123;
+            case &quot;alarm&quot;:
+                doAlarmEvent();
+                break;
+            case &quot;coffeePot&quot;:
+                doCoffeePotEvent();
+                break;
+            case &quot;calender&quot;:
+                doCalenderEvent();
+                break;
+            default:
+                doSprinklerEvent();
+        &#125;
+    &#125;
+
+    public void doAlarmEvent() &#123;
+        alarm.doAlarm();
+        coffeePot.doCoffeePot();
+        calender.doCalender();
+        sprinkler.doSprinkler();
+    &#125;
+
+    public void doCoffeePotEvent() &#123;
+        // ...
+    &#125;
+
+    public void doCalenderEvent() &#123;
+        // ...
+    &#125;
+
+    public void doSprinklerEvent() &#123;
+        // ...
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        Alarm alarm = new Alarm();
+        CoffeePot coffeePot = new CoffeePot();
+        Calender calender = new Calender();
+        Sprinkler sprinkler = new Sprinkler();
+        Mediator mediator = new ConcreteMediator(alarm, coffeePot, calender, sprinkler);
+        // 闹钟事件到达，调用中介者就可以操作相关对象
+        alarm.onEvent(mediator);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">doAlarm()
+doCoffeePot()
+doCalender()
+doSprinkler()
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li>All scheduleXXX() methods of <a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/Timer.html">java.util.Timer</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html#execute-java.lang.Runnable-">java.util.concurrent.Executor#execute()</a></li>
+<li>submit() and invokeXXX() methods of <a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">java.util.concurrent.ExecutorService</a></li>
+<li>scheduleXXX() methods of <a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html">java.util.concurrent.ScheduledExecutorService</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html#invoke-java.lang.Object-java.lang.Object...-">java.lang.reflect.Method#invoke()</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 中介者/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式  - 单例/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="单例（Singleton）"><a href="#单例（Singleton）" class="headerlink" title="单例（Singleton）"></a>单例（Singleton）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>确保一个类只有一个实例，并提供该实例的全局访问点。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><p>使用一个私有构造函数、一个私有静态变量以及一个公有静态函数来实现。</p>
+<p>私有构造函数保证了不能通过构造函数来创建对象实例，只能通过公有静态函数返回唯一的私有静态变量。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/eca1f422-8381-409b-ad04-98ef39ae38ba.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Ⅰ-懒汉式-线程不安全"><a href="#Ⅰ-懒汉式-线程不安全" class="headerlink" title="Ⅰ 懒汉式-线程不安全"></a>Ⅰ 懒汉式-线程不安全</h4><p>以下实现中，私有静态变量 uniqueInstance 被延迟实例化，这样做的好处是，如果没有用到该类，那么就不会实例化 uniqueInstance，从而节约资源。</p>
+<p>这个实现在多线程环境下是不安全的，如果多个线程能够同时进入 <code>if (uniqueInstance == null)</code> ，并且此时 uniqueInstance 为 null，那么会有多个线程执行 <code>uniqueInstance = new Singleton();</code> 语句，这将导致实例化多次 uniqueInstance。</p>
+<pre><code class="java">public class Singleton &#123;
+
+    private static Singleton uniqueInstance;
+
+    private Singleton() &#123;
+    &#125;
+
+    public static Singleton getUniqueInstance() &#123;
+        if (uniqueInstance == null) &#123;
+            uniqueInstance = new Singleton();
+        &#125;
+        return uniqueInstance;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="Ⅱ-饿汉式-线程安全"><a href="#Ⅱ-饿汉式-线程安全" class="headerlink" title="Ⅱ 饿汉式-线程安全"></a>Ⅱ 饿汉式-线程安全</h4><p>线程不安全问题主要是由于 uniqueInstance 被实例化多次，采取直接实例化 uniqueInstance 的方式就不会产生线程不安全问题。</p>
+<p>但是直接实例化的方式也丢失了延迟实例化带来的节约资源的好处。</p>
+<pre><code class="java">private static Singleton uniqueInstance = new Singleton();
+</code></pre>
+<h4 id="Ⅲ-懒汉式-线程安全"><a href="#Ⅲ-懒汉式-线程安全" class="headerlink" title="Ⅲ 懒汉式-线程安全"></a>Ⅲ 懒汉式-线程安全</h4><p>只需要对 getUniqueInstance() 方法加锁，那么在一个时间点只能有一个线程能够进入该方法，从而避免了实例化多次 uniqueInstance。</p>
+<p>但是当一个线程进入该方法之后，其它试图进入该方法的线程都必须等待，即使 uniqueInstance 已经被实例化了。这会让线程阻塞时间过长，因此该方法有性能问题，不推荐使用。</p>
+<pre><code class="java">public static synchronized Singleton getUniqueInstance() &#123;
+    if (uniqueInstance == null) &#123;
+        uniqueInstance = new Singleton();
+    &#125;
+    return uniqueInstance;
+&#125;
+</code></pre>
+<h4 id="Ⅳ-双重校验锁-线程安全"><a href="#Ⅳ-双重校验锁-线程安全" class="headerlink" title="Ⅳ 双重校验锁-线程安全"></a>Ⅳ 双重校验锁-线程安全</h4><p>uniqueInstance 只需要被实例化一次，之后就可以直接使用了。加锁操作只需要对实例化那部分的代码进行，只有当 uniqueInstance 没有被实例化时，才需要进行加锁。</p>
+<p>双重校验锁先判断 uniqueInstance 是否已经被实例化，如果没有被实例化，那么才对实例化语句进行加锁。</p>
+<pre><code class="java">public class Singleton &#123;
+
+    private volatile static Singleton uniqueInstance;
+
+    private Singleton() &#123;
+    &#125;
+
+    public static Singleton getUniqueInstance() &#123;
+        if (uniqueInstance == null) &#123;
+            synchronized (Singleton.class) &#123;
+                if (uniqueInstance == null) &#123;
+                    uniqueInstance = new Singleton();
+                &#125;
+            &#125;
+        &#125;
+        return uniqueInstance;
+    &#125;
+&#125;
+</code></pre>
+<p>考虑下面的实现，也就是只使用了一个 if 语句。在 uniqueInstance &#x3D;&#x3D; null 的情况下，如果两个线程都执行了 if 语句，那么两个线程都会进入 if 语句块内。虽然在 if 语句块内有加锁操作，但是两个线程都会执行 <code>uniqueInstance = new Singleton();</code> 这条语句，只是先后的问题，那么就会进行两次实例化。因此必须使用双重校验锁，也就是需要使用两个 if 语句：第一个 if 语句用来避免 uniqueInstance 已经被实例化之后的加锁操作，而第二个 if 语句进行了加锁，所以只能有一个线程进入，就不会出现 uniqueInstance &#x3D;&#x3D; null 时两个线程同时进行实例化操作。</p>
+<pre><code class="java">if (uniqueInstance == null) &#123;
+    synchronized (Singleton.class) &#123;
+        uniqueInstance = new Singleton();
+    &#125;
+&#125;
+</code></pre>
+<p>uniqueInstance 采用 volatile 关键字修饰也是很有必要的， <code>uniqueInstance = new Singleton();</code> 这段代码其实是分为三步执行：</p>
+<ol>
+<li>为 uniqueInstance 分配内存空间</li>
+<li>初始化 uniqueInstance</li>
+<li>将 uniqueInstance 指向分配的内存地址</li>
+</ol>
+<p>但是由于 JVM 具有指令重排的特性，执行顺序有可能变成 1&gt;3&gt;2。指令重排在单线程环境下不会出现问题，但是在多线程环境下会导致一个线程获得还没有初始化的实例。例如，线程 T<sub>1</sub> 执行了 1 和 3，此时 T<sub>2</sub> 调用 getUniqueInstance() 后发现 uniqueInstance 不为空，因此返回 uniqueInstance，但此时 uniqueInstance 还未被初始化。</p>
+<p>使用 volatile 可以禁止 JVM 的指令重排，保证在多线程环境下也能正常运行。</p>
+<h4 id="Ⅴ-静态内部类实现"><a href="#Ⅴ-静态内部类实现" class="headerlink" title="Ⅴ 静态内部类实现"></a>Ⅴ 静态内部类实现</h4><p>当 Singleton 类被加载时，静态内部类 SingletonHolder 没有被加载进内存。只有当调用 <code>getUniqueInstance()</code> 方法从而触发 <code>SingletonHolder.INSTANCE</code> 时 SingletonHolder 才会被加载，此时初始化 INSTANCE 实例，并且 JVM 能确保 INSTANCE 只被实例化一次。</p>
+<p>这种方式不仅具有延迟初始化的好处，而且由 JVM 提供了对线程安全的支持。</p>
+<pre><code class="java">public class Singleton &#123;
+
+    private Singleton() &#123;
+    &#125;
+
+    private static class SingletonHolder &#123;
+        private static final Singleton INSTANCE = new Singleton();
+    &#125;
+
+    public static Singleton getUniqueInstance() &#123;
+        return SingletonHolder.INSTANCE;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="Ⅵ-枚举实现"><a href="#Ⅵ-枚举实现" class="headerlink" title="Ⅵ 枚举实现"></a>Ⅵ 枚举实现</h4><pre><code class="java">public enum Singleton &#123;
+
+    INSTANCE;
+
+    private String objName;
+
+
+    public String getObjName() &#123;
+        return objName;
+    &#125;
+
+
+    public void setObjName(String objName) &#123;
+        this.objName = objName;
+    &#125;
+
+
+    public static void main(String[] args) &#123;
+
+        // 单例测试
+        Singleton firstSingleton = Singleton.INSTANCE;
+        firstSingleton.setObjName(&quot;firstName&quot;);
+        System.out.println(firstSingleton.getObjName());
+        Singleton secondSingleton = Singleton.INSTANCE;
+        secondSingleton.setObjName(&quot;secondName&quot;);
+        System.out.println(firstSingleton.getObjName());
+        System.out.println(secondSingleton.getObjName());
+
+        // 反射获取实例测试
+        try &#123;
+            Singleton[] enumConstants = Singleton.class.getEnumConstants();
+            for (Singleton enumConstant : enumConstants) &#123;
+                System.out.println(enumConstant.getObjName());
+            &#125;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="html">firstName
+secondName
+secondName
+secondName
+</code></pre>
+<p>该实现可以防止反射攻击。在其它实现中，通过 setAccessible() 方法可以将私有构造函数的访问级别设置为 public，然后调用构造函数从而实例化对象，如果要防止这种攻击，需要在构造函数中添加防止多次实例化的代码。该实现是由 JVM 保证只会实例化一次，因此不会出现上述的反射攻击。</p>
+<p>该实现在多次序列化和序列化之后，不会得到多个实例。而其它实现需要使用 transient 修饰所有字段，并且实现序列化和反序列化的方法。</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<li>Logger Classes</li>
+<li>Configuration Classes</li>
+<li>Accesing resources in shared mode</li>
+<li>Factories implemented as Singletons</li>
+</ul>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#getRuntime%28%29">java.lang.Runtime#getRuntime()</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/awt/Desktop.html#getDesktop--">java.awt.Desktop#getDesktop()</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#getSecurityManager--">java.lang.System#getSecurityManager()</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式  - 单例/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 链路层/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="计算机网络-链路层"><a href="#计算机网络-链路层" class="headerlink" title="计算机网络 - 链路层"></a>计算机网络 - 链路层</h1><!-- GFM-TOC -->
+<ul>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C---%E9%93%BE%E8%B7%AF%E5%B1%82">计算机网络 - 链路层</a><ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98">基本问题</a><ul>
+<li><a href="#1-%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7">1. 封装成帧</a></li>
+<li><a href="#2-%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93">2. 透明传输</a></li>
+<li><a href="#3-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B">3. 差错检测</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BF%A1%E9%81%93%E5%88%86%E7%B1%BB">信道分类</a><ul>
+<li><a href="#1-%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93">1. 广播信道</a></li>
+<li><a href="#2-%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93">2. 点对点信道</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF">信道复用技术</a><ul>
+<li><a href="#1-%E9%A2%91%E5%88%86%E5%A4%8D%E7%94%A8">1. 频分复用</a></li>
+<li><a href="#2-%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8">2. 时分复用</a></li>
+<li><a href="#3-%E7%BB%9F%E8%AE%A1%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8">3. 统计时分复用</a></li>
+<li><a href="#4-%E6%B3%A2%E5%88%86%E5%A4%8D%E7%94%A8">4. 波分复用</a></li>
+<li><a href="#5-%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8">5. 码分复用</a></li>
+</ul>
+</li>
+<li><a href="#csmacd-%E5%8D%8F%E8%AE%AE">CSMA&#x2F;CD 协议</a></li>
+<li><a href="#ppp-%E5%8D%8F%E8%AE%AE">PPP 协议</a></li>
+<li><a href="#mac-%E5%9C%B0%E5%9D%80">MAC 地址</a></li>
+<li><a href="#%E5%B1%80%E5%9F%9F%E7%BD%91">局域网</a></li>
+<li><a href="#%E4%BB%A5%E5%A4%AA%E7%BD%91">以太网</a></li>
+<li><a href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA">交换机</a></li>
+<li><a href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91">虚拟局域网</a><!-- GFM-TOC --></li>
+</ul>
+</li>
+</ul>
+<h2 id="基本问题"><a href="#基本问题" class="headerlink" title="基本问题"></a>基本问题</h2><h3 id="1-封装成帧"><a href="#1-封装成帧" class="headerlink" title="1. 封装成帧"></a>1. 封装成帧</h3><p>将网络层传下来的分组添加首部和尾部，用于标记帧的开始和结束。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/29a14735-e154-4f60-9a04-c9628e5d09f4.png" width="300"/> </div><br>
+
+<h3 id="2-透明传输"><a href="#2-透明传输" class="headerlink" title="2. 透明传输"></a>2. 透明传输</h3><p>透明表示一个实际存在的事物看起来好像不存在一样。</p>
+<p>帧使用首部和尾部进行定界，如果帧的数据部分含有和首部尾部相同的内容，那么帧的开始和结束位置就会被错误的判定。需要在数据部分出现首部尾部相同的内容前面插入转义字符。如果数据部分出现转义字符，那么就在转义字符前面再加个转义字符。在接收端进行处理之后可以还原出原始数据。这个过程透明传输的内容是转义字符，用户察觉不到转义字符的存在。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e738a3d2-f42e-4755-ae13-ca23497e7a97.png" width="500"/> </div><br>
+
+<h3 id="3-差错检测"><a href="#3-差错检测" class="headerlink" title="3. 差错检测"></a>3. 差错检测</h3><p>目前数据链路层广泛使用了循环冗余检验（CRC）来检查比特差错。</p>
+<h2 id="信道分类"><a href="#信道分类" class="headerlink" title="信道分类"></a>信道分类</h2><h3 id="1-广播信道"><a href="#1-广播信道" class="headerlink" title="1. 广播信道"></a>1. 广播信道</h3><p>一对多通信，一个节点发送的数据能够被广播信道上所有的节点接收到。</p>
+<p>所有的节点都在同一个广播信道上发送数据，因此需要有专门的控制方法进行协调，避免发生冲突（冲突也叫碰撞）。</p>
+<p>主要有两种控制方法进行协调，一个是使用信道复用技术，一是使用 CSMA&#x2F;CD 协议。</p>
+<h3 id="2-点对点信道"><a href="#2-点对点信道" class="headerlink" title="2. 点对点信道"></a>2. 点对点信道</h3><p>一对一通信。</p>
+<p>因为不会发生碰撞，因此也比较简单，使用 PPP 协议进行控制。</p>
+<h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><h3 id="1-频分复用"><a href="#1-频分复用" class="headerlink" title="1. 频分复用"></a>1. 频分复用</h3><p>频分复用的所有主机在相同的时间占用不同的频率带宽资源。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/4aa5e057-bc57-4719-ab57-c6fbc861c505.png" width="350"/> </div><br>
+
+<h3 id="2-时分复用"><a href="#2-时分复用" class="headerlink" title="2. 时分复用"></a>2. 时分复用</h3><p>时分复用的所有主机在不同的时间占用相同的频率带宽资源。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/67582ade-d44a-46a6-8757-3c1296cc1ef9.png" width="350"/> </div><br>
+
+<p>使用频分复用和时分复用进行通信，在通信的过程中主机会一直占用一部分信道资源。但是由于计算机数据的突发性质，通信过程没必要一直占用信道资源而不让出给其它用户使用，因此这两种方式对信道的利用率都不高。</p>
+<h3 id="3-统计时分复用"><a href="#3-统计时分复用" class="headerlink" title="3. 统计时分复用"></a>3. 统计时分复用</h3><p>是对时分复用的一种改进，不固定每个用户在时分复用帧中的位置，只要有数据就集中起来组成统计时分复用帧然后发送。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/6283be2a-814a-4a10-84bf-9592533fe6bc.png" width="350"/> </div><br>
+
+<h3 id="4-波分复用"><a href="#4-波分复用" class="headerlink" title="4. 波分复用"></a>4. 波分复用</h3><p>光的频分复用。由于光的频率很高，因此习惯上用波长而不是频率来表示所使用的光载波。</p>
+<h3 id="5-码分复用"><a href="#5-码分复用" class="headerlink" title="5. 码分复用"></a>5. 码分复用</h3><p>为每个用户分配 m bit 的码片，并且所有的码片正交，对于任意两个码片 <img src="https://latex.codecogs.com/gif.latex?\vec{S}" class="mathjax-pic"/> 和 <img src="https://latex.codecogs.com/gif.latex?\vec{T}" class="mathjax-pic"/> 有</p>
+<!-- <div align="center"><img src="https://latex.codecogs.com/gif.latex?\frac{1}{m}\vec{S}\cdot\vec{T}=0" class="mathjax-pic"/></div> <br> -->
+
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/308a02e9-3346-4251-8c41-bd5536dab491.png" width="100px"> </div><br>
+
+<p>为了讨论方便，取 m&#x3D;8，设码片 <img src="https://latex.codecogs.com/gif.latex?\vec{S}" class="mathjax-pic"/> 为 00011011。在拥有该码片的用户发送比特 1 时就发送该码片，发送比特 0 时就发送该码片的反码 11100100。</p>
+<p>在计算时将 00011011 记作 (-1 -1 -1 +1 +1 -1 +1 +1)，可以得到</p>
+<!-- <div align="center"><img src="https://latex.codecogs.com/gif.latex?\frac{1}{m}\vec{S}\cdot\vec{S}=1" class="mathjax-pic"/></div> <br> -->
+
+<!-- <div align="center"><img src="https://latex.codecogs.com/gif.latex?\frac{1}{m}\vec{S}\cdot\vec{S'}=-1" class="mathjax-pic"/></div> <br> -->
+
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/6fda1dc7-5c74-49c1-bb79-237a77e43a43.png" width="100px"> </div><br>
+
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e325a903-f0b1-4fbd-82bf-88913dc2f290.png" width="125px"> </div><br>
+
+<p>其中 <img src="https://latex.codecogs.com/gif.latex?\vec{S'}" class="mathjax-pic"/> 为 <img src="https://latex.codecogs.com/gif.latex?\vec{S}" class="mathjax-pic"/> 的反码。</p>
+<p>利用上面的式子我们知道，当接收端使用码片 <img src="https://latex.codecogs.com/gif.latex?\vec{S}" class="mathjax-pic"/> 对接收到的数据进行内积运算时，结果为 0 的是其它用户发送的数据，结果为 1 的是用户发送的比特 1，结果为 -1 的是用户发送的比特 0。</p>
+<p>码分复用需要发送的数据量为原先的 m 倍。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/99b6060e-099d-4201-8e86-f8ab3768a7cf.png" width="500px"> </div><br>
+
+
+<h2 id="CSMA-x2F-CD-协议"><a href="#CSMA-x2F-CD-协议" class="headerlink" title="CSMA&#x2F;CD 协议"></a>CSMA&#x2F;CD 协议</h2><p>CSMA&#x2F;CD 表示载波监听多点接入 &#x2F; 碰撞检测。</p>
+<ul>
+<li><strong>多点接入</strong>  ：说明这是总线型网络，许多主机以多点的方式连接到总线上。</li>
+<li><strong>载波监听</strong>  ：每个主机都必须不停地监听信道。在发送前，如果监听到信道正在使用，就必须等待。</li>
+<li><strong>碰撞检测</strong>  ：在发送中，如果监听到信道已有其它主机正在发送数据，就表示发生了碰撞。虽然每个主机在发送数据之前都已经监听到信道为空闲，但是由于电磁波的传播时延的存在，还是有可能会发生碰撞。</li>
+</ul>
+<p>记端到端的传播时延为 τ，最先发送的站点最多经过 2τ 就可以知道是否发生了碰撞，称 2τ 为   <strong>争用期</strong>  。只有经过争用期之后还没有检测到碰撞，才能肯定这次发送不会发生碰撞。</p>
+<p>当发生碰撞时，站点要停止发送，等待一段时间再发送。这个时间采用   <strong>截断二进制指数退避算法</strong>   来确定。从离散的整数集合 {0, 1, .., (2<sup>k</sup>-1)} 中随机取出一个数，记作 r，然后取 r 倍的争用期作为重传等待时间。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/19d423e9-74f7-4c2b-9b97-55890e0d5193.png" width="400"/> </div><br>
+
+<h2 id="PPP-协议"><a href="#PPP-协议" class="headerlink" title="PPP 协议"></a>PPP 协议</h2><p>互联网用户通常需要连接到某个 ISP 之后才能接入到互联网，PPP 协议是用户计算机和 ISP 进行通信时所使用的数据链路层协议。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e1ab9f28-cb15-4178-84b2-98aad87f9bc8.jpg" width="300"/> </div><br>
+
+<p>PPP 的帧格式：</p>
+<ul>
+<li>F 字段为帧的定界符</li>
+<li>A 和 C 字段暂时没有意义</li>
+<li>FCS 字段是使用 CRC 的检验序列</li>
+<li>信息部分的长度不超过 1500</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/759013d7-61d8-4509-897a-d75af598a236.png" width="400"/> </div><br>
+
+<h2 id="MAC-地址"><a href="#MAC-地址" class="headerlink" title="MAC 地址"></a>MAC 地址</h2><p>MAC 地址是链路层地址，长度为 6 字节（48 位），用于唯一标识网络适配器（网卡）。</p>
+<p>一台主机拥有多少个网络适配器就有多少个 MAC 地址。例如笔记本电脑普遍存在无线网络适配器和有线网络适配器，因此就有两个 MAC 地址。</p>
+<h2 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h2><p>局域网是一种典型的广播信道，主要特点是网络为一个单位所拥有，且地理范围和站点数目均有限。</p>
+<p>主要有以太网、令牌环网、FDDI 和 ATM 等局域网技术，目前以太网占领着有线局域网市场。</p>
+<p>可以按照网络拓扑结构对局域网进行分类：</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/807f4258-dba8-4c54-9c3c-a707c7ccffa2.jpg" width="800"/> </div><br>
+
+<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><p>以太网是一种星型拓扑结构局域网。</p>
+<p>早期使用集线器进行连接，集线器是一种物理层设备， 作用于比特而不是帧，当一个比特到达接口时，集线器重新生成这个比特，并将其能量强度放大，从而扩大网络的传输距离，之后再将这个比特发送到其它所有接口。如果集线器同时收到两个不同接口的帧，那么就发生了碰撞。</p>
+<p>目前以太网使用交换机替代了集线器，交换机是一种链路层设备，它不会发生碰撞，能根据 MAC 地址进行存储转发。</p>
+<p>以太网帧格式：</p>
+<ul>
+<li><strong>类型</strong>  ：标记上层使用的协议；</li>
+<li><strong>数据</strong>  ：长度在 46-1500 之间，如果太小则需要填充；</li>
+<li><strong>FCS</strong>  ：帧检验序列，使用的是 CRC 检验方法；</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/164944d3-bbd2-4bb2-924b-e62199c51b90.png" width="500"/> </div><br>
+
+<h2 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h2><p>交换机具有自学习能力，学习的是交换表的内容，交换表中存储着 MAC 地址到接口的映射。</p>
+<p>正是由于这种自学习能力，因此交换机是一种即插即用设备，不需要网络管理员手动配置交换表内容。</p>
+<p>下图中，交换机有 4 个接口，主机 A 向主机 B 发送数据帧时，交换机把主机 A 到接口 1 的映射写入交换表中。为了发送数据帧到 B，先查交换表，此时没有主机 B 的表项，那么主机 A 就发送广播帧，主机 C 和主机 D 会丢弃该帧，主机 B 回应该帧向主机 A 发送数据包时，交换机查找交换表得到主机 A 映射的接口为 1，就发送数据帧到接口 1，同时交换机添加主机 B 到接口 2 的映射。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/a4444545-0d68-4015-9a3d-19209dc436b3.png" width="800"/> </div><br>
+
+<h2 id="虚拟局域网"><a href="#虚拟局域网" class="headerlink" title="虚拟局域网"></a>虚拟局域网</h2><p>虚拟局域网可以建立与物理位置无关的逻辑组，只有在同一个虚拟局域网中的成员才会收到链路层广播信息。</p>
+<p>例如下图中 (A1, A2, A3, A4) 属于一个虚拟局域网，A1 发送的广播会被 A2、A3、A4 收到，而其它站点收不到。</p>
+<p>使用 VLAN 干线连接来建立虚拟局域网，每台交换机上的一个特殊接口被设置为干线接口，以互连 VLAN 交换机。IEEE 定义了一种扩展的以太网帧格式 802.1Q，它在标准以太网帧上加进了 4 字节首部 VLAN 标签，用于表示该帧属于哪一个虚拟局域网。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e98e9d20-206b-4533-bacf-3448d0096f38.png" width="500"/> </div><br>
+
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 链路层/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 网络层/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="计算机网络-网络层"><a href="#计算机网络-网络层" class="headerlink" title="计算机网络 - 网络层"></a>计算机网络 - 网络层</h1><!-- GFM-TOC -->
+<ul>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C---%E7%BD%91%E7%BB%9C%E5%B1%82">计算机网络 - 网络层</a><ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>
+<li><a href="#ip-%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F">IP 数据报格式</a></li>
+<li><a href="#ip-%E5%9C%B0%E5%9D%80%E7%BC%96%E5%9D%80%E6%96%B9%E5%BC%8F">IP 地址编址方式</a><ul>
+<li><a href="#1-%E5%88%86%E7%B1%BB">1. 分类</a></li>
+<li><a href="#2-%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86">2. 子网划分</a></li>
+<li><a href="#3-%E6%97%A0%E5%88%86%E7%B1%BB">3. 无分类</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AE-arp">地址解析协议 ARP</a></li>
+<li><a href="#%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AE-icmp">网际控制报文协议 ICMP</a><ul>
+<li><a href="#1-ping">1. Ping</a></li>
+<li><a href="#2-traceroute">2. Traceroute</a></li>
+</ul>
+</li>
+<li><a href="#%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91-vpn">虚拟专用网 VPN</a></li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2-nat">网络地址转换 NAT</a></li>
+<li><a href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84">路由器的结构</a></li>
+<li><a href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%86%E7%BB%84%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B">路由器分组转发流程</a></li>
+<li><a href="#%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE">路由选择协议</a><ul>
+<li><a href="#1-%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE-rip">1. 内部网关协议 RIP</a></li>
+<li><a href="#2-%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE-ospf">2. 内部网关协议 OSPF</a></li>
+<li><a href="#3-%E5%A4%96%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE-bgp">3. 外部网关协议 BGP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- GFM-TOC -->
+
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>因为网络层是整个互联网的核心，因此应当让网络层尽可能简单。网络层向上只提供简单灵活的、无连接的、尽最大努力交互的数据报服务。</p>
+<p>使用 IP 协议，可以把异构的物理网络连接起来，使得在网络层看起来好像是一个统一的网络。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/8d779ab7-ffcc-47c6-90ec-ede8260b2368.png" width="800"/> </div><br>
+
+<p>与 IP 协议配套使用的还有三个协议：</p>
+<ul>
+<li>地址解析协议 ARP（Address Resolution Protocol）</li>
+<li>网际控制报文协议 ICMP（Internet Control Message Protocol）</li>
+<li>网际组管理协议 IGMP（Internet Group Management Protocol）</li>
+</ul>
+<h2 id="IP-数据报格式"><a href="#IP-数据报格式" class="headerlink" title="IP 数据报格式"></a>IP 数据报格式</h2><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/85c05fb1-5546-4c50-9221-21f231cdc8c5.jpg" width="700"/> </div><br>
+
+<ul>
+<li><p><strong>版本</strong>   : 有 4（IPv4）和 6（IPv6）两个值；</p>
+</li>
+<li><p><strong>首部长度</strong>   : 占 4 位，因此最大值为 15。值为 1 表示的是 1 个 32 位字的长度，也就是 4 字节。因为固定部分长度为 20 字节，因此该值最小为 5。如果可选字段的长度不是 4 字节的整数倍，就用尾部的填充部分来填充。</p>
+</li>
+<li><p><strong>区分服务</strong>   : 用来获得更好的服务，一般情况下不使用。</p>
+</li>
+<li><p><strong>总长度</strong>   : 包括首部长度和数据部分长度。</p>
+</li>
+<li><p><strong>生存时间</strong>   ：TTL，它的存在是为了防止无法交付的数据报在互联网中不断兜圈子。以路由器跳数为单位，当 TTL 为 0 时就丢弃数据报。</p>
+</li>
+<li><p><strong>协议</strong>  ：指出携带的数据应该上交给哪个协议进行处理，例如 ICMP、TCP、UDP 等。</p>
+</li>
+<li><p><strong>首部检验和</strong>  ：因为数据报每经过一个路由器，都要重新计算检验和，因此检验和不包含数据部分可以减少计算的工作量。</p>
+</li>
+<li><p><strong>标识</strong>   : 在数据报长度过长从而发生分片的情况下，相同数据报的不同分片具有相同的标识符。</p>
+</li>
+<li><p><strong>片偏移</strong>   : 和标识符一起，用于发生分片的情况。片偏移的单位为 8 字节。</p>
+</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/23ba890e-e11c-45e2-a20c-64d217f83430.png" width="700"/> </div><br>
+
+<h2 id="IP-地址编址方式"><a href="#IP-地址编址方式" class="headerlink" title="IP 地址编址方式"></a>IP 地址编址方式</h2><p>IP 地址的编址方式经历了三个历史阶段：</p>
+<ul>
+<li>分类</li>
+<li>子网划分</li>
+<li>无分类</li>
+</ul>
+<h3 id="1-分类"><a href="#1-分类" class="headerlink" title="1. 分类"></a>1. 分类</h3><p>由两部分组成，网络号和主机号，其中不同分类具有不同的网络号长度，并且是固定的。</p>
+<p>IP 地址 ::&#x3D; {&lt; 网络号 &gt;, &lt; 主机号 &gt;}</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/cbf50eb8-22b4-4528-a2e7-d187143d57f7.png" width="500"/> </div><br>
+
+<h3 id="2-子网划分"><a href="#2-子网划分" class="headerlink" title="2. 子网划分"></a>2. 子网划分</h3><p>通过在主机号字段中拿一部分作为子网号，把两级 IP 地址划分为三级 IP 地址。</p>
+<p>IP 地址 ::&#x3D; {&lt; 网络号 &gt;, &lt; 子网号 &gt;, &lt; 主机号 &gt;}</p>
+<p>要使用子网，必须配置子网掩码。一个 B 类地址的默认子网掩码为 255.255.0.0，如果 B 类地址的子网占两个比特，那么子网掩码为 11111111 11111111 11000000 00000000，也就是 255.255.192.0。</p>
+<p>注意，外部网络看不到子网的存在。</p>
+<h3 id="3-无分类"><a href="#3-无分类" class="headerlink" title="3. 无分类"></a>3. 无分类</h3><p>无分类编址 CIDR 消除了传统 A 类、B 类和 C 类地址以及划分子网的概念，使用网络前缀和主机号来对 IP 地址进行编码，网络前缀的长度可以根据需要变化。</p>
+<p>IP 地址 ::&#x3D; {&lt; 网络前缀号 &gt;, &lt; 主机号 &gt;}</p>
+<p>CIDR 的记法上采用在 IP 地址后面加上网络前缀长度的方法，例如 128.14.35.7&#x2F;20 表示前 20 位为网络前缀。</p>
+<p>CIDR 的地址掩码可以继续称为子网掩码，子网掩码首 1 长度为网络前缀的长度。</p>
+<p>一个 CIDR 地址块中有很多地址，一个 CIDR 表示的网络就可以表示原来的很多个网络，并且在路由表中只需要一个路由就可以代替原来的多个路由，减少了路由表项的数量。把这种通过使用网络前缀来减少路由表项的方式称为路由聚合，也称为   <strong>构成超网</strong>  。</p>
+<p>在路由表中的项目由“网络前缀”和“下一跳地址”组成，在查找时可能会得到不止一个匹配结果，应当采用最长前缀匹配来确定应该匹配哪一个。</p>
+<h2 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a>地址解析协议 ARP</h2><p>网络层实现主机之间的通信，而链路层实现具体每段链路之间的通信。因此在通信过程中，IP 数据报的源地址和目的地址始终不变，而 MAC 地址随着链路的改变而改变。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/66192382-558b-4b05-a35d-ac4a2b1a9811.jpg" width="700"/> </div><br>
+
+<p>ARP 实现由 IP 地址得到 MAC 地址。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/b9d79a5a-e7af-499b-b989-f10483e71b8b.jpg" width="500"/> </div><br>
+
+<p>每个主机都有一个 ARP 高速缓存，里面有本局域网上的各主机和路由器的 IP 地址到 MAC 地址的映射表。</p>
+<p>如果主机 A 知道主机 B 的 IP 地址，但是 ARP 高速缓存中没有该 IP 地址到 MAC 地址的映射，此时主机 A 通过广播的方式发送 ARP 请求分组，主机 B 收到该请求后会发送 ARP 响应分组给主机 A 告知其 MAC 地址，随后主机 A 向其高速缓存中写入主机 B 的 IP 地址到 MAC 地址的映射。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/8006a450-6c2f-498c-a928-c927f758b1d0.png" width="700"/> </div><br>
+
+<h2 id="网际控制报文协议-ICMP"><a href="#网际控制报文协议-ICMP" class="headerlink" title="网际控制报文协议 ICMP"></a>网际控制报文协议 ICMP</h2><p>ICMP 是为了更有效地转发 IP 数据报和提高交付成功的机会。它封装在 IP 数据报中，但是不属于高层协议。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e3124763-f75e-46c3-ba82-341e6c98d862.jpg" width="500"/> </div><br>
+
+<p>ICMP 报文分为差错报告报文和询问报文。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/aa29cc88-7256-4399-8c7f-3cf4a6489559.png" width="600"/> </div><br>
+
+<h3 id="1-Ping"><a href="#1-Ping" class="headerlink" title="1. Ping"></a>1. Ping</h3><p>Ping 是 ICMP 的一个重要应用，主要用来测试两台主机之间的连通性。</p>
+<p>Ping 的原理是通过向目的主机发送 ICMP Echo 请求报文，目的主机收到之后会发送 Echo 回答报文。Ping 会根据时间和成功响应的次数估算出数据包往返时间以及丢包率。</p>
+<h3 id="2-Traceroute"><a href="#2-Traceroute" class="headerlink" title="2. Traceroute"></a>2. Traceroute</h3><p>Traceroute 是 ICMP 的另一个应用，用来跟踪一个分组从源点到终点的路径。</p>
+<p>Traceroute 发送的 IP 数据报封装的是无法交付的 UDP 用户数据报，并由目的主机发送终点不可达差错报告报文。</p>
+<ul>
+<li>源主机向目的主机发送一连串的 IP 数据报。第一个数据报 P1 的生存时间 TTL 设置为 1，当 P1 到达路径上的第一个路由器 R1 时，R1 收下它并把 TTL 减 1，此时 TTL 等于 0，R1 就把 P1 丢弃，并向源主机发送一个 ICMP 时间超过差错报告报文；</li>
+<li>源主机接着发送第二个数据报 P2，并把 TTL 设置为 2。P2 先到达 R1，R1 收下后把 TTL 减 1 再转发给 R2，R2 收下后也把 TTL 减 1，由于此时 TTL 等于 0，R2 就丢弃 P2，并向源主机发送一个 ICMP 时间超过差错报文。</li>
+<li>不断执行这样的步骤，直到最后一个数据报刚刚到达目的主机，主机不转发数据报，也不把 TTL 值减 1。但是因为数据报封装的是无法交付的 UDP，因此目的主机要向源主机发送 ICMP 终点不可达差错报告报文。</li>
+<li>之后源主机知道了到达目的主机所经过的路由器 IP 地址以及到达每个路由器的往返时间。</li>
+</ul>
+<h2 id="虚拟专用网-VPN"><a href="#虚拟专用网-VPN" class="headerlink" title="虚拟专用网 VPN"></a>虚拟专用网 VPN</h2><p>由于 IP 地址的紧缺，一个机构能申请到的 IP 地址数往往远小于本机构所拥有的主机数。并且一个机构并不需要把所有的主机接入到外部的互联网中，机构内的计算机可以使用仅在本机构有效的 IP 地址（专用地址）。</p>
+<p>有三个专用地址块：</p>
+<ul>
+<li>10.0.0.0 ~ 10.255.255.255</li>
+<li>172.16.0.0 ~ 172.31.255.255</li>
+<li>192.168.0.0 ~ 192.168.255.255</li>
+</ul>
+<p>VPN 使用公用的互联网作为本机构各专用网之间的通信载体。专用指机构内的主机只与本机构内的其它主机通信；虚拟指好像是，而实际上并不是，它有经过公用的互联网。</p>
+<p>下图中，场所 A 和 B 的通信经过互联网，如果场所 A 的主机 X 要和另一个场所 B 的主机 Y 通信，IP 数据报的源地址是 10.1.0.1，目的地址是 10.2.0.3。数据报先发送到与互联网相连的路由器 R1，R1 对内部数据进行加密，然后重新加上数据报的首部，源地址是路由器 R1 的全球地址 125.1.2.3，目的地址是路由器 R2 的全球地址 194.4.5.6。路由器 R2 收到数据报后将数据部分进行解密，恢复原来的数据报，此时目的地址为 10.2.0.3，就交付给 Y。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/1556770b-8c01-4681-af10-46f1df69202c.jpg" width="800"/> </div><br>
+
+<h2 id="网络地址转换-NAT"><a href="#网络地址转换-NAT" class="headerlink" title="网络地址转换 NAT"></a>网络地址转换 NAT</h2><p>专用网内部的主机使用本地 IP 地址又想和互联网上的主机通信时，可以使用 NAT 来将本地 IP 转换为全球 IP。</p>
+<p>在以前，NAT 将本地 IP 和全球 IP 一一对应，这种方式下拥有 n 个全球 IP 地址的专用网内最多只可以同时有 n 台主机接入互联网。为了更有效地利用全球 IP 地址，现在常用的 NAT 转换表把传输层的端口号也用上了，使得多个专用网内部的主机共用一个全球 IP 地址。使用端口号的 NAT 也叫做网络地址与端口转换 NAPT。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/2719067e-b299-4639-9065-bed6729dbf0b.png" width=""/> </div><br>
+
+<h2 id="路由器的结构"><a href="#路由器的结构" class="headerlink" title="路由器的结构"></a>路由器的结构</h2><p>路由器从功能上可以划分为：路由选择和分组转发。</p>
+<p>分组转发结构由三个部分组成：交换结构、一组输入端口和一组输出端口。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c3369072-c740-43b0-b276-202bd1d3960d.jpg" width="600"/> </div><br>
+
+<h2 id="路由器分组转发流程"><a href="#路由器分组转发流程" class="headerlink" title="路由器分组转发流程"></a>路由器分组转发流程</h2><ul>
+<li>从数据报的首部提取目的主机的 IP 地址 D，得到目的网络地址 N。</li>
+<li>若 N 就是与此路由器直接相连的某个网络地址，则进行直接交付；</li>
+<li>若路由表中有目的地址为 D 的特定主机路由，则把数据报传送给表中所指明的下一跳路由器；</li>
+<li>若路由表中有到达网络 N 的路由，则把数据报传送给路由表中所指明的下一跳路由器；</li>
+<li>若路由表中有一个默认路由，则把数据报传送给路由表中所指明的默认路由器；</li>
+<li>报告转发分组出错。</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/1ab49e39-012b-4383-8284-26570987e3c4.jpg" width="800"/> </div><br>
+
+<h2 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h2><p>路由选择协议都是自适应的，能随着网络通信量和拓扑结构的变化而自适应地进行调整。</p>
+<p>互联网可以划分为许多较小的自治系统 AS，一个 AS 可以使用一种和别的 AS 不同的路由选择协议。</p>
+<p>可以把路由选择协议划分为两大类：</p>
+<ul>
+<li>自治系统内部的路由选择：RIP 和 OSPF</li>
+<li>自治系统间的路由选择：BGP</li>
+</ul>
+<h3 id="1-内部网关协议-RIP"><a href="#1-内部网关协议-RIP" class="headerlink" title="1. 内部网关协议 RIP"></a>1. 内部网关协议 RIP</h3><p>RIP 是一种基于距离向量的路由选择协议。距离是指跳数，直接相连的路由器跳数为 1。跳数最多为 15，超过 15 表示不可达。</p>
+<p>RIP 按固定的时间间隔仅和相邻路由器交换自己的路由表，经过若干次交换之后，所有路由器最终会知道到达本自治系统中任何一个网络的最短距离和下一跳路由器地址。</p>
+<p>距离向量算法：</p>
+<ul>
+<li>对地址为 X 的相邻路由器发来的 RIP 报文，先修改报文中的所有项目，把下一跳字段中的地址改为 X，并把所有的距离字段加 1；</li>
+<li>对修改后的 RIP 报文中的每一个项目，进行以下步骤：</li>
+<li>若原来的路由表中没有目的网络 N，则把该项目添加到路由表中；</li>
+<li>否则：若下一跳路由器地址是 X，则把收到的项目替换原来路由表中的项目；否则：若收到的项目中的距离 d 小于路由表中的距离，则进行更新（例如原始路由表项为 Net2, 5, P，新表项为 Net2, 4, X，则更新）；否则什么也不做。</li>
+<li>若 3 分钟还没有收到相邻路由器的更新路由表，则把该相邻路由器标为不可达，即把距离置为 16。</li>
+</ul>
+<p>RIP 协议实现简单，开销小。但是 RIP 能使用的最大距离为 15，限制了网络的规模。并且当网络出现故障时，要经过比较长的时间才能将此消息传送到所有路由器。</p>
+<h3 id="2-内部网关协议-OSPF"><a href="#2-内部网关协议-OSPF" class="headerlink" title="2. 内部网关协议 OSPF"></a>2. 内部网关协议 OSPF</h3><p>开放最短路径优先 OSPF，是为了克服 RIP 的缺点而开发出来的。</p>
+<p>开放表示 OSPF 不受某一家厂商控制，而是公开发表的；最短路径优先表示使用了 Dijkstra 提出的最短路径算法 SPF。</p>
+<p>OSPF 具有以下特点：</p>
+<ul>
+<li>向本自治系统中的所有路由器发送信息，这种方法是洪泛法。</li>
+<li>发送的信息就是与相邻路由器的链路状态，链路状态包括与哪些路由器相连以及链路的度量，度量用费用、距离、时延、带宽等来表示。</li>
+<li>只有当链路状态发生变化时，路由器才会发送信息。</li>
+</ul>
+<p>所有路由器都具有全网的拓扑结构图，并且是一致的。相比于 RIP，OSPF 的更新过程收敛的很快。</p>
+<h3 id="3-外部网关协议-BGP"><a href="#3-外部网关协议-BGP" class="headerlink" title="3. 外部网关协议 BGP"></a>3. 外部网关协议 BGP</h3><p>BGP（Border Gateway Protocol，边界网关协议）</p>
+<p>AS 之间的路由选择很困难，主要是由于：</p>
+<ul>
+<li>互联网规模很大；</li>
+<li>各个 AS 内部使用不同的路由选择协议，无法准确定义路径的度量；</li>
+<li>AS 之间的路由选择必须考虑有关的策略，比如有些 AS 不愿意让其它 AS 经过。</li>
+</ul>
+<p>BGP 只能寻找一条比较好的路由，而不是最佳路由。</p>
+<p>每个 AS 都必须配置 BGP 发言人，通过在两个相邻 BGP 发言人之间建立 TCP 连接来交换路由信息。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/9cd0ae20-4fb5-4017-a000-f7d3a0eb3529.png" width="600"/> </div><br>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 网络层/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 物理层/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="计算机网络-物理层"><a href="#计算机网络-物理层" class="headerlink" title="计算机网络 - 物理层"></a>计算机网络 - 物理层</h1><!-- GFM-TOC -->
+<ul>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C---%E7%89%A9%E7%90%86%E5%B1%82">计算机网络 - 物理层</a><ul>
+<li><a href="#%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F">通信方式</a></li>
+<li><a href="#%E5%B8%A6%E9%80%9A%E8%B0%83%E5%88%B6">带通调制</a><!-- GFM-TOC --></li>
+</ul>
+</li>
+</ul>
+<h2 id="通信方式"><a href="#通信方式" class="headerlink" title="通信方式"></a>通信方式</h2><p>根据信息在传输线上的传送方向，分为以下三种通信方式：</p>
+<ul>
+<li>单工通信：单向传输</li>
+<li>半双工通信：双向交替传输</li>
+<li>全双工通信：双向同时传输</li>
+</ul>
+<h2 id="带通调制"><a href="#带通调制" class="headerlink" title="带通调制"></a>带通调制</h2><p>模拟信号是连续的信号，数字信号是离散的信号。带通调制把数字信号转换为模拟信号。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c34f4503-f62c-4043-9dc6-3e03288657df.jpg" width="500"/> </div><br>
+
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 物理层/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 概述/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="计算机网络-概述"><a href="#计算机网络-概述" class="headerlink" title="计算机网络 - 概述"></a>计算机网络 - 概述</h1><!-- GFM-TOC -->
+<ul>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C---%E6%A6%82%E8%BF%B0">计算机网络 - 概述</a><ul>
+<li><a href="#%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BD%91%E7%BB%9C">网络的网络</a></li>
+<li><a href="#isp">ISP</a></li>
+<li><a href="#%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F">主机之间的通信方式</a></li>
+<li><a href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2%E4%B8%8E%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2">电路交换与分组交换</a><ul>
+<li><a href="#1-%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2">1. 电路交换</a></li>
+<li><a href="#2-%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2">2. 分组交换</a></li>
+</ul>
+</li>
+<li><a href="#%E6%97%B6%E5%BB%B6">时延</a><ul>
+<li><a href="#1-%E6%8E%92%E9%98%9F%E6%97%B6%E5%BB%B6">1. 排队时延</a></li>
+<li><a href="#2-%E5%A4%84%E7%90%86%E6%97%B6%E5%BB%B6">2. 处理时延</a></li>
+<li><a href="#3-%E4%BC%A0%E8%BE%93%E6%97%B6%E5%BB%B6">3. 传输时延</a></li>
+<li><a href="#4-%E4%BC%A0%E6%92%AD%E6%97%B6%E5%BB%B6">4. 传播时延</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">计算机网络体系结构</a><ul>
+<li><a href="#1-%E4%BA%94%E5%B1%82%E5%8D%8F%E8%AE%AE">1. 五层协议</a></li>
+<li><a href="#2-osi">2. OSI</a></li>
+<li><a href="#3-tcpip">3. TCP&#x2F;IP</a></li>
+<li><a href="#4-%E6%95%B0%E6%8D%AE%E5%9C%A8%E5%90%84%E5%B1%82%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E9%80%92%E8%BF%87%E7%A8%8B">4. 数据在各层之间的传递过程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- GFM-TOC -->
+
+
+<h2 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h2><p>网络把主机连接起来，而互连网（internet）是把多种不同的网络连接起来，因此互连网是网络的网络。而互联网（Internet）是全球范围的互连网。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/network-of-networks.gif" width="450"/> </div><br>
+
+<h2 id="ISP"><a href="#ISP" class="headerlink" title="ISP"></a>ISP</h2><p>互联网服务提供商 ISP 可以从互联网管理机构获得许多 IP 地址，同时拥有通信线路以及路由器等联网设备，个人或机构向 ISP 缴纳一定的费用就可以接入互联网。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/72be01cd-41ae-45f7-99b9-a8d284e44dd4.png" width="500"/> </div><br>
+
+<p>目前的互联网是一种多层次 ISP 结构，ISP 根据覆盖面积的大小分为第一层 ISP、区域 ISP 和接入 ISP。互联网交换点 IXP 允许两个 ISP 直接相连而不用经过第三个 ISP。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/3be42601-9d33-4d29-8358-a9d16453af93.png" width="500"/> </div><br>
+
+<h2 id="主机之间的通信方式"><a href="#主机之间的通信方式" class="headerlink" title="主机之间的通信方式"></a>主机之间的通信方式</h2><ul>
+<li>客户-服务器（C&#x2F;S）：客户是服务的请求方，服务器是服务的提供方。</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/914894c2-0bc4-46b5-bef9-0316a69ef521.jpg" width="240px"> </div><br>
+
+<ul>
+<li>对等（P2P）：不区分客户和服务器。</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/42430e94-3137-48c0-bdb6-3cebaf9102e3.jpg" width="200px"> </div><br>
+
+<h2 id="电路交换与分组交换"><a href="#电路交换与分组交换" class="headerlink" title="电路交换与分组交换"></a>电路交换与分组交换</h2><h3 id="1-电路交换"><a href="#1-电路交换" class="headerlink" title="1. 电路交换"></a>1. 电路交换</h3><p>电路交换用于电话通信系统，两个用户要通信之前需要建立一条专用的物理链路，并且在整个通信过程中始终占用该链路。由于通信的过程中不可能一直在使用传输线路，因此电路交换对线路的利用率很低，往往不到 10%。</p>
+<h3 id="2-分组交换"><a href="#2-分组交换" class="headerlink" title="2. 分组交换"></a>2. 分组交换</h3><p>每个分组都有首部和尾部，包含了源地址和目的地址等控制信息，在同一个传输线路上同时传输多个分组互相不会影响，因此在同一条传输线路上允许同时传输多个分组，也就是说分组交换不需要占用传输线路。</p>
+<p>在一个邮局通信系统中，邮局收到一份邮件之后，先存储下来，然后把相同目的地的邮件一起转发到下一个目的地，这个过程就是存储转发过程，分组交换也使用了存储转发过程。</p>
+<h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>总时延 &#x3D; 排队时延 + 处理时延 + 传输时延 + 传播时延</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/4b2ae78c-e254-44df-9e37-578e2f2bef52.jpg" width="380"/> </div><br>
+
+<h3 id="1-排队时延"><a href="#1-排队时延" class="headerlink" title="1. 排队时延"></a>1. 排队时延</h3><p>分组在路由器的输入队列和输出队列中排队等待的时间，取决于网络当前的通信量。</p>
+<h3 id="2-处理时延"><a href="#2-处理时延" class="headerlink" title="2. 处理时延"></a>2. 处理时延</h3><p>主机或路由器收到分组时进行处理所需要的时间，例如分析首部、从分组中提取数据、进行差错检验或查找适当的路由等。</p>
+<h3 id="3-传输时延"><a href="#3-传输时延" class="headerlink" title="3. 传输时延"></a>3. 传输时延</h3><p>主机或路由器传输数据帧所需要的时间。</p>
+<!-- <div align="center"><img src="https://latex.codecogs.com/gif.latex?delay=\frac{l(bit)}{v(bit/s)}" class="mathjax-pic"/></div> <br> -->
+
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/dcdbb96c-9077-4121-aeb8-743e54ac02a4.png" width="150px"> </div><br>
+
+
+<p>其中 l 表示数据帧的长度，v 表示传输速率。</p>
+<h3 id="4-传播时延"><a href="#4-传播时延" class="headerlink" title="4. 传播时延"></a>4. 传播时延</h3><p>电磁波在信道中传播所需要花费的时间，电磁波传播的速度接近光速。</p>
+<!-- <div align="center"><img src="https://latex.codecogs.com/gif.latex?delay=\frac{l(m)}{v(m/s)}" class="mathjax-pic"/></div> <br> -->
+
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/a1616dac-0e12-40b2-827d-9e3f7f0b940d.png" width="150"> </div><br>
+
+<p>其中 l 表示信道长度，v 表示电磁波在信道上的传播速度。</p>
+<h2 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h2><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/0fa6c237-a909-4e2a-a771-2c5485cd8ce0.png" width="450"/> </div><br>
+
+<h3 id="1-五层协议"><a href="#1-五层协议" class="headerlink" title="1. 五层协议"></a>1. 五层协议</h3><ul>
+<li><p><strong>应用层</strong>  ：为特定应用程序提供数据传输服务，例如 HTTP、DNS 等协议。数据单位为报文。</p>
+</li>
+<li><p><strong>传输层</strong>  ：为进程提供通用数据传输服务。由于应用层协议很多，定义通用的传输层协议就可以支持不断增多的应用层协议。运输层包括两种协议：传输控制协议 TCP，提供面向连接、可靠的数据传输服务，数据单位为报文段；用户数据报协议 UDP，提供无连接、尽最大努力的数据传输服务，数据单位为用户数据报。TCP 主要提供完整性服务，UDP 主要提供及时性服务。</p>
+</li>
+<li><p><strong>网络层</strong>  ：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。网络层把传输层传递下来的报文段或者用户数据报封装成分组。</p>
+</li>
+<li><p><strong>数据链路层</strong>  ：网络层针对的还是主机之间的数据传输服务，而主机之间可以有很多链路，链路层协议就是为同一链路的主机提供数据传输服务。数据链路层把网络层传下来的分组封装成帧。</p>
+</li>
+<li><p><strong>物理层</strong>  ：考虑的是怎样在传输媒体上传输数据比特流，而不是指具体的传输媒体。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。</p>
+</li>
+</ul>
+<h3 id="2-OSI"><a href="#2-OSI" class="headerlink" title="2. OSI"></a>2. OSI</h3><p>其中表示层和会话层用途如下：</p>
+<ul>
+<li><p><strong>表示层</strong>  ：数据压缩、加密以及数据描述，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。</p>
+</li>
+<li><p><strong>会话层</strong>  ：建立及管理会话。</p>
+</li>
+</ul>
+<p>五层协议没有表示层和会话层，而是将这些功能留给应用程序开发者处理。</p>
+<h3 id="3-TCP-x2F-IP"><a href="#3-TCP-x2F-IP" class="headerlink" title="3. TCP&#x2F;IP"></a>3. TCP&#x2F;IP</h3><p>它只有四层，相当于五层协议中数据链路层和物理层合并为网络接口层。</p>
+<p>TCP&#x2F;IP 体系结构不严格遵循 OSI 分层概念，应用层可能会直接使用 IP 层或者网络接口层。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/48d79be8-085b-4862-8a9d-18402eb93b31.png" width="250"/> </div><br>
+
+<h3 id="4-数据在各层之间的传递过程"><a href="#4-数据在各层之间的传递过程" class="headerlink" title="4. 数据在各层之间的传递过程"></a>4. 数据在各层之间的传递过程</h3><p>在向下的过程中，需要添加下层协议所需要的首部或者尾部，而在向上的过程中不断拆开首部和尾部。</p>
+<p>路由器只有下面三层协议，因为路由器位于网络核心中，不需要为进程或者应用程序提供服务，因此也就不需要传输层和应用层。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/计算机基础/计算机网络 - 概述/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/2/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+
+            
+
+            
+            <a href="/">
+                <span class="page-num">1</span>
+            </a>
+            
+
+            
+
+            
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            3
+        </span>
+
+        
+        <span>
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+            <a href="/page/5">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+            
+
+            
+            <span class="page-omit">...</span>
+            <a href="/page/12">
+                <span class="page-num">
+                    12
+                </span>
+            </a>
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/4/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/img/16584.png " alt="头像">
+        </div>
+        <div class="name">
+            kevin7gif
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                弱小和无知不是生存的障碍，傲慢才是
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="https://github.com/kevin7gif">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/korilin_dev">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a href="/img/20230516204349.jpg">
+                    微信联系我
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

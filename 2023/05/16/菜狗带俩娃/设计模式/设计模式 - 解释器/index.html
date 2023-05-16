@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="解释器（Interpreter）"><a href="#解释器（Interpreter）" class="headerlink" title="解释器（Interpreter）"></a>解释器（Interpreter）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>为语言创建解释器，通常由语言的语法和语法分析来定义。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><ul>
+<li>TerminalExpression：终结符表达式，每个终结符都需要一个 TerminalExpression。</li>
+<li>Context：上下文，包含解释器之外的一些全局信息。</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/2b125bcd-1b36-43be-9b78-d90b076be549.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>以下是一个规则检验器实现，具有 and 和 or 规则，通过规则可以构建一颗解析树，用来检验一个文本是否满足解析树定义的规则。</p>
+<p>例如一颗解析树为 D And (A Or (B C))，文本 “D A” 满足该解析树定义的规则。</p>
+<p>这里的 Context 指的是 String。</p>
+<pre><code class="java">public abstract class Expression &#123;
+    public abstract boolean interpret(String str);
+&#125;
+</code></pre>
+<pre><code class="java">public class TerminalExpression extends Expression &#123;
+
+    private String literal = null;
+
+    public TerminalExpression(String str) &#123;
+        literal = str;
+    &#125;
+
+    public boolean interpret(String str) &#123;
+        StringTokenizer st = new StringTokenizer(str);
+        while (st.hasMoreTokens()) &#123;
+            String test = st.nextToken();
+            if (test.equals(literal)) &#123;
+                return true;
+            &#125;
+        &#125;
+        return false;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class AndExpression extends Expression &#123;
+
+    private Expression expression1 = null;
+    private Expression expression2 = null;
+
+    public AndExpression(Expression expression1, Expression expression2) &#123;
+        this.expression1 = expression1;
+        this.expression2 = expression2;
+    &#125;
+
+    public boolean interpret(String str) &#123;
+        return expression1.interpret(str) &amp;&amp; expression2.interpret(str);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class OrExpression extends Expression &#123;
+    private Expression expression1 = null;
+    private Expression expression2 = null;
+
+    public OrExpression(Expression expression1, Expression expression2) &#123;
+        this.expression1 = expression1;
+        this.expression2 = expression2;
+    &#125;
+
+    public boolean interpret(String str) &#123;
+        return expression1.interpret(str) || expression2.interpret(str);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+
+    /**
+     * 构建解析树
+     */
+    public static Expression buildInterpreterTree() &#123;
+        // Literal
+        Expression terminal1 = new TerminalExpression(&quot;A&quot;);
+        Expression terminal2 = new TerminalExpression(&quot;B&quot;);
+        Expression terminal3 = new TerminalExpression(&quot;C&quot;);
+        Expression terminal4 = new TerminalExpression(&quot;D&quot;);
+        // B C
+        Expression alternation1 = new OrExpression(terminal2, terminal3);
+        // A Or (B C)
+        Expression alternation2 = new OrExpression(terminal1, alternation1);
+        // D And (A Or (B C))
+        return new AndExpression(terminal4, alternation2);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        Expression define = buildInterpreterTree();
+        String context1 = &quot;D A&quot;;
+        String context2 = &quot;A B&quot;;
+        System.out.println(define.interpret(context1));
+        System.out.println(define.interpret(context2));
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="html">true
+false
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">java.util.Pattern</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/text/Normalizer.html">java.text.Normalizer</a></li>
+<li>All subclasses of <a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/text/Format.html">java.text.Format</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javaee/7/api/javax/el/ELResolver.html">javax.el.ELResolver</a></li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

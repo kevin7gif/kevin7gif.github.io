@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230514003600175.png" alt="image-20230514003600175"></p>
+<h3 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h3><pre><code class="shell">docker version          #显示docker的版本信息
+docker info             #显示docker的系统信息（包括镜像和容器的数量）
+docker 命令 --help      #帮助命令
+</code></pre>
+<p>帮助文档的地址：<a target="_blank" rel="noopener" href="https://docs.docker.com/reference/">https://docs.docker.com/reference/</a></p>
+<h3 id="镜像和容器的关系"><a href="#镜像和容器的关系" class="headerlink" title="镜像和容器的关系"></a>镜像和容器的关系</h3><ul>
+<li><p><strong>镜像相当于一个安装包，容器就是已安装的app</strong></p>
+</li>
+<li><p><strong>镜像可以看作是一个java类，而容器就可以看作是该类的实例化对象；一个镜像可以创建N个容器，每个处于运行状态的容器中都包含着一个或多个相关的应用，且它的运行不会干扰到其他容器，它们之间相互隔离</strong></p>
+</li>
+<li><p><strong>docker的整个生命周期有三部分组成：镜像（image）+容器（container）+仓库（repository)</strong></p>
+</li>
+<li><p><strong>docker容器&#x3D;镜像+可读层</strong></p>
+<ul>
+<li><img src="https://img-blog.csdnimg.cn/dd7882ef264643c18a5378dff41b04f4.png" alt="img"></li>
+</ul>
+</li>
+<li><p><strong>容器是由镜像实例化而来简单来说，镜像是文件，容器是进程,容器是基于镜像创建的，即容器中的进程依赖于镜像中的文件。</strong></p>
+</li>
+<li><p><strong>docker 的镜像概念类似虚拟机的镜像。是一个只读的模板，一个独立的文件系统，包括运行容器所需的数据，可以用来创建新的容器。docker利用容器来运行应用：docker容器是由docker镜像创建的运行实例。</strong></p>
+<ul>
+<li><strong>一个镜像可以包含一个完整的ubuntu操作系统环境，里面仅安装了mysql或用户需要的其他应用程序。</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h3><p>&#x3D;&#x3D;docker images&#x3D;&#x3D; 查看所有本地主机上的镜像</p>
+<pre><code class="shell">[root@master docker]# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED      SIZE
+hello-world   latest    9c7a54a9a43c   8 days ago   13.3kB
+
+# 解释
+REPOSITORY		镜像的仓库源
+TAG				镜像的标签
+IMAGE ID		镜像的id
+CREATED			镜像的创建时间
+SIZE			镜像的大小
+
+# 可选项
+    -a，--all		列出所有的镜像
+    -q，--quiet		只显示镜像的id
+</code></pre>
+<p>&#x3D;&#x3D;docker search&#x3D;&#x3D; 搜索镜像</p>
+<pre><code class="shell">[root@master docker]# docker search mysql
+NAME                            DESCRIPTION                                      STARS     OFFICIAL   AUTOMATED
+mysql                           MySQL is a widely used, open-source relation…   14122     [OK]       
+mariadb                         MariaDB Server is a high performing open sou…   5394      [OK]       
+percona                         Percona Server is a fork of the MySQL relati…   607       [OK]       
+phpmyadmin                      phpMyAdmin - A web interface for MySQL and M…   793       [OK]       
+circleci/mysql                  MySQL is a widely used, open-source relation…   29                   
+bitnami/mysql                   Bitnami MySQL Docker Image                      85                   [OK]
+</code></pre>
+<p>&#x3D;&#x3D;docker pull&#x3D;&#x3D; 下载镜像</p>
+<pre><code class="shell">[root@master docker]# docker pull mysql:5.7
+5.7: Pulling from library/mysql
+72a69066d2fe: Pull complete			分层下载，docker image的核心  联合文件系统      
+93619dbc5b36: Pull complete 
+99da31dd6142: Pull complete 
+626033c43d70: Pull complete 
+37d5d7efb64e: Pull complete 
+ac563158d721: Pull complete 
+d2ba16033dad: Pull complete 
+0ceb82207cd7: Pull complete 
+37f2405cae96: Pull complete 
+e2482e017e53: Pull complete 
+70deed891d42: Pull complete 
+Digest: sha256:f2ad209efe9c67104167fc609cca6973c8422939491c9345270175a300419f94		签名，防伪标志
+Status: Downloaded newer image for mysql:5.7
+docker.io/library/mysql:5.7			真实地址
+
+
+# 等价于它
+docker pull mysql:5.7
+docker pull docker.io/library/mysql:5.7	
+</code></pre>
+<p>&#x3D;&#x3D;docker rmi&#x3D;&#x3D; 删除镜像</p>
+<pre><code class="shell">[root@master docker]# docker rmi -f 9c7a54a9a43c
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:fc6cf906cbfa013e80938cdf0bb199fbdbb86d6e3e013783e5a766f50f5dbce0
+Deleted: sha256:9c7a54a9a43cca047013b82af109fe963fde787f63f9e016fdc3384500c2823d
+</code></pre>
+<pre><code class="shell">[root@master docker]# docker rmi -f 容器id				   删除指定的镜像
+[root@master docker]# docker rmi -f 容器id 容器id 容器id		删除多个镜像
+[root@master docker]# docker rmi -f $(docker images -aq)	删除全部镜像
+</code></pre>
+<h3 id="容器命令"><a href="#容器命令" class="headerlink" title="容器命令"></a>容器命令</h3><p>&#x3D;&#x3D;有了镜像才可以创建容器，可以下载一个centos镜像进行测试学习&#x3D;&#x3D;</p>
+<pre><code class="shell">docker pull centos
+</code></pre>
+<p>&#x3D;&#x3D;新建容器并启动&#x3D;&#x3D;</p>
+<pre><code class="shell">docker run [可选参数] image
+
+# 参数说明
+--name=&quot;Name&quot;    容器名字，例如：tomcat01，tomcat02，用来区分容器
+-d               以后台方式运行
+-it              使用交互的方式运行，进入容器查看内容
+-p               指定容器的端口
+    -p ip:主机端口:容器端口
+    -p 主机端口:容器端口 （常用）
+    -p 容器端口
+    容器端口
+-P               随机指定端口
+</code></pre>
+<p>&#x3D;&#x3D;列出所有的运行的容器&#x3D;&#x3D;</p>
+<pre><code class="shell"># docker ps 命令
+     # 列出当前正在运行的容器
+-a	 # 列出当前正在运行的容器+带出历史运行过的容器
+-n=? # 显示最近创建的容器
+-q   # 只显示容器的编号
+
+[root@master docker]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[root@master docker]# docker ps -a
+CONTAINER ID   IMAGE          COMMAND    CREATED       STATUS                   PORTS     NAMES
+4767ec710858   9c7a54a9a43c   &quot;/hello&quot;   3 hours ago   Exited (0) 3 hours ago             vigilant_bhabha
+</code></pre>
+<p>&#x3D;&#x3D;退出容器&#x3D;&#x3D;</p>
+<pre><code class="shell"> exit         # 直接让容器停止并退出
+ Ctrl+P+Q     # 容器不停止并退出
+</code></pre>
+<p>&#x3D;&#x3D;删除容器&#x3D;&#x3D;</p>
+<pre><code class="shell">docker rm 容器id                   # 删除指定的容器，不能删除正在运行的容器，如果要强制删除：rm -f
+docker rm -f $(docker ps -aq)     # 删除所有的容器
+docker ps -a -q|xargs docker rm   # 删除所有的容器
+</code></pre>
+<p>&#x3D;&#x3D;启动和停止容器&#x3D;&#x3D;</p>
+<pre><code class="shell">docker start 容器id      # 启动容器
+docker restart 容器id    # 重启容器
+docker stop 容器id       # 停止当前正在运行的容器
+docker kill 容器id       # 强制停止当前容器
+</code></pre>
+<p>&#x3D;&#x3D;在后台通过镜像创建容器并运行&#x3D;&#x3D;</p>
+<pre><code class="shell"># 命令	docker run -d 镜像
+例如：
+[root@master docker]# docker run -d centos
+
+# 常见的坑：docker容器使用后台运行，就必须要有一个前台进程，docker发现没有应用，就会自动停止
+# 例如：nginx容器启动后，发现自己没有提供服务，就会立即停止，就是没有程序了
+</code></pre>
+<p>&#x3D;&#x3D;查看日志&#x3D;&#x3D;</p>
+<pre><code class="shell">docker logs -f -t --tail 日志条数 容器id
+-t                # 时间戳
+-f                # 实时打印
+--tail number     # 用number指定日志条数
+</code></pre>
+<p>&#x3D;&#x3D;查看容器中进程信息&#x3D;&#x3D;</p>
+<pre><code class="shell">[root@master docker]# docker top 容器id
+</code></pre>
+<p>&#x3D;&#x3D;查看镜像的元数据&#x3D;&#x3D;</p>
+<pre><code class="shell">[root@master docker]# docker inspect 容器id
+</code></pre>
+<p>&#x3D;&#x3D;进入当前正在运行的容器&#x3D;&#x3D;</p>
+<pre><code class="shell"># 通常容器都是使用后台方式运行
+
+# 命令
+docker exec -it 容器id bashShell（bin/bash）
+
+docker attach 容器id
+
+# docker exec      # 进入容器后开启一个新的终端，可以在里面操作（常用）
+# docker attach    # 进入容器正在执行的终端，不会启动新的进程！
+</code></pre>
+<p>&#x3D;&#x3D;从容器内拷贝文件到主机上&#x3D;&#x3D;</p>
+<pre><code class="shell">docker cp 容器id：容器内路径 目的主机路径
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

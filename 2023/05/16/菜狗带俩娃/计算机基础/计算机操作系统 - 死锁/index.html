@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h1 id="计算机操作系统-死锁"><a href="#计算机操作系统-死锁" class="headerlink" title="计算机操作系统 - 死锁"></a>计算机操作系统 - 死锁</h1><!-- GFM-TOC -->
+<ul>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F---%E6%AD%BB%E9%94%81">计算机操作系统 - 死锁</a><ul>
+<li><a href="#%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">必要条件</a></li>
+<li><a href="#%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95">处理方法</a></li>
+<li><a href="#%E9%B8%B5%E9%B8%9F%E7%AD%96%E7%95%A5">鸵鸟策略</a></li>
+<li><a href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%AD%BB%E9%94%81%E6%81%A2%E5%A4%8D">死锁检测与死锁恢复</a><ul>
+<li><a href="#1-%E6%AF%8F%E7%A7%8D%E7%B1%BB%E5%9E%8B%E4%B8%80%E4%B8%AA%E8%B5%84%E6%BA%90%E7%9A%84%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B">1. 每种类型一个资源的死锁检测</a></li>
+<li><a href="#2-%E6%AF%8F%E7%A7%8D%E7%B1%BB%E5%9E%8B%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90%E7%9A%84%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B">2. 每种类型多个资源的死锁检测</a></li>
+<li><a href="#3-%E6%AD%BB%E9%94%81%E6%81%A2%E5%A4%8D">3. 死锁恢复</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2">死锁预防</a><ul>
+<li><a href="#1-%E7%A0%B4%E5%9D%8F%E4%BA%92%E6%96%A5%E6%9D%A1%E4%BB%B6">1. 破坏互斥条件</a></li>
+<li><a href="#2-%E7%A0%B4%E5%9D%8F%E5%8D%A0%E6%9C%89%E5%92%8C%E7%AD%89%E5%BE%85%E6%9D%A1%E4%BB%B6">2. 破坏占有和等待条件</a></li>
+<li><a href="#3-%E7%A0%B4%E5%9D%8F%E4%B8%8D%E5%8F%AF%E6%8A%A2%E5%8D%A0%E6%9D%A1%E4%BB%B6">3. 破坏不可抢占条件</a></li>
+<li><a href="#4-%E7%A0%B4%E5%9D%8F%E7%8E%AF%E8%B7%AF%E7%AD%89%E5%BE%85">4. 破坏环路等待</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D">死锁避免</a><ul>
+<li><a href="#1-%E5%AE%89%E5%85%A8%E7%8A%B6%E6%80%81">1. 安全状态</a></li>
+<li><a href="#2-%E5%8D%95%E4%B8%AA%E8%B5%84%E6%BA%90%E7%9A%84%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95">2. 单个资源的银行家算法</a></li>
+<li><a href="#3-%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90%E7%9A%84%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95">3. 多个资源的银行家算法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- GFM-TOC -->
+
+
+<h2 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h2><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c037c901-7eae-4e31-a1e4-9d41329e5c3e.png"/> </div><br>
+
+<ul>
+<li>互斥：每个资源要么已经分配给了一个进程，要么就是可用的。</li>
+<li>占有和等待：已经得到了某个资源的进程可以再请求新的资源。</li>
+<li>不可抢占：已经分配给一个进程的资源不能强制性地被抢占，它只能被占有它的进程显式地释放。</li>
+<li>环路等待：有两个或者两个以上的进程组成一条环路，该环路中的每个进程都在等待下一个进程所占有的资源。</li>
+</ul>
+<h2 id="处理方法"><a href="#处理方法" class="headerlink" title="处理方法"></a>处理方法</h2><p>主要有以下四种方法：</p>
+<ul>
+<li>鸵鸟策略</li>
+<li>死锁检测与死锁恢复</li>
+<li>死锁预防</li>
+<li>死锁避免</li>
+</ul>
+<h2 id="鸵鸟策略"><a href="#鸵鸟策略" class="headerlink" title="鸵鸟策略"></a>鸵鸟策略</h2><p>把头埋在沙子里，假装根本没发生问题。</p>
+<p>因为解决死锁问题的代价很高，因此鸵鸟策略这种不采取任务措施的方案会获得更高的性能。</p>
+<p>当发生死锁时不会对用户造成多大影响，或发生死锁的概率很低，可以采用鸵鸟策略。</p>
+<p>大多数操作系统，包括 Unix，Linux 和 Windows，处理死锁问题的办法仅仅是忽略它。</p>
+<h2 id="死锁检测与死锁恢复"><a href="#死锁检测与死锁恢复" class="headerlink" title="死锁检测与死锁恢复"></a>死锁检测与死锁恢复</h2><p>不试图阻止死锁，而是当检测到死锁发生时，采取措施进行恢复。</p>
+<h3 id="1-每种类型一个资源的死锁检测"><a href="#1-每种类型一个资源的死锁检测" class="headerlink" title="1. 每种类型一个资源的死锁检测"></a>1. 每种类型一个资源的死锁检测</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/b1fa0453-a4b0-4eae-a352-48acca8fff74.png"/> </div><br>
+
+<p>上图为资源分配图，其中方框表示资源，圆圈表示进程。资源指向进程表示该资源已经分配给该进程，进程指向资源表示进程请求获取该资源。</p>
+<p>图 a 可以抽取出环，如图 b，它满足了环路等待条件，因此会发生死锁。</p>
+<p>每种类型一个资源的死锁检测算法是通过检测有向图是否存在环来实现，从一个节点出发进行深度优先搜索，对访问过的节点进行标记，如果访问了已经标记的节点，就表示有向图存在环，也就是检测到死锁的发生。</p>
+<h3 id="2-每种类型多个资源的死锁检测"><a href="#2-每种类型多个资源的死锁检测" class="headerlink" title="2. 每种类型多个资源的死锁检测"></a>2. 每种类型多个资源的死锁检测</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e1eda3d5-5ec8-4708-8e25-1a04c5e11f48.png"/> </div><br>
+
+<p>上图中，有三个进程四个资源，每个数据代表的含义如下：</p>
+<ul>
+<li>E 向量：资源总量</li>
+<li>A 向量：资源剩余量</li>
+<li>C 矩阵：每个进程所拥有的资源数量，每一行都代表一个进程拥有资源的数量</li>
+<li>R 矩阵：每个进程请求的资源数量</li>
+</ul>
+<p>进程 P<sub>1</sub> 和 P<sub>2</sub> 所请求的资源都得不到满足，只有进程 P<sub>3</sub> 可以，让 P<sub>3</sub> 执行，之后释放 P<sub>3</sub> 拥有的资源，此时 A &#x3D; (2 2 2 0)。P<sub>2</sub> 可以执行，执行后释放 P<sub>2</sub> 拥有的资源，A &#x3D; (4 2 2 1) 。P<sub>1</sub> 也可以执行。所有进程都可以顺利执行，没有死锁。</p>
+<p>算法总结如下：</p>
+<p>每个进程最开始时都不被标记，执行过程有可能被标记。当算法结束时，任何没有被标记的进程都是死锁进程。</p>
+<ol>
+<li>寻找一个没有标记的进程 P<sub>i</sub>，它所请求的资源小于等于 A。</li>
+<li>如果找到了这样一个进程，那么将 C 矩阵的第 i 行向量加到 A 中，标记该进程，并转回 1。</li>
+<li>如果没有这样一个进程，算法终止。</li>
+</ol>
+<h3 id="3-死锁恢复"><a href="#3-死锁恢复" class="headerlink" title="3. 死锁恢复"></a>3. 死锁恢复</h3><ul>
+<li>利用抢占恢复</li>
+<li>利用回滚恢复</li>
+<li>通过杀死进程恢复</li>
+</ul>
+<h2 id="死锁预防"><a href="#死锁预防" class="headerlink" title="死锁预防"></a>死锁预防</h2><p>在程序运行之前预防发生死锁。</p>
+<h3 id="1-破坏互斥条件"><a href="#1-破坏互斥条件" class="headerlink" title="1. 破坏互斥条件"></a>1. 破坏互斥条件</h3><p>例如假脱机打印机技术允许若干个进程同时输出，唯一真正请求物理打印机的进程是打印机守护进程。</p>
+<h3 id="2-破坏占有和等待条件"><a href="#2-破坏占有和等待条件" class="headerlink" title="2. 破坏占有和等待条件"></a>2. 破坏占有和等待条件</h3><p>一种实现方式是规定所有进程在开始执行前请求所需要的全部资源。</p>
+<h3 id="3-破坏不可抢占条件"><a href="#3-破坏不可抢占条件" class="headerlink" title="3. 破坏不可抢占条件"></a>3. 破坏不可抢占条件</h3><h3 id="4-破坏环路等待"><a href="#4-破坏环路等待" class="headerlink" title="4. 破坏环路等待"></a>4. 破坏环路等待</h3><p>给资源统一编号，进程只能按编号顺序来请求资源。</p>
+<h2 id="死锁避免"><a href="#死锁避免" class="headerlink" title="死锁避免"></a>死锁避免</h2><p>在程序运行时避免发生死锁。</p>
+<h3 id="1-安全状态"><a href="#1-安全状态" class="headerlink" title="1. 安全状态"></a>1. 安全状态</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/ed523051-608f-4c3f-b343-383e2d194470.png"/> </div><br>
+
+<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
+<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
+<p>安全状态的检测与死锁的检测类似，因为安全状态必须要求不能发生死锁。下面的银行家算法与死锁检测算法非常类似，可以结合着做参考对比。</p>
+<h3 id="2-单个资源的银行家算法"><a href="#2-单个资源的银行家算法" class="headerlink" title="2. 单个资源的银行家算法"></a>2. 单个资源的银行家算法</h3><p>一个小城镇的银行家，他向一群客户分别承诺了一定的贷款额度，算法要做的是判断对请求的满足是否会进入不安全状态，如果是，就拒绝请求；否则予以分配。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/d160ec2e-cfe2-4640-bda7-62f53e58b8c0.png"/> </div><br>
+
+<p>上图 c 为不安全状态，因此算法会拒绝之前的请求，从而避免进入图 c 中的状态。</p>
+<h3 id="3-多个资源的银行家算法"><a href="#3-多个资源的银行家算法" class="headerlink" title="3. 多个资源的银行家算法"></a>3. 多个资源的银行家算法</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/62e0dd4f-44c3-43ee-bb6e-fedb9e068519.png"/> </div><br>
+
+<p>上图中有五个进程，四个资源。左边的图表示已经分配的资源，右边的图表示还需要分配的资源。最右边的 E、P 以及 A 分别表示：总资源、已分配资源以及可用资源，注意这三个为向量，而不是具体数值，例如 A&#x3D;(1020)，表示 4 个资源分别还剩下 1&#x2F;0&#x2F;2&#x2F;0。</p>
+<p>检查一个状态是否安全的算法如下：</p>
+<ul>
+<li>查找右边的矩阵是否存在一行小于等于向量 A。如果不存在这样的行，那么系统将会发生死锁，状态是不安全的。</li>
+<li>假若找到这样一行，将该进程标记为终止，并将其已分配资源加到 A 中。</li>
+<li>重复以上两步，直到所有进程都标记为终止，则状态时安全的。</li>
+</ul>
+<p>如果一个状态不是安全的，需要拒绝进入这个状态。</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h3 id="Docker系统架构"><a href="#Docker系统架构" class="headerlink" title="Docker系统架构"></a>Docker系统架构</h3><p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230514004757347.png" alt="image-20230514004757347"></p>
+<h3 id="Docker作用"><a href="#Docker作用" class="headerlink" title="Docker作用"></a>Docker作用</h3><p><strong>docker和虚拟机的不同：</strong></p>
+<ul>
+<li>传统虚拟机，虚拟出一条硬件，运行一个完整的操作系统，然后在系统上安装和运行软件，存在独立的硬件系统和操作系统</li>
+<li>容器内的应用直接运行在宿主机的内容，容器是没有自己的内核的，也没有虚拟我们的硬件，共享的宿主机中的操作系统和硬件系统，所以更轻便</li>
+<li>每个容器是互相隔离的，每个容器内都有一个属于自己的文件系统，互不影响</li>
+</ul>
+<p><strong>虚拟机缺点：</strong></p>
+<p>1.资源占用多</p>
+<p>2.冗余步骤多</p>
+<p>3.启动很慢</p>
+<p><strong>容器化技术：</strong></p>
+<p>&#x3D;&#x3D;容器化技术不是模拟的一个完整的操作系统&#x3D;&#x3D;</p>
+<p><strong>应用更快速的交付和部署</strong></p>
+<p>​	传统：一堆帮助文档，安装程序</p>
+<p>​	docker：打包镜像发布测试，一键运行</p>
+<p><strong>更便捷的升级和扩缩容</strong></p>
+<p><strong>更简单的系统运维</strong></p>
+<p><strong>更高效的计算资源利用：</strong></p>
+<p>docker是内核级别的虚拟化，可以在一个物理机上运行很多的容器实例！通过隔离机制将服务器的性能利用到极致</p>
+<h3 id="Docker名词"><a href="#Docker名词" class="headerlink" title="Docker名词"></a>Docker名词</h3><p><strong>镜像（image）：</strong></p>
+<p>​	docke镜像就好比一个模板，可以通过这个模板来创建容器服务。</p>
+<p>​	例如：tomcat镜像–》run–》tomcat001容器（提供服务器），通过这个镜像可以创建多个容器（最终服务运行或项目运行就是在容器中的）</p>
+<p><strong>容器（container）：</strong><br>    docker利用容器技术，独立运行一个或者一个组应用，通过镜像来创建</p>
+<p>​	启动，停止，删除，基本命令！<br>​	目前就可以把这个容器理解为一个简易的Linux系统</p>
+<p><strong>仓库（repository）：</strong><br>    仓库就是存放镜像的地方！分为：共有仓库和私有仓库</p>
+<p>​	Docker Hub（默认是国外的）	</p>
+<p>​	阿里云也有容器服务器（配置镜像加速！）</p>
+<p>​	</p>
+<blockquote>
+<p>docker安装</p>
+<p>&#x3D;&#x3D;要在超级用户下进行安装&#x3D;&#x3D;</p>
+</blockquote>
+<pre><code class="shell"># 1.卸载旧的版本
+yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+                  
+# 2. 需要的安装包
+yum install -y yum-utils
+
+# 3. 设置镜像仓库
+yum install -y yum-utils
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 默认是国外的。很慢
+
+使用阿里云的镜像仓库
+yum install -y yum-utils
+yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+# 更新yum软件包索引
+[root@master KG]# yum makecache fast
+
+# 4.安装docker相关的内容  ce：社区版 ee：企业版
+yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# 5.启动docker
+systemctl start docker
+
+# 6.查看是否安装成功
+[root@master KG]# docker version 
+</code></pre>
+<pre><code class="shell"># 7.hello-world
+docker run hello-world
+</code></pre>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230513205146249.png" alt="image-20230513205146249"></p>
+<p>​	&#x3D;&#x3D;docker run 的运行流程图&#x3D;&#x3D;</p>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230513221608133.png" alt="image-20230513221608133"></p>
+<pre><code class="shell"># 8.查看下载的这个hello-world镜像
+[root@master KG]# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED      SIZE
+hello-world   latest    9c7a54a9a43c   8 days ago   13.3kB
+</code></pre>
+<p>&#x3D;&#x3D;&#x2F;var&#x2F;lib&#x2F;docker     docker的默认工作路径&#x3D;&#x3D;</p>
+<h3 id="阿里云镜像加速"><a href="#阿里云镜像加速" class="headerlink" title="阿里云镜像加速"></a>阿里云镜像加速</h3><p>在阿里云官网找到镜像加速器</p>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230513210323631.png" alt="image-20230513210323631"></p>
+<p>配置使用即可</p>
+<pre><code class="shell">sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39;
+&#123;
+  &quot;registry-mirrors&quot;: [&quot;https://v3cty438.mirror.aliyuncs.com&quot;]
+&#125;
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
+<h3 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h3><p>docker是一个Client-Server结构的系统，docker的守护进程运行在主机上。通过socket从客户端访问</p>
+<p>DockerServer收到Docker-Client的指令，就会执行这个命令</p>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230513222335730.png" alt="image-20230513222335730"></p>
+<h3 id="Docker为什么比虚拟机快？"><a href="#Docker为什么比虚拟机快？" class="headerlink" title="Docker为什么比虚拟机快？"></a>Docker为什么比虚拟机快？</h3><p>1.docker有比虚拟机更少的抽象层</p>
+<p>2.docker利用的是宿主机的内核，虚拟机需要的是Guest OS</p>
+<p>所以说新建一个容器的时候，docker不需要向虚拟机一样重新加载一个操作系统内核，利用的是宿主机的操作系统，运行速度是<strong>秒级</strong>；虚拟机是加载Guest OS，运行速度是<strong>分钟级</strong></p>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230513222535953.png" alt="image-20230513222535953"></p>
+<p><strong>虚拟机系统中应用程序的运行原理</strong></p>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230514004241281.png" alt="image-20230514004241281"></p>
+<p><strong>容器中应用程序的运行原理</strong></p>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230514004407748.png" alt="image-20230514004407748"></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

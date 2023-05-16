@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>IoC使软件组件松耦合。AOP让你能够捕捉系统中经常使用的功能，把它转化成组件。</p>
+<p>AOP（Aspect Oriented Programming）：面向切面编程，面向方面编程。（AOP是一种编程技术）<br>AOP是对OOP的补充延伸。<br>AOP底层使用的就是动态代理来实现的。</p>
+<p>Spring的AOP使用的动态代理是：JDK动态代理 + CGLIB动态代理技术。Spring在这两种动态代理中灵活切换，如果是代理接口，会默认使用JDK动态代理，如果要代理某个类，这个类没有实现接口，就会切换使用CGLIB。当然，你也可以强制通过一些配置让Spring只使用CGLIB。</p>
+<p>AOP介绍</p>
+<p>一般一个系统当中都会有一些系统服务，例如：日志、事务管理、安全等。这些系统服务被称为：<strong>交叉业务</strong><br>这些<strong>交叉业务</strong>几乎是通用的，不管你是做银行账户转账，还是删除用户数据。日志、事务管理、安全，这些都是需要做的。<br>如果在每一个业务处理过程当中，都掺杂这些交叉业务代码进去的话，存在两方面问题：</p>
+<ul>
+<li>第一：交叉业务代码在多个业务流程中反复出现，显然这个交叉业务代码没有得到复用。并且修改这些交叉业务代码的话，需要修改多处。</li>
+<li>第二：程序员无法专注核心业务代码的编写，在编写核心业务代码的同时还需要处理这些交叉业务。</li>
+<li></li>
+<li>使用AOP可以很轻松的解决以上问题。<br>请看下图，可以帮助你快速理解AOP的思想：</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665732609757-d8ae52ba-915e-49cf-9ef4-c7bcada0d601.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_25,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<p><strong>用一句话总结AOP：将与核心业务无关的代码独立的抽取出来，形成一个独立的组件，然后以横向交叉的方式应用到业务流程当中的过程被称为AOP。</strong></p>
+<p><strong>AOP的优点：</strong></p>
+<ul>
+<li><strong>第一：代码复用性增强。</strong></li>
+<li><strong>第二：代码易维护。</strong></li>
+<li><strong>第三：使开发者更关注业务逻辑。</strong></li>
+</ul>
+<h3 id="AOP的七大术语"><a href="#AOP的七大术语" class="headerlink" title="AOP的七大术语"></a>AOP的七大术语</h3><pre><code class="java">public class UserService&#123;
+    public void do1()&#123;
+        System.out.println(&quot;do 1&quot;);
+    &#125;
+    public void do2()&#123;
+        System.out.println(&quot;do 2&quot;);
+    &#125;
+    public void do3()&#123;
+        System.out.println(&quot;do 3&quot;);
+    &#125;
+    public void do4()&#123;
+        System.out.println(&quot;do 4&quot;);
+    &#125;
+    public void do5()&#123;
+        System.out.println(&quot;do 5&quot;);
+    &#125;
+    // 核心业务方法
+    public void service()&#123;
+        //连接点
+        do1();   //切点
+        //连接点
+        do2();   //切点
+        //连接点
+        do3();   //切点
+        //连接点
+        do5();   //切点
+        //连接点
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li><p><strong>连接点   Joinpoint</strong></p>
+<ul>
+<li>在程序的整个执行流程中，<strong>可以织入</strong>切面的位置。方法的执行前后，异常抛出之后等位置。</li>
+<li>描述的是位置</li>
+</ul>
+</li>
+<li><p><strong>切点    Pointcut</strong></p>
+<ul>
+<li>在程序执行流程中，<strong>真正织入</strong>切面的方法</li>
+<li>本质上描述的是方法</li>
+</ul>
+</li>
+<li><p><strong>通知    Advice</strong></p>
+<ul>
+<li>又叫增强，就是具体你要织入的代码</li>
+<li>例如：具体的事务代码，日志代码，统计时长的代码，<strong>具体的代码就是通知</strong></li>
+<li>通知包括：<ul>
+<li>前置通知</li>
+<li>后置通知</li>
+<li>环绕通知</li>
+<li>异常通知</li>
+<li>最终通知</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>切面     Aspect</strong></p>
+<ul>
+<li><strong>切点 + 通知</strong></li>
+</ul>
+</li>
+<li><p>织入    Weaving</p>
+<ul>
+<li>把通知应用到目标对象上的过程。</li>
+</ul>
+</li>
+<li><p>代理对象</p>
+<ul>
+<li>一个目标对象被织入通知后产生的新对象</li>
+</ul>
+</li>
+<li><p>目标对象</p>
+<ul>
+<li>被织入通知的对象</li>
+</ul>
+</li>
+</ul>
+<p>请看下图：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665735638342-44194599-66e2-4c02-a843-8a8b3ba5b0c8.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_17,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<h3 id="切点表达式"><a href="#切点表达式" class="headerlink" title="切点表达式"></a>切点表达式</h3><p>定义通知往哪些方法上切入</p>
+<pre><code class="java">//语法格式
+execution([访问控制权限修饰符] 返回值类型 [全限定类名]方法名(形式参数列表) [异常])
+</code></pre>
+<p>访问控制权限修饰符：<br>     可选项。<br>     没写，就是4个权限都包括。<br>     写public就表示只包括公开的方法。<br>返回值类型：<br>      必填项。<br>      * 表示返回值类型任意。<br>    全限定类名：<br>     可选项。<br>     两个点“..”代表当前包以及子包下的所有类。<br>     省略时表示所有的类。<br>    方法名：<br>        必填项。<br>      * 表示所有方法。<br>          set<em>表示所有的set方法。<br>          形式参数列表：<br>           必填项<br>           () 表示没有参数的方法<br>           (..) 参数类型和个数随意的方法<br>           (</em>) 只有一个参数的方法<br>           (*, String) 第一个参数类型随意，第二个参数是String的。<br>          异常：<br>          可选项。<br>          省略时表示任意异常类型。</p>
+<h3 id="使用Spring的AOP"><a href="#使用Spring的AOP" class="headerlink" title="使用Spring的AOP"></a>使用Spring的AOP</h3><p>Spring对AOP的实现包括以下3种方式：</p>
+<ul>
+<li><strong>第一种方式：Spring框架结合AspectJ框架实现的AOP，基于注解方式</strong>。</li>
+<li><strong>第二种方式：Spring框架结合AspectJ框架实现的AOP，基于XML方式</strong>。</li>
+<li>第三种方式：Spring框架自己实现的AOP，基于XML配置方式。</li>
+</ul>
+<p>先在pom.xml中引入依赖</p>
+<pre><code class="xml">&lt;!--spring context依赖--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+  &lt;version&gt;6.0.0-M2&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!--spring aspects依赖--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+  &lt;version&gt;6.0.0-M2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>在spring配置文件中添加context命名空间和aop命名空间</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<h4 id="AOP基于注解"><a href="#AOP基于注解" class="headerlink" title="AOP基于注解"></a>AOP基于注解</h4><p>先定义目标类</p>
+<pre><code class="java">package com.xiehn.spring6.service;
+
+import org.springframework.stereotype.Service;
+
+@Service(&quot;userService&quot;)
+public class UserService &#123; //目标类
+
+
+    public void login()&#123; //目标方法
+        System.out.println(&quot;系统正在进行身份认证。。。&quot;);
+    &#125;
+
+    public void logout()&#123;
+        System.out.println(&quot;退出系统！！！&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>定义切面类，在其中添加通知和切点表达式</p>
+<pre><code class="java">package com.xiehn.spring6.service;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
+
+@Component(&quot;logAspect&quot;)
+@Aspect //切面类需要用@Aspect注解进行标注
+public class LogAspect &#123; //切面
+
+    // 切面=切点 + 通知
+    //通知就是增强，就是具体编写的增强代码.
+
+
+    //前置通知
+    @Before(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void beforeAdvice()&#123;
+        System.out.println(&quot;前置增强代码执行了！！！&quot;);
+    &#125;
+
+    //后置通知
+    @AfterReturning(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void afterReturningAdvice()&#123;
+        System.out.println(&quot;后置增强代码执行了！！！&quot;);
+    &#125;
+
+    //环绕通知
+    @Around(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable &#123;
+        //前面的代码
+        System.out.println(&quot;前环绕执行了！！！&quot;);
+        //执行目标
+        joinPoint.proceed();
+        //后面的代码
+        System.out.println(&quot;后环绕执行了！！！&quot;);
+    &#125;
+
+    //最终通知
+    @After(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void afterAdvice()&#123;
+        System.out.println(&quot;最终通知了！！！&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>将目标类和切面类都纳入spring bean管理：<strong>即在类上添加@Component注解</strong></p>
+<p>在spring配置文件中开启组件扫描和自动代理</p>
+<pre><code class="xml"> &lt;!--进行组件扫描--&gt;
+    &lt;context:component-scan base-package=&quot;com.xiehn.spring6.service&quot;/&gt;
+
+    &lt;!--开启aspectj的自动代理--&gt;
+    &lt;!--spring容器在扫描类的时候，查看该类上是否有@Aspectj注解。如果有，则给这个类生成代理对象--&gt;
+    &lt;!--
+        proxy-target-class=&quot;true&quot;    表示强制使用CGLIB动态代理
+        proxy-target-class=&quot;false&quot;   这是默认值，表示接口使用JDK动态代理
+    --&gt;
+    &lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot;/&gt;
+</code></pre>
+<p>编写测试程序</p>
+<pre><code class="java">package com.xiehn.spring6.test;
+
+import com.xiehn.spring6.service.OrderService;
+import com.xiehn.spring6.service.UserService;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class SpringAOPTest &#123;
+
+    @Test
+    public void testBefore()&#123;
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext(&quot;spring.xml&quot;);
+
+        UserService userService = applicationContext.getBean(&quot;userService&quot;, UserService.class);
+        userService.login();
+        userService.logout();
+&#125;
+</code></pre>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>​	<strong>环绕开始</strong></p>
+<p>​	<strong>前置通知</strong></p>
+<p>​	<strong>目标执行</strong></p>
+<p>​	<strong>后置通知</strong></p>
+<p>​	<strong>最终通知</strong></p>
+<p>​	<strong>环绕通知结束</strong></p>
+<p><strong>当出现异常后：</strong> <strong>后置通知</strong>和<strong>环绕通知的结束部分</strong>不会执行</p>
+<p>​	环绕开始</p>
+<p>​	前置通知</p>
+<p>​	目标执行</p>
+<p>​	<strong>异常通知</strong></p>
+<p>​	<strong>最终通知</strong></p>
+<p>如果多个切面的话，顺序如何控制：<strong>可以使用@Order注解来标识切面类，为@Order注解的value指定一个整数型的数字，数字越小，优先级越高。</strong></p>
+<h3 id="全注解式开发AOP"><a href="#全注解式开发AOP" class="headerlink" title="全注解式开发AOP"></a>全注解式开发AOP</h3><p>就是编写一个类，在这个类上使用大量注解来代替spring的配置文件，spring配置文件就消失了</p>
+<p>例如：</p>
+<pre><code class="java">package com.powernode.spring6.service;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@Configuration //代替spring.xml文件
+@ComponentScan(&quot;com.powernode.spring6.service&quot;)  //组件扫描
+@EnableAspectJAutoProxy(proxyTargetClass = true)  //启用自动代理
+public class Spring6Configuration &#123;
+&#125;
+</code></pre>
+<p>测试文件</p>
+<pre><code class="java">@Test
+public void testAOPWithAllAnnotation()&#123;
+    ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Spring6Configuration.class);
+    OrderService orderService = applicationContext.getBean(&quot;orderService&quot;, OrderService.class);
+    orderService.generate();
+&#125;
+</code></pre>
+<h3 id="基于XML配置方式的AOP（了解）"><a href="#基于XML配置方式的AOP（了解）" class="headerlink" title="基于XML配置方式的AOP（了解）"></a>基于XML配置方式的AOP（了解）</h3>
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

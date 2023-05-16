@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h3 id="什么是SpringMVC："><a href="#什么是SpringMVC：" class="headerlink" title="什么是SpringMVC："></a>什么是SpringMVC：</h3><ul>
+<li>是基于MVC开发模式的框架，用来优化控制器，是Spring家族的一员，他也具备IoC和AOP</li>
+<li>与Servlet技术功能相同，属于web层开发技术</li>
+</ul>
+<p>什么是MVC：是一种开发模式，所有的web应用都是基于MVC开发</p>
+<p>当发起请求时被前置的控制器拦截到请求，根据请求参数生成代理请求，找到请求对应的实际控制器，控制器处理请求，创建数据模型，访问数据库，将模型响应给中心控制器，控制器使用模型与视图渲染视图结果，将结果返回给中心控制器，再将结果返回给请求者</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230325122037342.png" alt="image-20230325122037342"></p>
+<p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudy00854e07-7eac-476c-a9dd-dcebb7ac0b89.png" alt="img"></p>
+<h3 id="SpringMVC优点："><a href="#SpringMVC优点：" class="headerlink" title="SpringMVC优点："></a>SpringMVC优点：</h3><ul>
+<li>轻量级，基于MVC框架</li>
+<li>易上手，容易理解，功能强大</li>
+<li>具备IoC和AOP</li>
+<li>完全基于注解开发</li>
+</ul>
+<h3 id="SpringMVC执行流程"><a href="#SpringMVC执行流程" class="headerlink" title="SpringMVC执行流程"></a>SpringMVC执行流程</h3><p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudy0214fd0a-0df0-4910-a467-5b7d61712868.png" alt="img"></p>
+<p><strong>简要分析执行流程</strong></p>
+<ol>
+<li>DispatcherServlet表示前置控制器，是整个SpringMVC的控制中心。用户发出请求，DispatcherServlet接收请求并拦截请求。</li>
+</ol>
+<p>我们假设请求的url为 : <a target="_blank" rel="noopener" href="http://localhost:8080/SpringMVC/hello">http://localhost:8080/SpringMVC/hello</a></p>
+<p><strong>如上url拆分成三部分：</strong></p>
+<p><a href="http://localhost:8080服务器域名/">http://localhost:8080服务器域名</a></p>
+<p>SpringMVC部署在服务器上的web站点</p>
+<p>hello表示控制器</p>
+<p>通过分析，如上url表示为：请求位于服务器localhost:8080上的SpringMVC站点的hello控制器。</p>
+<ol>
+<li>HandlerMapping为处理器映射。DispatcherServlet调用HandlerMapping,HandlerMapping根据请求url查找Handler。</li>
+<li>HandlerExecution表示具体的Handler,其主要作用是根据url查找控制器，如上url被查找控制器为：hello。</li>
+<li>HandlerExecution将解析后的信息传递给DispatcherServlet,如解析控制器映射等。</li>
+<li>HandlerAdapter表示处理器适配器，其按照特定的规则去执行Handler。</li>
+<li>Handler让具体的Controller执行。</li>
+<li>Controller将具体的执行信息返回给HandlerAdapter,如ModelAndView。</li>
+<li>HandlerAdapter将视图逻辑名或模型传递给DispatcherServlet。</li>
+<li>DispatcherServlet调用视图解析器(ViewResolver)来解析HandlerAdapter传递的逻辑视图名。</li>
+<li>视图解析器将解析的逻辑视图名传给DispatcherServlet。</li>
+<li>DispatcherServlet根据视图解析器解析的视图结果，调用具体的视图。</li>
+<li>最终视图呈现给用户。</li>
+</ol>
+<h3 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h3><p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230409154952600.png" alt="image-20230409154952600"></p>
+<ul>
+<li>新建项目，选择webapp模板</li>
+<li>对pom.xml文件进行修改，添加servlet、springmvc的依赖</li>
+<li>添加springmvc.xml文件，指定包扫描，添加视图解析器</li>
+<li>将web.xml文件的初始内容更改为如下所示，并在其中注册springmvc框架</li>
+</ul>
+<pre><code class="xml">&lt;servlet&gt;
+  &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:SpringMVC-servlet.xml&lt;/param-value&gt;
+  &lt;/init-param&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+
+/：处理所有文件，不包含.jsp文件
+/*：处理所有文件，包含.jsp文件
+</code></pre>
+<ul>
+<li><p>在webapp下新建admin目录（这里的目录名要与视图解析器中的相对应），在该目录下创建main.jsp</p>
+</li>
+<li><p>开发控制器（Servlet），他是一个普通的类</p>
+</li>
+<li></li>
+<li><pre><code class="java">@RequestMapping(&quot;/demo&quot;)     
+public String portal()&#123;
+    System.out.println(&quot;服务器访问到了。。。。。。。&quot;);
+    //将逻辑视图返回
+    return &quot;main&quot;;   //返回值是该文件的文件名（main.jsp）
+&#125;
+</code></pre>
+</li>
+<li><p>添加tomcat进行测试</p>
+</li>
+</ul>
+<p><strong>Controller中方法的返回值：</strong></p>
+<ul>
+<li><strong>String</strong>：客户端资源的地址，自动拼接前缀和后缀，还可以屏蔽自动拼接字符串，可以指定返回的路径</li>
+<li><strong>Object</strong>：返回json格式的对象，自动将对象或集合转为json，使用工具jackson工具进行转换，必须要添加jackson依赖，一般用于ajax请求</li>
+<li><strong>void</strong>：无返回值，一般用于ajax请求</li>
+<li><strong>基本数据类型</strong>：用于ajax请求</li>
+<li>ModeAndView：返回数据和视图对象，用的很少</li>
+</ul>
+<p>web请求执行流程：</p>
+<p>main.jsp &lt;—————————–&gt; DispatcherServlet（核心处理器）&lt;—————————–&gt; SpringMVC的处理器是一个普通的方法</p>
+<p>web.xml文件</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+         version=&quot;4.0&quot;&gt;
+&lt;/web-app&gt;
+</code></pre>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230411181535466.png" alt="image-20230411181535466"></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h3 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h3><ol>
+<li><p>var 变量名  变量类型 &#x3D;表达式</p>
+</li>
+<li><p>var 变量名&#x3D;表达式</p>
+</li>
+<li><p>变量名：&#x3D;表达式      （变量类型由编辑器自己推断）</p>
+</li>
+<li><p>var{</p>
+</li>
+</ol>
+<p>   ​      变量名  变量类型 &#x3D; 值</p>
+<p>   ​	  变量名  变量类型 &#x3D; 值</p>
+<p>   ​		}</p>
+<p>注意事项</p>
+<p>1.变量必须先定义再使用</p>
+<ol start="2">
+<li>go语言是静态语言，变量的类型必须和赋值的类型一致</li>
+<li>变量名不能冲突（同一个作用域内）</li>
+<li>使用简短定义方式，左边的变量名至少有一个是新的</li>
+<li>简短定义方式不能定义全局变量</li>
+<li>变量的零值是默认值</li>
+<li>变量定义了就得使用，否则无法通过编译</li>
+</ol>
+<pre><code class="go">package main
+
+import &quot;fmt&quot;
+
+var a = 100
+var b int = 1000
+
+// c:=1000  //不能用简短定义方式定义全局变量
+func main() &#123;
+
+    var num int
+    num = 100
+    fmt.Println(&quot;num的数值是：%d,地址是：%p\n&quot;, num, &amp;num)
+
+    num = 200
+    fmt.Println(&quot;num的数值是：%d,地址是：%p\n&quot;, num, &amp;num) //对同一个变量进行重复赋值时，只改变变量的值，不改变地址
+
+    //fmt.Println(num2)  //undefined: num2
+
+    var name string
+    //name = 100  //&#39;100&#39; (类型 untyped int) 不能由类型 string 表示
+    name = &quot;阿尔法&quot;
+    fmt.Println(name)
+
+    //var name string=&quot;李晓华&quot;  // 此块中重新声明了 &#39;name&#39;
+    //fmt.Println(name)
+
+    //num, name := 1000, &quot;李晓华&quot; //  &#39;:=&#39; 的左侧没有新变量
+    //fmt.Println(num, name)
+
+    num, name, sex := 1000, &quot;李晓华&quot;, &quot;男&quot;
+    fmt.Println(num, name, sex)
+
+    fmt.Println(a)
+    fmt.Println(b)
+
+    var m int //整数默认值为0
+    fmt.Println(m)
+    var n float64 //浮点数默认值0.0-&gt;0
+    fmt.Println(n)
+    var h string //字符串默认值为空的字符串：&quot;&quot;
+    fmt.Println(h)
+    var s []int //切片默认值为空的切片，[]
+    fmt.Println(s)
+
+&#125;
+</code></pre>
+<h3 id="常量初始化"><a href="#常量初始化" class="headerlink" title="常量初始化"></a>常量初始化</h3><p>显式类型定义：const  变量名  变量类型  &#x3D;  值（类型只能为整型，浮点，字符，布尔）</p>
+<p>隐式类型定义：const  变量名 &#x3D; 值</p>
+<p> const (</p>
+<p>​		变量名 &#x3D; 值</p>
+<p>​		变量名 &#x3D; 值</p>
+<p>)</p>
+<p>常量可以只定义不使用</p>
+<p>当只定义常量没赋值时，默认该常量与上一组常量值相同</p>
+<pre><code class="go">package main
+
+import &quot;fmt&quot;
+
+func main() &#123;
+    //直接输出一些整数（固定的值）
+    fmt.Println(100)
+    fmt.Println(&quot;hello&quot;)
+
+    const PATH string = &quot;http:www.baidu.com&quot;
+    const PI = 3.14
+    fmt.Println(PATH, PI)
+    //PATH=&quot;http:www.google.com&quot;  //无法分配给 PATH
+
+    const c1, c2, c3 = 100, 3.14, &quot;hi&quot;
+    const (
+        a int = 100
+        b
+    )
+    fmt.Println(&quot;%T,%d\n&quot;, a, a)
+    fmt.Println(&quot;%T,%d\n&quot;, b, b)
+    
+    /*iota关键字 特殊的常量（值可以改变）
+    第一行的iota为0，之后每到新的一行iota的值+1
+     */
+    
+    const (
+        a1 = iota   //iota=0=a1
+        b1          //iota=1=b1
+        l1          //iota=3=l1
+        d1 = &quot;haha&quot; //d1=haha,iota=4
+        e1          //e1=haha,iota=5 (没定义值时，默认与上一组的值和类型相同)
+        f1 = 100    //f1=100,iota=6
+        g1          //g1=100,iota=7
+        h1 = iota   //iota=8=h1
+        k1          //iota=9=k1
+    )
+
+&#125;
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

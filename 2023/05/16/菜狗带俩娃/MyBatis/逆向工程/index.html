@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>所谓的逆向工程是：根据数据库表逆向生成Java的pojo类，SqlMapper.xml文件，以及Mapper接口类等。<br>要完成这个工作，需要借助别人写好的逆向工程插件。</p>
+<p>思考：使用这个插件的话，需要给这个插件配置哪些信息？</p>
+<ul>
+<li>pojo类名、包名以及生成位置。</li>
+<li>SqlMapper.xml文件名以及生成位置。</li>
+<li>Mapper接口名以及生成位置。</li>
+<li>连接数据库的信息。</li>
+<li>指定哪些表参与逆向工程。</li>
+<li>……</li>
+</ul>
+<h3 id="pom-xml文件中添加如下配置："><a href="#pom-xml文件中添加如下配置：" class="headerlink" title="pom.xml文件中添加如下配置："></a>pom.xml文件中添加如下配置：</h3><pre><code class="xml"> &lt;!--定制构建过程--&gt;
+    &lt;build&gt;
+        &lt;!--可配置多个插件--&gt;
+        &lt;plugins&gt;
+            &lt;!--其中的一个插件：mybatis逆向工程插件--&gt;
+            &lt;plugin&gt;
+                &lt;!--插件的GAV坐标--&gt;
+                &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+                &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;1.4.1&lt;/version&gt;
+                &lt;!--允许覆盖--&gt;
+                &lt;configuration&gt;
+                    &lt;overwrite&gt;true&lt;/overwrite&gt;
+                &lt;/configuration&gt;
+                &lt;!--插件的依赖--&gt;
+                &lt;dependencies&gt;
+                    &lt;!--mysql驱动依赖--&gt;
+                    &lt;dependency&gt;
+                        &lt;groupId&gt;com.mysql&lt;/groupId&gt;
+                        &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;
+                        &lt;version&gt;8.0.32&lt;/version&gt;
+                    &lt;/dependency&gt;
+                &lt;/dependencies&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+&lt;!--添加依赖--&gt;
+&lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;
+            &lt;version&gt;8.0.32&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+            &lt;version&gt;3.5.13&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+            &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+            &lt;version&gt;1.2.11&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.13.2&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+            &lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
+            &lt;version&gt;5.3.1&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+</code></pre>
+<h3 id="generatorConfig-xml文件中的配置"><a href="#generatorConfig-xml文件中的配置" class="headerlink" title="generatorConfig.xml文件中的配置"></a>generatorConfig.xml文件中的配置</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE generatorConfiguration
+        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+
+&lt;generatorConfiguration&gt;
+    &lt;!--
+        targetRuntime有两个值：
+            MyBatis3Simple：生成的是基础版，只有基本的增删改查。
+            MyBatis3：生成的是增强版，除了基本的增删改查之外还有复杂的增删改查。
+    --&gt;
+    &lt;context id=&quot;DB2Tables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+        &lt;!--防止生成重复代码--&gt;
+        &lt;plugin type=&quot;org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin&quot;/&gt;
+
+        &lt;commentGenerator&gt;
+            &lt;!--是否去掉生成日期--&gt;
+            &lt;property name=&quot;suppressDate&quot; value=&quot;true&quot;/&gt;
+            &lt;!--是否去除注释--&gt;
+            &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot;/&gt;
+        &lt;/commentGenerator&gt;
+
+        &lt;!--连接数据库信息--&gt;
+        &lt;jdbcConnection driverClass=&quot;com.mysql.cj.jdbc.Driver&quot;
+                        connectionURL=&quot;jdbc:mysql://localhost:3306/student&quot;
+                        userId=&quot;root&quot;
+                        password=&quot;xhn021019&quot;&gt;
+        &lt;/jdbcConnection&gt;
+
+        &lt;!-- 生成pojo包名和位置 --&gt;
+        &lt;javaModelGenerator targetPackage=&quot;com.xiehn.mybatis.pojo&quot; targetProject=&quot;src/main/java&quot;&gt;
+            &lt;!--是否开启子包--&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+            &lt;!--是否去除字段名的前后空白--&gt;
+            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot;/&gt;
+        &lt;/javaModelGenerator&gt;
+
+        &lt;!-- 生成SQL映射文件的包名和位置 --&gt;
+        &lt;sqlMapGenerator targetPackage=&quot;com.xiehn.mybatis.mapper&quot; targetProject=&quot;src/main/resources&quot;&gt;
+            &lt;!--是否开启子包--&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/sqlMapGenerator&gt;
+
+        &lt;!-- 生成Mapper接口的包名和位置 --&gt;
+        &lt;javaClientGenerator
+                type=&quot;xmlMapper&quot;
+                targetPackage=&quot;com.xiehn.mybatis.mapper&quot;
+                targetProject=&quot;src/main/java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/javaClientGenerator&gt;
+
+        &lt;!-- 表名和对应的实体类名--&gt;
+        &lt;table tableName=&quot;t_car&quot; domainObjectName=&quot;Car&quot;/&gt;
+
+    &lt;/context&gt;
+&lt;/generatorConfiguration&gt;
+</code></pre>
+<h3 id="mybatis-config-xml文件的配置"><a href="#mybatis-config-xml文件的配置" class="headerlink" title="mybatis-config.xml文件的配置"></a>mybatis-config.xml文件的配置</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;properties resource=&quot;jdbc.properties&quot;/&gt;
+    &lt;settings&gt;
+        &lt;!--
+            延迟加载的全局开关，默认值是false
+            但凡带有分步查询的，最好采用延迟加载，提高效率
+        --&gt;
+        &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
+        &lt;!--开启驼峰命名自动映射--&gt;
+        &lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot;/&gt;
+    &lt;/settings&gt;
+    &lt;typeAliases&gt;
+        &lt;package name=&quot;com.xiehn.mybatis.pojo&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;plugins&gt;
+        &lt;plugin interceptor=&quot;com.github.pagehelper.PageInterceptor&quot;&gt;&lt;/plugin&gt;
+    &lt;/plugins&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;$&#123;jdbc.driver&#125;&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+    &lt;mappers&gt;
+        &lt;!--该包下的所有类都可以起别名--&gt;
+        &lt;package name=&quot;com.xiehn.mybatis.mapper&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="jdbc-properties文件的配置"><a href="#jdbc-properties文件的配置" class="headerlink" title="jdbc.properties文件的配置"></a>jdbc.properties文件的配置</h3><pre><code class="properties">jdbc.driver=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/student
+jdbc.username=root
+jdbc.password=xhn021019
+</code></pre>
+<h3 id="logback-xml文件的配置"><a href="#logback-xml文件的配置" class="headerlink" title="logback.xml文件的配置"></a>logback.xml文件的配置</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration debug=&quot;false&quot;&gt;
+    &lt;!--定义⽇志⽂件的存储地址--&gt;
+    &lt;property name=&quot;LOG_HOME&quot; value=&quot;/home&quot;/&gt;
+    &lt;!-- 控制台输出 --&gt;
+    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;
+            &lt;!--格式化输出：%d表示⽇期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：⽇志消息，%n是换⾏符--&gt;
+            &lt;pattern&gt;%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;50&#125; - %msg%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+
+    &lt;!--mybatis log configure--&gt;
+    &lt;logger name=&quot;com.apache.ibatis&quot; level=&quot;TRACE&quot;/&gt;
+    &lt;logger name=&quot;java.sql.Connection&quot; level=&quot;DEBUG&quot;/&gt;
+    &lt;logger name=&quot;java.sql.Statement&quot; level=&quot;DEBUG&quot;/&gt;
+    &lt;logger name=&quot;java.sql.PreparedStatement&quot; level=&quot;DEBUG&quot;/&gt;
+
+    &lt;!-- ⽇志输出级别,logback⽇志级别包括五个：TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR --&gt;
+    &lt;root level=&quot;DEBUG&quot;&gt;
+        &lt;appender-ref ref=&quot;STDOUT&quot;/&gt;
+        &lt;appender-ref ref=&quot;FILE&quot;/&gt;
+    &lt;/root&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="编写测试类"><a href="#编写测试类" class="headerlink" title="编写测试类"></a>编写测试类</h3><pre><code class="java">public class CarMapperTest &#123;
+    //CarExample负责封装查询条件
+    @Test
+    public void testSelect()&#123;
+        SqlSession sqlSession= SqlSessionUtil.openSession();
+        CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+        //查询一个
+        Car car=mapper.selectByPrimaryKey(1L);
+        System.out.println(car);
+        //查询所有
+        List&lt;Car&gt; cars=mapper.selectByExample(null);
+        for(Car car1:cars)&#123;
+            System.out.println(car1);
+        &#125;
+        //按条件查询
+        //QBC风格：Query By Criteria  一种查询方式，比较面向对象，看不到sql语句
+        //封装条件，通过CarExample对象来封装查询条件
+        CarExample carExample=new CarExample();
+        //调用carExample.createCriteria方法来创建查询条件
+        carExample.createCriteria()
+                .andBrandEqualTo(&quot;凯美瑞&quot;);
+        //添加or
+        carExample.or().andCarTypeLike(&quot;新能源&quot;);
+        //执行查询
+        List&lt;Car&gt; cars2=mapper.selectByExample(carExample);
+        for(Car car1:cars2)&#123;
+            System.out.println(car1);
+        &#125;
+        sqlSession.close();
+    &#125;
+&#125;
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

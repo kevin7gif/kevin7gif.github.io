@@ -1,0 +1,1672 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('../home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>菜菜</h1>
+                <h3>开发小白</h3>
+                <h5>Kevin's blog</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 空对象/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="空对象（Null）"><a href="#空对象（Null）" class="headerlink" title="空对象（Null）"></a>空对象（Null）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>使用什么都不做</p>
+<p>的空对象来代替 NULL。</p>
+<p>一个方法返回 NULL，意味着方法的调用端需要去检查返回值是否是 NULL，这么做会导致非常多的冗余的检查代码。并且如果某一个调用端忘记了做这个检查返回值，而直接使用返回的对象，那么就有可能抛出空指针异常。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/22870bbe-898f-4c17-a31a-d7c5ee5d1c10.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><pre><code class="java">public abstract class AbstractOperation &#123;
+    abstract void request();
+&#125;
+</code></pre>
+<pre><code class="java">public class RealOperation extends AbstractOperation &#123;
+    @Override
+    void request() &#123;
+        System.out.println(&quot;do something&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class NullOperation extends AbstractOperation&#123;
+    @Override
+    void request() &#123;
+        // do nothing
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        AbstractOperation abstractOperation = func(-1);
+        abstractOperation.request();
+    &#125;
+
+    public static AbstractOperation func(int para) &#123;
+        if (para &lt; 0) &#123;
+            return new NullOperation();
+        &#125;
+        return new RealOperation();
+    &#125;
+&#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 空对象/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 目录1/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>设计模式是解决问题的方案，学习现有的设计模式可以做到经验复用。拥有设计模式词汇，在沟通时就能用更少的词汇来讨论，并且不需要了解底层细节。</p>
+<h1 id="二、创建型"><a href="#二、创建型" class="headerlink" title="二、创建型"></a>二、创建型</h1><ul>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%20-%20%E5%8D%95%E4%BE%8B.md">单例.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82.md">简单工厂.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95.md">工厂方法.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82.md">抽象工厂.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%94%9F%E6%88%90%E5%99%A8.md">生成器.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.md">原型模式.md</a></li>
+</ul>
+<h1 id="三、行为型"><a href="#三、行为型" class="headerlink" title="三、行为型"></a>三、行为型</h1><ul>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%B4%A3%E4%BB%BB%E9%93%BE.md">责任链.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%91%BD%E4%BB%A4.md">命令.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%A7%A3%E9%87%8A%E5%99%A8.md">解释器.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%BF%AD%E4%BB%A3%E5%99%A8.md">迭代器.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%AD%E4%BB%8B%E8%80%85.md">中介者.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%A4%87%E5%BF%98%E5%BD%95.md">备忘录.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%A7%82%E5%AF%9F%E8%80%85.md">观察者.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%8A%B6%E6%80%81.md">状态.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%AD%96%E7%95%A5.md">策略.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95.md">模板方法.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%AE%BF%E9%97%AE%E8%80%85.md">访问者.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%A9%BA%E5%AF%B9%E8%B1%A1.md">空对象.md</a></li>
+</ul>
+<h1 id="四、结构型"><a href="#四、结构型" class="headerlink" title="四、结构型"></a>四、结构型</h1><ul>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E9%80%82%E9%85%8D%E5%99%A8.md">适配器.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E6%A1%A5%E6%8E%A5.md">桥接.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%BB%84%E5%90%88.md">组合.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%A3%85%E9%A5%B0.md">装饰.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%A4%96%E8%A7%82.md">外观.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%BA%AB%E5%85%83.md">享元.md</a></li>
+<li><a href="notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%BB%A3%E7%90%86.md">代理.md</a></li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>弗里曼. Head First 设计模式 [M]. 中国电力出版社, 2007.</li>
+<li>Gamma E. 设计模式: 可复用面向对象软件的基础 [M]. 机械工业出版社, 2007.</li>
+<li>Bloch J. Effective java[M]. Addison-Wesley Professional, 2017.</li>
+<li><a target="_blank" rel="noopener" href="http://www.oodesign.com/">Design Patterns</a></li>
+<li><a target="_blank" rel="noopener" href="http://java-design-patterns.com/">Design patterns implemented in Java</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.programering.com/a/MTNxAzMwATY.html">The breakdown of design patterns in JDK</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 目录1/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 目录/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="设计模式目录"><a href="#设计模式目录" class="headerlink" title="设计模式目录"></a>设计模式目录</h1><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>设计模式是解决问题的方案，学习现有的设计模式可以做到经验复用。拥有设计模式词汇，在沟通时就能用更少的词汇来讨论，并且不需要了解底层细节。</p>
+<h2 id="二、创建型"><a href="#二、创建型" class="headerlink" title="二、创建型"></a>二、创建型</h2><ul>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20%20-%20%E5%8D%95%E4%BE%8B.md">单例.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82.md">简单工厂.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95.md">工厂方法.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82.md">抽象工厂.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%94%9F%E6%88%90%E5%99%A8.md">生成器.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F.md">原型模式.md</a></li>
+</ul>
+<h2 id="三、行为型"><a href="#三、行为型" class="headerlink" title="三、行为型"></a>三、行为型</h2><ul>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%B4%A3%E4%BB%BB%E9%93%BE.md">责任链.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%91%BD%E4%BB%A4.md">命令.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%A7%A3%E9%87%8A%E5%99%A8.md">解释器.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%BF%AD%E4%BB%A3%E5%99%A8.md">迭代器.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%AD%E4%BB%8B%E8%80%85.md">中介者.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%A4%87%E5%BF%98%E5%BD%95.md">备忘录.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%A7%82%E5%AF%9F%E8%80%85.md">观察者.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%8A%B6%E6%80%81.md">状态.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%AD%96%E7%95%A5.md">策略.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95.md">模板方法.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%AE%BF%E9%97%AE%E8%80%85.md">访问者.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%A9%BA%E5%AF%B9%E8%B1%A1.md">空对象.md</a></li>
+</ul>
+<h2 id="四、结构型"><a href="#四、结构型" class="headerlink" title="四、结构型"></a>四、结构型</h2><ul>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E9%80%82%E9%85%8D%E5%99%A8.md">适配器.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E6%A1%A5%E6%8E%A5.md">桥接.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%BB%84%E5%90%88.md">组合.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E8%A3%85%E9%A5%B0.md">装饰.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E5%A4%96%E8%A7%82.md">外观.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%BA%AB%E5%85%83.md">享元.md</a></li>
+<li><a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%BB%A3%E7%90%86.md">代理.md</a></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>弗里曼. Head First 设计模式 [M]. 中国电力出版社, 2007.</li>
+<li>Gamma E. 设计模式: 可复用面向对象软件的基础 [M]. 机械工业出版社, 2007.</li>
+<li>Bloch J. Effective java[M]. Addison-Wesley Professional, 2017.</li>
+<li><a target="_blank" rel="noopener" href="http://www.oodesign.com/">Design Patterns</a></li>
+<li><a target="_blank" rel="noopener" href="http://java-design-patterns.com/">Design patterns implemented in Java</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.programering.com/a/MTNxAzMwATY.html">The breakdown of design patterns in JDK</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 目录/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 生成器/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="5-生成器（Builder）"><a href="#5-生成器（Builder）" class="headerlink" title="5. 生成器（Builder）"></a>5. 生成器（Builder）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>封装一个对象的构造过程，并允许按步骤构造。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/db5e376d-0b3e-490e-a43a-3231914b6668.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>以下是一个简易的 StringBuilder 实现，参考了 JDK 1.8 源码。</p>
+<pre><code class="java">public class AbstractStringBuilder &#123;
+    protected char[] value;
+
+    protected int count;
+
+    public AbstractStringBuilder(int capacity) &#123;
+        count = 0;
+        value = new char[capacity];
+    &#125;
+
+    public AbstractStringBuilder append(char c) &#123;
+        ensureCapacityInternal(count + 1);
+        value[count++] = c;
+        return this;
+    &#125;
+
+    private void ensureCapacityInternal(int minimumCapacity) &#123;
+        // overflow-conscious code
+        if (minimumCapacity - value.length &gt; 0)
+            expandCapacity(minimumCapacity);
+    &#125;
+
+    void expandCapacity(int minimumCapacity) &#123;
+        int newCapacity = value.length * 2 + 2;
+        if (newCapacity - minimumCapacity &lt; 0)
+            newCapacity = minimumCapacity;
+        if (newCapacity &lt; 0) &#123;
+            if (minimumCapacity &lt; 0) // overflow
+                throw new OutOfMemoryError();
+            newCapacity = Integer.MAX_VALUE;
+        &#125;
+        value = Arrays.copyOf(value, newCapacity);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class StringBuilder extends AbstractStringBuilder &#123;
+    public StringBuilder() &#123;
+        super(16);
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        // Create a copy, don&#39;t share the array
+        return new String(value, 0, count);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        StringBuilder sb = new StringBuilder();
+        final int count = 26;
+        for (int i = 0; i &lt; count; i++) &#123;
+            sb.append((char) (&#39;a&#39; + i));
+        &#125;
+        System.out.println(sb.toString());
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="html">abcdefghijklmnopqrstuvwxyz
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html">java.lang.StringBuilder</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html#put-byte-">java.nio.ByteBuffer</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html#append-boolean-">java.lang.StringBuffer</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html">java.lang.Appendable</a></li>
+<li><a href="https://github.com/apache/camel/tree/0e195428ee04531be27a0b659005e3aa8d159d23/camel-core/src/main/java/org/apache/camel/builder">Apache Camel builders</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 生成器/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 状态/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="8-状态（State）"><a href="#8-状态（State）" class="headerlink" title="8. 状态（State）"></a>8. 状态（State）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它所属的类。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/79df886f-fdc3-4020-a07f-c991bb58e0d8.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>糖果销售机有多种状态，每种状态下销售机有不同的行为，状态可以发生转移，使得销售机的行为也发生改变。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/396be981-3f2c-4fd9-8101-dbf9c841504b.jpg" width="600"/> </div><br>
+
+<pre><code class="java">public interface State &#123;
+    /**
+     * 投入 25 分钱
+     */
+    void insertQuarter();
+
+    /**
+     * 退回 25 分钱
+     */
+    void ejectQuarter();
+
+    /**
+     * 转动曲柄
+     */
+    void turnCrank();
+
+    /**
+     * 发放糖果
+     */
+    void dispense();
+&#125;
+</code></pre>
+<pre><code class="java">public class HasQuarterState implements State &#123;
+
+    private GumballMachine gumballMachine;
+
+    public HasQuarterState(GumballMachine gumballMachine) &#123;
+        this.gumballMachine = gumballMachine;
+    &#125;
+
+    @Override
+    public void insertQuarter() &#123;
+        System.out.println(&quot;You can&#39;t insert another quarter&quot;);
+    &#125;
+
+    @Override
+    public void ejectQuarter() &#123;
+        System.out.println(&quot;Quarter returned&quot;);
+        gumballMachine.setState(gumballMachine.getNoQuarterState());
+    &#125;
+
+    @Override
+    public void turnCrank() &#123;
+        System.out.println(&quot;You turned...&quot;);
+        gumballMachine.setState(gumballMachine.getSoldState());
+    &#125;
+
+    @Override
+    public void dispense() &#123;
+        System.out.println(&quot;No gumball dispensed&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class NoQuarterState implements State &#123;
+
+    GumballMachine gumballMachine;
+
+    public NoQuarterState(GumballMachine gumballMachine) &#123;
+        this.gumballMachine = gumballMachine;
+    &#125;
+
+    @Override
+    public void insertQuarter() &#123;
+        System.out.println(&quot;You insert a quarter&quot;);
+        gumballMachine.setState(gumballMachine.getHasQuarterState());
+    &#125;
+
+    @Override
+    public void ejectQuarter() &#123;
+        System.out.println(&quot;You haven&#39;t insert a quarter&quot;);
+    &#125;
+
+    @Override
+    public void turnCrank() &#123;
+        System.out.println(&quot;You turned, but there&#39;s no quarter&quot;);
+    &#125;
+
+    @Override
+    public void dispense() &#123;
+        System.out.println(&quot;You need to pay first&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class SoldOutState implements State &#123;
+
+    GumballMachine gumballMachine;
+
+    public SoldOutState(GumballMachine gumballMachine) &#123;
+        this.gumballMachine = gumballMachine;
+    &#125;
+
+    @Override
+    public void insertQuarter() &#123;
+        System.out.println(&quot;You can&#39;t insert a quarter, the machine is sold out&quot;);
+    &#125;
+
+    @Override
+    public void ejectQuarter() &#123;
+        System.out.println(&quot;You can&#39;t eject, you haven&#39;t inserted a quarter yet&quot;);
+    &#125;
+
+    @Override
+    public void turnCrank() &#123;
+        System.out.println(&quot;You turned, but there are no gumballs&quot;);
+    &#125;
+
+    @Override
+    public void dispense() &#123;
+        System.out.println(&quot;No gumball dispensed&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class SoldState implements State &#123;
+
+    GumballMachine gumballMachine;
+
+    public SoldState(GumballMachine gumballMachine) &#123;
+        this.gumballMachine = gumballMachine;
+    &#125;
+
+    @Override
+    public void insertQuarter() &#123;
+        System.out.println(&quot;Please wait, we&#39;re already giving you a gumball&quot;);
+    &#125;
+
+    @Override
+    public void ejectQuarter() &#123;
+        System.out.println(&quot;Sorry, you already turned the crank&quot;);
+    &#125;
+
+    @Override
+    public void turnCrank() &#123;
+        System.out.println(&quot;Turning twice doesn&#39;t get you another gumball!&quot;);
+    &#125;
+
+    @Override
+    public void dispense() &#123;
+        gumballMachine.releaseBall();
+        if (gumballMachine.getCount() &gt; 0) &#123;
+            gumballMachine.setState(gumballMachine.getNoQuarterState());
+        &#125; else &#123;
+            System.out.println(&quot;Oops, out of gumballs&quot;);
+            gumballMachine.setState(gumballMachine.getSoldOutState());
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class GumballMachine &#123;
+
+    private State soldOutState;
+    private State noQuarterState;
+    private State hasQuarterState;
+    private State soldState;
+
+    private State state;
+    private int count = 0;
+
+    public GumballMachine(int numberGumballs) &#123;
+        count = numberGumballs;
+        soldOutState = new SoldOutState(this);
+        noQuarterState = new NoQuarterState(this);
+        hasQuarterState = new HasQuarterState(this);
+        soldState = new SoldState(this);
+
+        if (numberGumballs &gt; 0) &#123;
+            state = noQuarterState;
+        &#125; else &#123;
+            state = soldOutState;
+        &#125;
+    &#125;
+
+    public void insertQuarter() &#123;
+        state.insertQuarter();
+    &#125;
+
+    public void ejectQuarter() &#123;
+        state.ejectQuarter();
+    &#125;
+
+    public void turnCrank() &#123;
+        state.turnCrank();
+        state.dispense();
+    &#125;
+
+    public void setState(State state) &#123;
+        this.state = state;
+    &#125;
+
+    public void releaseBall() &#123;
+        System.out.println(&quot;A gumball comes rolling out the slot...&quot;);
+        if (count != 0) &#123;
+            count -= 1;
+        &#125;
+    &#125;
+
+    public State getSoldOutState() &#123;
+        return soldOutState;
+    &#125;
+
+    public State getNoQuarterState() &#123;
+        return noQuarterState;
+    &#125;
+
+    public State getHasQuarterState() &#123;
+        return hasQuarterState;
+    &#125;
+
+    public State getSoldState() &#123;
+        return soldState;
+    &#125;
+
+    public int getCount() &#123;
+        return count;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+
+    public static void main(String[] args) &#123;
+        GumballMachine gumballMachine = new GumballMachine(5);
+
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+
+        gumballMachine.insertQuarter();
+        gumballMachine.ejectQuarter();
+        gumballMachine.turnCrank();
+
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.ejectQuarter();
+
+        gumballMachine.insertQuarter();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="html">You insert a quarter
+You turned...
+A gumball comes rolling out the slot...
+You insert a quarter
+Quarter returned
+You turned, but there&#39;s no quarter
+You need to pay first
+You insert a quarter
+You turned...
+A gumball comes rolling out the slot...
+You insert a quarter
+You turned...
+A gumball comes rolling out the slot...
+You haven&#39;t insert a quarter
+You insert a quarter
+You can&#39;t insert another quarter
+You turned...
+A gumball comes rolling out the slot...
+You insert a quarter
+You turned...
+A gumball comes rolling out the slot...
+Oops, out of gumballs
+You can&#39;t insert a quarter, the machine is sold out
+You turned, but there are no gumballs
+No gumball dispensed
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 状态/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 桥接/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="桥接（Bridge）"><a href="#桥接（Bridge）" class="headerlink" title="桥接（Bridge）"></a>桥接（Bridge）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>将抽象与实现分离开来，使它们可以独立变化。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><ul>
+<li>Abstraction：定义抽象类的接口</li>
+<li>Implementor：定义实现类接口</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/2a1f8b0f-1dd7-4409-b177-a381c58066ad.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>RemoteControl 表示遥控器，指代 Abstraction。</p>
+<p>TV 表示电视，指代 Implementor。</p>
+<p>桥接模式将遥控器和电视分离开来，从而可以独立改变遥控器或者电视的实现。</p>
+<pre><code class="java">public abstract class TV &#123;
+    public abstract void on();
+
+    public abstract void off();
+
+    public abstract void tuneChannel();
+&#125;
+</code></pre>
+<pre><code class="java">public class Sony extends TV &#123;
+    @Override
+    public void on() &#123;
+        System.out.println(&quot;Sony.on()&quot;);
+    &#125;
+
+    @Override
+    public void off() &#123;
+        System.out.println(&quot;Sony.off()&quot;);
+    &#125;
+
+    @Override
+    public void tuneChannel() &#123;
+        System.out.println(&quot;Sony.tuneChannel()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class RCA extends TV &#123;
+    @Override
+    public void on() &#123;
+        System.out.println(&quot;RCA.on()&quot;);
+    &#125;
+
+    @Override
+    public void off() &#123;
+        System.out.println(&quot;RCA.off()&quot;);
+    &#125;
+
+    @Override
+    public void tuneChannel() &#123;
+        System.out.println(&quot;RCA.tuneChannel()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public abstract class RemoteControl &#123;
+    protected TV tv;
+
+    public RemoteControl(TV tv) &#123;
+        this.tv = tv;
+    &#125;
+
+    public abstract void on();
+
+    public abstract void off();
+
+    public abstract void tuneChannel();
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteRemoteControl1 extends RemoteControl &#123;
+    public ConcreteRemoteControl1(TV tv) &#123;
+        super(tv);
+    &#125;
+
+    @Override
+    public void on() &#123;
+        System.out.println(&quot;ConcreteRemoteControl1.on()&quot;);
+        tv.on();
+    &#125;
+
+    @Override
+    public void off() &#123;
+        System.out.println(&quot;ConcreteRemoteControl1.off()&quot;);
+        tv.off();
+    &#125;
+
+    @Override
+    public void tuneChannel() &#123;
+        System.out.println(&quot;ConcreteRemoteControl1.tuneChannel()&quot;);
+        tv.tuneChannel();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteRemoteControl2 extends RemoteControl &#123;
+    public ConcreteRemoteControl2(TV tv) &#123;
+        super(tv);
+    &#125;
+
+    @Override
+    public void on() &#123;
+        System.out.println(&quot;ConcreteRemoteControl2.on()&quot;);
+        tv.on();
+    &#125;
+
+    @Override
+    public void off() &#123;
+        System.out.println(&quot;ConcreteRemoteControl2.off()&quot;);
+        tv.off();
+    &#125;
+
+    @Override
+    public void tuneChannel() &#123;
+        System.out.println(&quot;ConcreteRemoteControl2.tuneChannel()&quot;);
+        tv.tuneChannel();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        RemoteControl remoteControl1 = new ConcreteRemoteControl1(new RCA());
+        remoteControl1.on();
+        remoteControl1.off();
+        remoteControl1.tuneChannel();
+        RemoteControl remoteControl2 = new ConcreteRemoteControl2(new Sony());
+         remoteControl2.on();
+         remoteControl2.off();
+         remoteControl2.tuneChannel();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li>AWT (It provides an abstraction layer which maps onto the native OS the windowing support.)</li>
+<li>JDBC</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 桥接/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 抽象工厂/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="4-抽象工厂（Abstract-Factory）"><a href="#4-抽象工厂（Abstract-Factory）" class="headerlink" title="4. 抽象工厂（Abstract Factory）"></a>4. 抽象工厂（Abstract Factory）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>提供一个接口，用于创建   <strong>相关的对象家族</strong>  。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><p>抽象工厂模式创建的是对象家族，也就是很多对象而不是一个对象，并且这些对象是相关的，也就是说必须一起创建出来。而工厂方法模式只是用于创建一个对象，这和抽象工厂模式有很大不同。</p>
+<p>抽象工厂模式用到了工厂方法模式来创建单一对象，AbstractFactory 中的 createProductA() 和 createProductB() 方法都是让子类来实现，这两个方法单独来看就是在创建一个对象，这符合工厂方法模式的定义。</p>
+<p>至于创建对象的家族这一概念是在 Client 体现，Client 要通过 AbstractFactory 同时调用两个方法来创建出两个对象，在这里这两个对象就有很大的相关性，Client 需要同时创建出这两个对象。</p>
+<p>从高层次来看，抽象工厂使用了组合，即 Cilent 组合了 AbstractFactory，而工厂方法模式使用了继承。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e2190c36-8b27-4690-bde5-9911020a1294.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><pre><code class="java">public class AbstractProductA &#123;
+&#125;
+</code></pre>
+<pre><code class="java">public class AbstractProductB &#123;
+&#125;
+</code></pre>
+<pre><code class="java">public class ProductA1 extends AbstractProductA &#123;
+&#125;
+</code></pre>
+<pre><code class="java">public class ProductA2 extends AbstractProductA &#123;
+&#125;
+</code></pre>
+<pre><code class="java">public class ProductB1 extends AbstractProductB &#123;
+&#125;
+</code></pre>
+<pre><code class="java">public class ProductB2 extends AbstractProductB &#123;
+&#125;
+</code></pre>
+<pre><code class="java">public abstract class AbstractFactory &#123;
+    abstract AbstractProductA createProductA();
+    abstract AbstractProductB createProductB();
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteFactory1 extends AbstractFactory &#123;
+    AbstractProductA createProductA() &#123;
+        return new ProductA1();
+    &#125;
+
+    AbstractProductB createProductB() &#123;
+        return new ProductB1();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteFactory2 extends AbstractFactory &#123;
+    AbstractProductA createProductA() &#123;
+        return new ProductA2();
+    &#125;
+
+    AbstractProductB createProductB() &#123;
+        return new ProductB2();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        AbstractFactory abstractFactory = new ConcreteFactory1();
+        AbstractProductA productA = abstractFactory.createProductA();
+        AbstractProductB productB = abstractFactory.createProductB();
+        // do something with productA and productB
+    &#125;
+&#125;
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/javax/xml/parsers/DocumentBuilderFactory.html">javax.xml.parsers.DocumentBuilderFactory</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/javax/xml/transform/TransformerFactory.html#newInstance--">javax.xml.transform.TransformerFactory</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/javax/xml/xpath/XPathFactory.html#newInstance--">javax.xml.xpath.XPathFactory</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 抽象工厂/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 工厂方法/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="工厂方法（Factory-Method）"><a href="#工厂方法（Factory-Method）" class="headerlink" title="工厂方法（Factory Method）"></a>工厂方法（Factory Method）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>定义了一个创建对象的接口，但由子类决定要实例化哪个类。工厂方法把实例化操作推迟到子类。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><p>在简单工厂中，创建对象的是另一个类，而在工厂方法中，是由子类来创建对象。</p>
+<p>下图中，Factory 有一个 doSomething() 方法，这个方法需要用到一个产品对象，这个产品对象由 factoryMethod() 方法创建。该方法是抽象的，需要由子类去实现。</p>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/f4d0afd0-8e78-4914-9e60-4366eaf065b5.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><pre><code class="java">public abstract class Factory &#123;
+    abstract public Product factoryMethod();
+    public void doSomething() &#123;
+        Product product = factoryMethod();
+        // do something with the product
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteFactory extends Factory &#123;
+    public Product factoryMethod() &#123;
+        return new ConcreteProduct();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteFactory1 extends Factory &#123;
+    public Product factoryMethod() &#123;
+        return new ConcreteProduct1();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class ConcreteFactory2 extends Factory &#123;
+    public Product factoryMethod() &#123;
+        return new ConcreteProduct2();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html#getInstance--">java.util.Calendar</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html#getBundle-java.lang.String-">java.util.ResourceBundle</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/text/NumberFormat.html#getInstance--">java.text.NumberFormat</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/nio/charset/Charset.html#forName-java.lang.String-">java.nio.charset.Charset</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html#createURLStreamHandler-java.lang.String-">java.net.URLStreamHandlerFactory</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/EnumSet.html#of-E-">java.util.EnumSet</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/javax/xml/bind/JAXBContext.html#createMarshaller--">javax.xml.bind.JAXBContext</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 工厂方法/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 外观/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="外观（Facade）"><a href="#外观（Facade）" class="headerlink" title="外观（Facade）"></a>外观（Facade）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>提供了一个统一的接口，用来访问子系统中的一群接口，从而让子系统更容易使用。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/f9978fa6-9f49-4a0f-8540-02d269ac448f.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>观看电影需要操作很多电器，使用外观模式实现一键看电影功能。</p>
+<pre><code class="java">public class SubSystem &#123;
+    public void turnOnTV() &#123;
+        System.out.println(&quot;turnOnTV()&quot;);
+    &#125;
+
+    public void setCD(String cd) &#123;
+        System.out.println(&quot;setCD( &quot; + cd + &quot; )&quot;);
+    &#125;
+
+    public void startWatching()&#123;
+        System.out.println(&quot;startWatching()&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Facade &#123;
+    private SubSystem subSystem = new SubSystem();
+
+    public void watchMovie() &#123;
+        subSystem.turnOnTV();
+        subSystem.setCD(&quot;a movie&quot;);
+        subSystem.startWatching();
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Client &#123;
+    public static void main(String[] args) &#123;
+        Facade facade = new Facade();
+        facade.watchMovie();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h3><p>最少知识原则：只和你的密友谈话。也就是说客户对象所需要交互的对象应当尽可能少。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 外观/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 备忘录/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h2 id="备忘录（Memento）"><a href="#备忘录（Memento）" class="headerlink" title="备忘录（Memento）"></a>备忘录（Memento）</h2><h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>在不违反封装的情况下获得对象的内部状态，从而在需要时可以将对象恢复到最初状态。</p>
+<h3 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h3><ul>
+<li>Originator：原始对象</li>
+<li>Caretaker：负责保存好备忘录</li>
+<li>Memento：备忘录，存储原始对象的状态。备忘录实际上有两个接口，一个是提供给 Caretaker 的窄接口：它只能将备忘录传递给其它对象；一个是提供给 Originator 的宽接口，允许它访问到先前状态所需的所有数据。理想情况是只允许 Originator 访问本备忘录的内部状态。</li>
+</ul>
+<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/50678f34-694f-45a4-91c6-34d985c83fee.png"/> </div><br>
+
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>以下实现了一个简单计算器程序，可以输入两个值，然后计算这两个值的和。备忘录模式允许将这两个值存储起来，然后在某个时刻用存储的状态进行恢复。</p>
+<p>实现参考：<a target="_blank" rel="noopener" href="https://www.oodesign.com/memento-pattern-calculator-example-java-sourcecode.html">Memento Pattern - Calculator Example - Java Sourcecode</a></p>
+<pre><code class="java">/**
+ * Originator Interface
+ */
+public interface Calculator &#123;
+
+    // Create Memento
+    PreviousCalculationToCareTaker backupLastCalculation();
+
+    // setMemento
+    void restorePreviousCalculation(PreviousCalculationToCareTaker memento);
+
+    int getCalculationResult();
+
+    void setFirstNumber(int firstNumber);
+
+    void setSecondNumber(int secondNumber);
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * Originator Implementation
+ */
+public class CalculatorImp implements Calculator &#123;
+
+    private int firstNumber;
+    private int secondNumber;
+
+    @Override
+    public PreviousCalculationToCareTaker backupLastCalculation() &#123;
+        // create a memento object used for restoring two numbers
+        return new PreviousCalculationImp(firstNumber, secondNumber);
+    &#125;
+
+    @Override
+    public void restorePreviousCalculation(PreviousCalculationToCareTaker memento) &#123;
+        this.firstNumber = ((PreviousCalculationToOriginator) memento).getFirstNumber();
+        this.secondNumber = ((PreviousCalculationToOriginator) memento).getSecondNumber();
+    &#125;
+
+    @Override
+    public int getCalculationResult() &#123;
+        // result is adding two numbers
+        return firstNumber + secondNumber;
+    &#125;
+
+    @Override
+    public void setFirstNumber(int firstNumber) &#123;
+        this.firstNumber = firstNumber;
+    &#125;
+
+    @Override
+    public void setSecondNumber(int secondNumber) &#123;
+        this.secondNumber = secondNumber;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * Memento Interface to Originator
+ *
+ * This interface allows the originator to restore its state
+ */
+public interface PreviousCalculationToOriginator &#123;
+    int getFirstNumber();
+    int getSecondNumber();
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ *  Memento interface to CalculatorOperator (Caretaker)
+ */
+public interface PreviousCalculationToCareTaker &#123;
+    // no operations permitted for the caretaker
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * Memento Object Implementation
+ * &lt;p&gt;
+ * Note that this object implements both interfaces to Originator and CareTaker
+ */
+public class PreviousCalculationImp implements PreviousCalculationToCareTaker,
+        PreviousCalculationToOriginator &#123;
+
+    private int firstNumber;
+    private int secondNumber;
+
+    public PreviousCalculationImp(int firstNumber, int secondNumber) &#123;
+        this.firstNumber = firstNumber;
+        this.secondNumber = secondNumber;
+    &#125;
+
+    @Override
+    public int getFirstNumber() &#123;
+        return firstNumber;
+    &#125;
+
+    @Override
+    public int getSecondNumber() &#123;
+        return secondNumber;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * CareTaker object
+ */
+public class Client &#123;
+
+    public static void main(String[] args) &#123;
+        // program starts
+        Calculator calculator = new CalculatorImp();
+
+        // assume user enters two numbers
+        calculator.setFirstNumber(10);
+        calculator.setSecondNumber(100);
+
+        // find result
+        System.out.println(calculator.getCalculationResult());
+
+        // Store result of this calculation in case of error
+        PreviousCalculationToCareTaker memento = calculator.backupLastCalculation();
+
+        // user enters a number
+        calculator.setFirstNumber(17);
+
+        // user enters a wrong second number and calculates result
+        calculator.setSecondNumber(-290);
+
+        // calculate result
+        System.out.println(calculator.getCalculationResult());
+
+        // user hits CTRL + Z to undo last operation and see last result
+        calculator.restorePreviousCalculation(memento);
+
+        // result restored
+        System.out.println(calculator.getCalculationResult());
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="html">110
+-273
+110
+</code></pre>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><ul>
+<li>java.io.Serializable</li>
+</ul>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/设计模式/设计模式 - 备忘录/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+
+            
+            <a href="/">
+                <span class="page-num">
+                    1
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            2
+        </span>
+
+        
+        <span>
+            <a href="/page/3/">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+            <a href="/page/4">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+
+            
+            <span class="page-omit">...</span>
+            <a href="/page/12">
+                <span class="page-num">
+                    12
+                </span>
+            </a>
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/3/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/img/16584.png " alt="头像">
+        </div>
+        <div class="name">
+            kevin7gif
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                弱小和无知不是生存的障碍，傲慢才是
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="https://github.com/kevin7gif">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/korilin_dev">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a href="/img/20230516204349.jpg">
+                    微信联系我
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

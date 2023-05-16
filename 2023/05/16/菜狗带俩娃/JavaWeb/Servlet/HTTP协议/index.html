@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>HTTP协议</p>
+<p>目前为止接触过的缓存机制</p>
+<ul>
+<li>堆内存中的字符串常量池<ul>
+<li>“abc”先在字符串常量池中查找，如果有直接用，如果没有先创建再放入字符串常量池</li>
+</ul>
+</li>
+<li>堆内存当中的整数型常量池<ul>
+<li>[-128~127]一个256个Integer类型的引用，放在整数型常量池中，如果没有超出这个范围直接从常量池中取</li>
+</ul>
+</li>
+<li>连接池（Connection Cache）<ul>
+<li>这里所说的连接是java语言数据库的连接对象：java.sql.Connection对象</li>
+<li>JVM是一个进程，MySQL是一个进程，进程和进程之间按连接打开通道是很耗费资源的。可以提前先创建好N个Connection连接对象，将连接对象放到一个集合当中，我们把这个放有Connection连接对象的集合称为连接池，每一次用户连接的时候不需要再新建连接对象，省去了新建的环节，直接从连接池中获取连接对象，大大提升访问效率</li>
+</ul>
+</li>
+<li>线程池<ul>
+<li>Tomcat服务器本身就是支持多线程的</li>
+<li>Tomcat服务器启动的时候会先创建好N多个线程对象，然后将线程对象放到集合中，称为线程池。用户发送请求过来后，需要有一个对应的线程来处理该请求，这个时候线程对象就会直接从线程池中拿，效率高</li>
+<li>所有的WEB服务器或者应用服务器都是支持多线程的，都有线程池机制</li>
+</ul>
+</li>
+<li>redis<ul>
+<li>NoSQL数据库，非关系型数据库，缓存数据库</li>
+</ul>
+</li>
+<li>向ServletContext应用域中存储数据，也等于将数据放到缓存cache中</li>
+</ul>
+<hr>
+<p>HTYP的请求协议（B—-&gt;S）</p>
+<ul>
+<li>HTTP请求协议包括4部分<ul>
+<li>请求行</li>
+<li>请求头</li>
+<li>空白行</li>
+<li>请求体</li>
+</ul>
+</li>
+</ul>
+<p>HTTP请求协议的具体报文：get请求</p>
+<pre><code>//请求行
+GET /Servlet3/getServlet?username=xhn&amp;userpwd=123456 HTTP/1.1
+//请求头
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Cookie: Idea-aafc917b=cc94ca87-29b8-4788-ae2e-af89d14bb21e
+Host: localhost:8080
+Referer: http://localhost:8080/Servlet3/index.html
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+sec-ch-ua: &quot;Chromium&quot;;v=&quot;104&quot;, &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;104&quot;
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: &quot;Windows&quot;
+//空白行
+
+//请求体
+</code></pre>
+<p>HTTP请求协议的具体报文：post请求</p>
+<pre><code>//请求行
+POST /Servlet3/postServlet HTTP/1.1
+//请求头
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 25
+Content-Type: application/x-www-form-urlencoded
+Cookie: Idea-aafc917b=cc94ca87-29b8-4788-ae2e-af89d14bb21e
+Host: localhost:8080
+Origin: http://localhost:8080
+Referer: http://localhost:8080/Servlet3/index.html
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+sec-ch-ua: &quot;Chromium&quot;;v=&quot;104&quot;, &quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;104&quot;
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: &quot;Windows&quot;
+//空白行
+
+//请求体
+</code></pre>
+<ul>
+<li><p>请求行</p>
+<ul>
+<li>第一部分：请求方式<ul>
+<li>get</li>
+<li>post</li>
+<li>delete</li>
+<li>put</li>
+<li>head</li>
+<li>options</li>
+<li>trace</li>
+</ul>
+</li>
+<li>第二部分：URI<ul>
+<li>统一资源标识符，代表网络中某个资源的名字</li>
+<li>URL:统一资源定位符，代表网络中某个资源，同时，URL可以定位到该资源<ul>
+<li>URL包括URI</li>
+<li>例如：<a target="_blank" rel="noopener" href="http://localhost/servlet1/index.html%E6%98%AFURL%EF%BC%8C/servlet1/index.html%E6%98%AFURI">http://localhost/servlet1/index.html是URL，/servlet1/index.html是URI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第三部分：HTTP协议版本号</li>
+</ul>
+</li>
+<li><p>请求头</p>
+<ul>
+<li>请求的主机</li>
+<li>主机的端口</li>
+<li>浏览器信息</li>
+<li>平台信息</li>
+<li>cookie等信息</li>
+</ul>
+</li>
+<li><p>空白行</p>
+<ul>
+<li>区分请求头和请求体</li>
+</ul>
+</li>
+<li><p>请求体</p>
+<ul>
+<li>向服务器发送的具体数据</li>
+</ul>
+</li>
+<li><p>HTTP响应协议（S—-&gt;B）</p>
+<ul>
+<li>状态行</li>
+<li>响应头</li>
+<li>空白行</li>
+<li>响应体</li>
+</ul>
+</li>
+</ul>
+<p>HTTP响应协议的具体报文</p>
+<pre><code>//状态行
+HTTP/1.1 200 ok      
+//响应头
+Content-Type: text/html;charset=UTF-8
+Content-Length: 152
+Date: Tue, 21 Feb 2023 12:48:37 GMT
+Keep-Alive: timeout=20
+Connection: keep-alive
+//空白行
+
+//响应体
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;from get servlet&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;from get servlet&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><p>状态行</p>
+<ul>
+<li>三部分组成<ul>
+<li>第一部分：协议版本号（HTTP&#x2F;1.1）</li>
+<li>第二部分：状态码（HTTP中规定的响应状态号，不同的响应结果对应不同的号码）<ul>
+<li>200表示请求响应成功，正常结束</li>
+<li>404表示访问的资源不存在，属于前端错误，要么是路径写错了，要么是路径写对了，但是服务器中对应的资源并没有启动成功</li>
+<li>405表示前端发生的请求方式与后端请求的处理方式不一致<ul>
+<li>前端是post请求，后端是get请求。反之也是</li>
+</ul>
+</li>
+<li>500表示服务器端程序出现异常</li>
+<li>以4开头，一般是浏览器的错误导致</li>
+<li>以5开头一般是服务器的错误导致</li>
+</ul>
+</li>
+<li>第三部分：状态的描述信息<ul>
+<li>ok表示正常结束</li>
+<li>not found表示资源无法找到</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应头</p>
+<ul>
+<li>响应的内容类型</li>
+<li>响应的内容长度</li>
+<li>响应的时间</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>空白行</p>
+<ul>
+<li>用来分隔响应头和响应体</li>
+</ul>
+</li>
+<li><p>响应体</p>
+<ul>
+<li>响应的正文，这些内容是一个长的字符串，这个字符串被浏览器渲染，解释并执行，最终展示出效果</li>
+</ul>
+</li>
+<li><p>怎么查看协议内容？</p>
+<ul>
+<li>按F12，找到network，通过这个面板可以查看协议的具体内容</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>使用form表单并且form表单中的method属性值为：post，这种情况下可以发送post请求</p>
+<p>其他情况都是get请求</p>
+<p>get请求和post请求的区别？</p>
+<ul>
+<li>get请求发送数据的时候，数据会挂在URI的后面，并且在URI的后面加上一个”？”，后面是数据，这样会导致发送的数据回显到浏览器地址栏上（get请求在请求行上发送数据）</li>
+<li>post请求发送数据时，在请求体中发送，不会回显到浏览器的地址栏上</li>
+<li>get请求只能发送普通的字符串，并且发送的字符串长度有限制</li>
+<li>get请求无法发送大数据量</li>
+<li>post请求可以发送任意类型的数据：普通字符串，流媒体等信息，视频，声音，图片，可以发送大数据量</li>
+<li>get请求比较适合从服务器端获取数据，post请求比较适合向服务器端发送数据</li>
+<li>get请求是绝对安全的，因为get请求只是从服务器端获取数据，post请求是向服务器提交数据 </li>
+<li>get请求支持缓存，任何一个get请求最终的“响应结束”都会被浏览器缓存起来，在浏览器缓存当中，一个get请求的路径对应一个资源</li>
+<li>实际上，你只要发送了get请求，浏览器做的第一件事就是先从本地浏览器缓存中找，找不到的时候才会去服务器上获取，这种缓存机制目的是为了提高用户体验</li>
+<li>post请求不支持缓存，post请求之后服务器“响应的结果”不会被浏览器缓存起来，因为这个缓存没有意义</li>
+<li>如果不想让get请求在本地浏览器缓存上查找的话，可以在路径的后面添加一个时间戳，这样每次请求的路径都不一样，浏览器也就不走缓存了</li>
+</ul>
+<p>不管是post请求还是get请求，发送的数据格式都是一样的，只不过位置不同</p>
+<ul>
+<li>name&#x3D;value&amp;name&#x3D;value&amp;name&#x3D;value</li>
+<li>以form表单为例：<ul>
+<li>form表单中input标签的name就是上述的name</li>
+<li>form表单中input标签的value就是上述的value</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="模板方法设计模式"><a href="#模板方法设计模式" class="headerlink" title="模板方法设计模式"></a>模板方法设计模式</h3><ul>
+<li>在模板类的模板方法中定义核心算法骨架，具体的实现步骤可以延迟到子类中完成</li>
+<li>模板类通常是一个抽象类，模板类当中的模板方法是核心算法，这个方法通常是final（也可以不是final）</li>
+<li>模板类当中的抽象方法就是不确定实现的方法，具体怎么实现交给子类去做</li>
+</ul>
+<p>设计模式</p>
+<ul>
+<li>解决某个问题的固定解决方案（可以被重复使用）</li>
+</ul>
+<p>常见的设计模式</p>
+<ul>
+<li>GoF设计模式<ul>
+<li>单例模式</li>
+<li>工厂模式</li>
+<li>代理模式</li>
+<li>门面模式</li>
+<li>责任链模式</li>
+<li>观察者模式</li>
+<li>模板方法设计模式</li>
+<li>……</li>
+</ul>
+</li>
+<li>javaEE设计模式</li>
+<li>……</li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

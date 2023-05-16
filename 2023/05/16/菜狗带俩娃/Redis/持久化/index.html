@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h3 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h3><p>Redis是内存数据库，如果不将内存中的数据库状态保存到磁盘，那么一旦服务器进程退出，服务器中的数据库状态也会消失。所以Redis提供了持久化功能</p>
+<h3 id="RDB操作"><a href="#RDB操作" class="headerlink" title="RDB操作"></a>RDB操作</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/25977140/1650732251689-d2d9d59d-c168-4cc3-959e-77709a863d2b.png" alt="image.png"></p>
+<p>在指定的时间间隔内将内存中的数据集快照写入磁盘，他恢复时是将快照文件直接读到内存里</p>
+<p>Redis会单独创建（fork）一个子进程来进行持久化，会先将数据写入到一个临时文件中，待持久化过程都结束了，在用这个临时文件替换上次持久化好的文件。</p>
+<p>整个过程中，主进程不进行任何IO操作，这就确保了极高的性能，如果需要进行大规模数据的恢复，且对于数据恢复的完整性不是很敏感，那RDB方式要比AOF方式更加的高效。</p>
+<p>RDB的缺点是最后一次持久化后的数据可能会丢失。我们默认的就是RDB，一般情况不用修改这个配置</p>
+<p><strong>RDB保存的文件是dump.rdb</strong></p>
+<h4 id="触发机制"><a href="#触发机制" class="headerlink" title="触发机制"></a>触发机制</h4><ul>
+<li>save的规则满足的情况下，会自动触发rdb规则</li>
+<li>执行flushall命令，会触发rdb规则</li>
+<li>退出redis，也会产生rdb文件</li>
+</ul>
+<p>备份就自动生产一个dump.rdb文件</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>适合大规模的数据恢复</li>
+<li>对数据的完整性要求不高</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>需要一定的时间间隔进行操作，如果redis意外宕机，那么最后一次修改的数据就没有了</li>
+<li>fork进程的时候，会占用一定的内存空间</li>
+</ul>
+<h3 id="AOF操作"><a href="#AOF操作" class="headerlink" title="AOF操作"></a>AOF操作</h3><p>将所有命令都记录到一个文件里，恢复的时候就把这个文件全部再执行一遍</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/25977140/1650857152717-5c67a781-2099-4943-bdb9-e352298524e1.png" alt="image.png"></p>
+<p>以日志的形式来记录每个写操作，将Redis执行过的所有指令记录下来（读操作不记录），只允许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作</p>
+<p><strong>AOF保存的是 appendonly.aof 文件</strong></p>
+<p>如果这个生成的aof文件被人为修改破坏了，这时候redis就无法启动了，我们就需要修复这个aof文件</p>
+<p>redis提供了一个工具：<strong>redis-check-aof –fix 文件名</strong></p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>每一次修改都同步，文件的完整性更好</li>
+<li>每秒同步一次，可能会丢失一秒的数据</li>
+<li>从不同步，效率是最高的</li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>相对于数据文件来说，aof远大于rdb，修复的速度也比rdb慢</li>
+<li>aof运行效率比rdb慢，所以redis默认的配置就是rdb持久化</li>
+</ul>
+<h3 id="RDB和AOF对比"><a href="#RDB和AOF对比" class="headerlink" title="RDB和AOF对比"></a>RDB和AOF对比</h3><p>RDB和AOF各有自己的优缺点，如果对数据安全性要求较高，在实际开发中往往会结合两者来使用</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/25977140/1650870905355-b53d5e2d-cf56-43e5-baa9-bc647993183d.png" alt="image.png"></p>
+<p>当同时启用了RDB和AOF，Redis启动时会以AOF优先来做数据恢复，原因是AOF的数据完整性更高，因此RDB更多是用于备份的作用，将RDB文件拷贝到另一台电脑，或者是另一个机房，达到一个异地的容灾作用。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ul>
+<li><ol>
+<li>RDB持久化方式能够在指定的时间间隔内对你的数据进行快照存储</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>AOF持久化方式记录每次对服务器写的操作，当服务器重启时会重新执行这些命令来恢复原始的数据，AOF命令以redis协议追加保存每次写的操作到文件末尾，redis还能对AOF进行后台重写，使得AOF文件的体积不至于过大</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><strong>只做缓存，如果你只希望你的数据在服务器运行的时候存在，也可以不使用任何持久化</strong></li>
+</ol>
+</li>
+<li><ol start="4">
+<li><p>同时开启两种持久化方式：</p>
+<ul>
+<li><p>在这种情况下，当redis重启的时候会优先载入AOF文件来恢复原始的数据，因为通常情况下AOF保存到数据集要比RDB文件保存的数据集要完整</p>
+</li>
+<li><p>RDB的数据不实时，同时使用两者时服务器重启也只会找AOF文件，但是也不建议只使用AOF，因为RDB更适合用于备份数据库（AOF在不断变化不断备份），快速重启，而且不会有AOF可能潜在的bug</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol start="5">
+<li><p>性能建议：</p>
+<ul>
+<li>因为RDB文件只用作后备用途，建议只在Slave上持久化RDB文件，而且只要15分钟备份一次就够了，只保留save 900 1这条规则<ul>
+<li>如果Enable AOF，好处是在最恶劣的情况下也只会丢失不超过两秒的数据，启动脚本较简单只load自己的AOF文件就可以了，代价就是一带来了持续的IO，而是AOF rewrite的最后将rewrite过程中产生的新数据写到新文件造成的阻塞几乎不可避免。只要硬盘许可，应该尽量减少AOF rewrite的频率，AOF重写的基础大小默认值64M太小，可以设到1G以上，默认超过原大小的100%大小重写可以改到适当的数值</li>
+<li>如果不Enable AOF，仅靠Master-Slave-Repllcation实现高可用性也可以，能省掉一大笔IO，也减少了rewrite时带来的系统波动。代价是如果Maste&#x2F;Slave同时宕掉，会丢失十几分钟的数据，启动脚本也要比较两个Master&#x2F;Slave中的RDB文件，载入较新的那个，微博就是这种架构</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Redis发布订阅"><a href="#Redis发布订阅" class="headerlink" title="Redis发布订阅"></a>Redis发布订阅</h3><p>Redis发布订阅（pub&#x2F;sub）是一种<strong>消息通信模式</strong>：发送者（pub）发送消息，订阅者（sub）接收消息</p>
+<p>Redis客户端可以订阅任意数量的频道</p>
+<p>如图：</p>
+<p>三个角色：发布者，频道，订阅者</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230508105934358.png" alt="image-20230508105934358"></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230508110149734.png" alt="image-20230508110149734"></p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>redis是通过C语言实现的，通过publish、subscribe、psubscribe等命令实现发布和订阅功能</p>
+<p>通过subscribe命令订阅某频道后，redis-server里维护了一个字典，<strong>字典的键就是一个个频道</strong>，而<strong>字典的值则是一个链表</strong>，链表中保存了<strong>所有订阅这个channel的客户端</strong>。subscribe命令的关键就是将客户端添加到给定channel的订阅链表中。</p>
+<p>通过publish命令向订阅者发送消息，redis-server会使用给定的频道作为键，在它维护的channel字典中查找记录了订阅这个频道的所有客户端的链表，遍历这个链表，将消息发布给所有订阅者。</p>
+<p>pub&#x2F;sub从字面上理解就是发布（publish）与订阅（subscribe），在redis中，可以设定对某一个key值进行消息发布及消息订阅，当一个key值上进行了消息发布后，所有订阅它的客户端都会收到相应的消息。这一功能最明显的用法就是用作实时消息系统，比如普通的即时聊天，群聊等功能</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

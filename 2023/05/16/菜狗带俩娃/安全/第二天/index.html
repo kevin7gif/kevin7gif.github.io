@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>第二天</p>
+<p>python搭建临时服务器</p>
+<pre><code class="php">python3:python -m http.server
+python2: 
+</code></pre>
+<p>everything 搜索工具</p>
+<p>burpsuit简单使用教程</p>
+<p>谷歌浏览器插件SwitchyOmega</p>
+<p>安装包：</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1MMkGtdMNuORnaVqpWlO_tQ">https://pan.baidu.com/s/1MMkGtdMNuORnaVqpWlO_tQ</a> 提取码1111</p>
+<p>常见编码：</p>
+<p>较全的编码转换: <a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef">https://gchq.github.io/CyberChef</a></p>
+<p>url编码</p>
+<p>URL由三部分组成：资源类型、存放资源的主机域名、资源文件名。</p>
+<pre><code class="php">url地址：&lt;https://ids.xsyu.edu.cn/authserver/login?service=https%3A%2F%2Fehall.xsyu.edu.cn%2Finfoplus%2Flogin%3FretUrl%3Dhttps%253A%252F%252Fehall.xsyu.edu.cn%252Finfoplus%252Foauth2%252Fauthorize%253Fx_redirected%253Dtrue%2526scope%253Dprofile%252Bprofile_edit%252Bapp%252Btask%252Bprocess%252Bsubmit%252Bprocess_edit%252Btriple%252Bstats%2526response_type%253Dcode%2526redirect_uri%253Dhttps%25253A%25252F%25252Fehall.xsyu.edu.cn%25252Ftaskcenter%25252Fwall%25252Fendpoint%25253FretUrl%25253Dhttps%2525253A%2525252F%2525252Fehall.xsyu.edu.cn%2525252Ftaskcenter%2525252Fworkflow%2525252Findex%2526client_id%253D1640e2e4-f213-11e3-815d-fa163e9215bb&gt;
+         &lt;http://www.baidu.com&gt;
+</code></pre>
+<p>常见的url编码</p>
+<p><a target="_blank" rel="noopener" href="https://tool.chinaz.com/tools/urlencode.aspx">https://tool.chinaz.com/tools/urlencode.aspx</a></p>
+<pre><code class="php"># %23
+&#39; %27
+</code></pre>
+<p>base32编码</p>
+<p>base64编码 特征 末尾有等号</p>
+<p>unicode编码 特征 \u加上四位字符</p>
+<p>md5   <a target="_blank" rel="noopener" href="https://www.cmd5.com/">https://www.cmd5.com/</a>    <a target="_blank" rel="noopener" href="https://www.chamd5.org/">https://www.chamd5.org/</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/875e9fed-b4ff-4123-b325-c830149bf7a2/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part01.rar">60万条收费MD5密文.part01.rar</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea8cbc8e-a7b2-41b0-af72-527bcb98e691/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part02.rar">60万条收费MD5密文.part02.rar</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8c3a291b-bba0-4cf7-b726-27a8ea7150e9/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part03.rar">60万条收费MD5密文.part03.rar</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6bb6f64-ab73-46d3-afcb-670b42a128bf/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part04.rar">60万条收费MD5密文.part04.rar</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5b67969-e77d-416b-96f1-aafc752fa7ab/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part05.rar">60万条收费MD5密文.part05.rar</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/34d50844-113d-4148-8f3c-4029d8a68419/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part06.rar">60万条收费MD5密文.part06.rar</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b2653735-8b13-4c2a-9967-06a58bd12513/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part07.rar">60万条收费MD5密文.part07.rar</a></p>
+<p><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47d61aa7-4a06-4ae9-9985-8f18a7140af3/60%E4%B8%87%E6%9D%A1%E6%94%B6%E8%B4%B9MD5%E5%AF%86%E6%96%87.part08.rar">60万条收费MD5密文.part08.rar</a></p>
+<p>对称加密和非对称加密</p>
+<p>phpstudy环境搭建</p>
+<p>常见cms框架下载地址</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnyma.com/">https://www.cnyma.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://down.chinaz.com/">http://down.chinaz.com/</a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

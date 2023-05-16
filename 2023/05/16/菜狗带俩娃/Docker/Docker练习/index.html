@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <blockquote>
+<h3 id="docker安装nginx"><a href="#docker安装nginx" class="headerlink" title="docker安装nginx"></a>docker安装nginx</h3></blockquote>
+<pre><code class="shell">1.搜索镜像	docker search nginx
+2.下载镜像	docker pull nginx
+3.运行测试
+[root@master KG]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+nginx        latest    605c77e624dd   16 months ago   141MB
+mysql        5.7       c20987f18b13   16 months ago   448MB
+
+# -d 后台运行	--name 给容器命名	-p 宿主机端口：容器内部端口
+[root@master KG]# docker run -d --name nginx01 -p 3344:80 nginx
+a1671b968231b7d72d0749bd3dc499c13136363316b33c52557e375cf6f117ec
+
+[root@master KG]# docker ps
+CONTAINER ID   IMAGE     COMMAND                   CREATED         STATUS         PORTS                                   NAMES
+a1671b968231   nginx     &quot;/docker-entrypoint.…&quot;   4 seconds ago   Up 3 seconds   0.0.0.0:3344-&gt;80/tcp, :::3344-&gt;80/tcp   nginx01
+
+使用curl可以进行测试，效果等同于在宿主机浏览器地址栏上输入：虚拟机ip:3344
+[root@master KG]# curl localhost:3344
+
+4.进入容器
+[root@master etc]# docker exec -it nginx01 /bin/bash
+root@a1671b968231:/# whereis nginx
+nginx: /usr/sbin/nginx /usr/lib/nginx /etc/nginx /usr/share/nginx
+root@a1671b968231:/# cd /etc/nginx/
+root@a1671b968231:/etc/nginx# ls
+conf.d  fastcgi_params  mime.types  modules  nginx.conf  scgi_params  uwsgi_params
+</code></pre>
+<p><strong>思考：每次启动nginx配置文件，都需要进入容器内部，十分麻烦，能否在容器外部提供一个映射路径，达到在容器外修改文件名，容器内部就可以自动修改？  -v 数据卷</strong></p>
+<blockquote>
+<h3 id="docker安装tomcat"><a href="#docker安装tomcat" class="headerlink" title="docker安装tomcat"></a>docker安装tomcat</h3></blockquote>
+<pre><code class="shell">1.搜索镜像 docker search tomcat
+2.下载镜像 docker pull tomcat:10.0
+3.运行测试
+[root@master etc]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+nginx        latest    605c77e624dd   16 months ago   141MB
+tomcat       10.0      fb5657adc892   16 months ago   680MB
+mysql        5.7       c20987f18b13   16 months ago   448MB
+
+# 启动运行
+[root@master etc]# docker run -d -p 3355:8080 --name tomcato1 tomcat
+
+[root@master etc]# docker ps
+CONTAINER ID   IMAGE     COMMAND             CREATED          STATUS          PORTS                                       NAMES
+25f8c8d07ebf   tomcat    &quot;catalina.sh run&quot;   18 seconds ago   Up 17 seconds   0.0.0.0:3355-&gt;8080/tcp, :::3355-&gt;8080/tcp   tomcato1
+
+测试访问没有问题
+
+4.进入容器
+[root@master etc]# docker exec -it tomcato1 /bin/bash
+
+# 发现问题：1.linux命令少了 2.没有webapps：阿里云镜像的原因，默认是最小的镜像，所有不必要的都剔除掉了
+# 保证最小的可运行环境
+</code></pre>
+<p><strong>思考：每次启动tomcat服务都需要进入容器内部，十分麻烦，要是可以在容器外部提供一个映射路径，webapps，我们在外部部署项目，就自动同步到内部就好了</strong></p>
+<blockquote>
+<h3 id="docker中安装mysql"><a href="#docker中安装mysql" class="headerlink" title="docker中安装mysql"></a>docker中安装mysql</h3></blockquote>
+<pre><code class="shell">1.搜索镜像 docker search mysql
+2.下载镜像 docker pull mysql:5.7
+3.运行测试
+[root@master etc]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+nginx        latest    605c77e624dd   16 months ago   141MB
+tomcat       10.0      fb5657adc892   16 months ago   680MB
+mysql        5.7       c20987f18b13   16 months ago   448MB
+
+# 运行容器，需要做数据挂载！  # 安装启动mysql，需要配置密码
+
+-d 后台运行
+-p 端口映射--- 宿主机端口：容器内端口
+-v 数据卷挂载
+-e 环境配置--- 配置mysql数据库密码 
+--name 容器名字
+[root@master etc]# docker run -d -p 3355:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=12456 --name mysql001 mysql:5.7
+
+# 启动成功之后，使用mysql连接工具进行测试
+</code></pre>
+<p><img src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230515003346232.png" alt="image-20230515003346232"></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>数组：存储一组相同数据类型的数据结构（定长）</p>
+<p>切片：同数组类似，也叫做变长数组或动态数组（变长）</p>
+<p>是一个<strong>引用类型</strong>的容器，指向了一个底层数组，切片本身不存储数据，都是由底层数组来存储数据，故修改切片就是修改这个数组中的数据，向切片添加数据时，若没有超过容量，直接添加，若超过容量则<strong>自动扩容（成倍增长）</strong>，切片一旦扩容就重新指向一个新的底层数组（数组的<strong>地址</strong>发生改变）</p>
+<p>声明</p>
+<blockquote>
+<p>var 切片名 [ ] 切片类型</p>
+</blockquote>
+<blockquote>
+<p>切片名 :&#x3D; [ ] 切片类型 { 元素 }  &#x2F;&#x2F;变长</p>
+</blockquote>
+<h3 id="用make-函数创建切片"><a href="#用make-函数创建切片" class="headerlink" title="用make()函数创建切片"></a>用make()函数创建切片</h3><blockquote>
+<p>切片名 :&#x3D;  make([ ],切片类型，n，m)</p>
+</blockquote>
+<blockquote>
+<p>第一个参数：类型    slice、map、chan</p>
+</blockquote>
+<blockquote>
+<p>第二个参数：长度len，实际存储元素的数量</p>
+</blockquote>
+<blockquote>
+<p>第三个参数：容量map，最多能存储元素的数量   &#x2F;&#x2F;即便存入的数据超出容量最大值也无所谓，切片会自动扩容(成倍增长)</p>
+</blockquote>
+<h3 id="用append函数向切片内赋值"><a href="#用append函数向切片内赋值" class="headerlink" title="用append函数向切片内赋值"></a>用append函数向切片内赋值</h3><blockquote>
+<p>silce &#x3D; append( silce, elem1, elem2) &#x2F;&#x2F;elem为添加进来的元素</p>
+<p>silce &#x3D; append(silce, anothersilce…) </p>
+</blockquote>
+<pre><code class="go">package main
+
+import &quot;fmt&quot;
+
+func main() &#123;
+    //数组，定长
+    arr := [4]int&#123;1, 2, 3, 4&#125;
+    fmt.Println(arr)
+    //切片
+    var s1 []int
+    fmt.Println(s1)
+
+    s2 := []int&#123;1, 2, 3, 4&#125; //变长
+    fmt.Println(s2)
+    fmt.Print(&quot;%T,%T\n&quot;, arr, s2) //[4]int，[]int
+
+    //用make函数创建切片
+    s3 := make([]int, 3, 8)
+    fmt.Println(s3)
+    fmt.Print(&quot;容量：%d,长度：%d&quot;, cap(s3), len(s3))
+    s3[0] = 1
+    s3[1] = 2
+    s3[2] = 3
+    fmt.Println(s3)
+    //fmt.Println(s3[3]) //报错，因为该切片实际能访问的最大下标为2
+
+    //用append函数向切片写入数据
+    //第一种写法
+    s4 := make([]int, 0, 5)
+    fmt.Println(s4)
+    s4 = append(s4, 1, 2)
+    fmt.Println(s4)
+    s4 = append(s4, 3, 4, 5, 6)
+    fmt.Println(s4)
+
+    //第二种写法，将一个切片的元素放到另一个切片
+    s4 = append(s4, s3...)
+    fmt.Println(s4)
+
+    //遍历切片
+    for i := 0; i &lt; len(s4); i++ &#123;
+        fmt.Println(s4[i])
+    &#125;
+
+    for index, value := range s4 &#123;
+        fmt.Printf(&quot;%d,%d\n&quot;, index, value)
+    &#125;
+
+&#125;
+</code></pre>
+<h3 id="在已有的数组上创建silce"><a href="#在已有的数组上创建silce" class="headerlink" title="在已有的数组上创建silce"></a>在已有的数组上创建silce</h3><blockquote>
+<p>slice :&#x3D;  arr[ start : end ]</p>
+<p>切片中的数据：[ start : end )</p>
+</blockquote>
+<p>从已有的数组上直接创建切片，该切片的底层数组就是当前的数组</p>
+<p>长度是从start到end切割的数据量</p>
+<p>容量是从start到数组的末尾</p>
+<p>注：当要向切片中添加到数据超出了切片的容量时，该切片会重新指向一个底层数组，先将之前的数据拷贝到新的底层数组，之后在将要添加的数据添加进来</p>
+<pre><code class="go">a := [10]int&#123;1,2,3,4,5,6,7,8,9,10&#125;
+s1 := a[:5]    //len:5,cap:10
+s2 := a[3:8]   //len:5,cap:7
+s3 := a[5:]    //len:5,cap:5
+s4 := a[:]     //len:10,cap:10
+s1 = append(s1,2,2,2,2,2)   //此时存储的数据超出容量，s1指向的底层数组发生变化
+</code></pre>
+<p>数组是值类型，传递的是数据</p>
+<p>切片是引用类型，传递到是数据的地址，多个变量指向同一块内存地址</p>
+<pre><code class="go">a1 := [4]int&#123;1,2,3,4&#125;
+a2 := a1
+fmt.println(a1,a2) //a1和a2一样
+a1[0]=100
+fmt.println(a1,a2) //a1为[100,2,3,4],a2为[1,2,3,4]
+
+s1 :=[]int&#123;1,2,3,4&#125;
+s2 := s1          
+fmt.println(s1,s2) //s1和s2一样
+s1[0]=100
+fmt.println(s1,s2)//s1为[100,2,3,4],s2为[100,2,3,4]
+</code></pre>
+<p>深拷贝：拷贝的是数据本身。值类型的数据默认都是深拷贝：int  float  string  bool   struct   <strong>array</strong></p>
+<p>浅拷贝：拷贝的是数据的地址，多个变量指向同一块内存。引用类型的数据默认都是浅拷贝：slice   map</p>
+<p>copy()函数：将一个切片拷贝到另一个切片</p>
+<p>copy( dst, src )    dst：目标切片，src：源切片</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

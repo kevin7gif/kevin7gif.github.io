@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h3 id="if分支"><a href="#if分支" class="headerlink" title="if分支"></a>if分支</h3><hr>
+<pre><code class="go">if  布尔表达式1 &#123;
+    /* 在布尔表达式1为true时执行 */
+&#125; else if 布尔表达式2 &#123;
+    /* 在布尔表达式1为false且布尔表达式2为true时执行 */
+&#125; else &#123;
+    /* 在上面两个布尔表达式都为false时执行 */
+&#125;
+</code></pre>
+<p>特殊的if语句</p>
+<pre><code class="go">if 初始化语句;条件&#123;
+     /* 执行代码 */
+&#125;
+
+if num:=10;num%2==0&#123;
+    fmt.println(num,&quot;is even&quot;)
+&#125; else &#123;
+    fmt.println(num,&quot;is odd&quot;)
+&#125;
+
+fmt.println(num)//编译器会报错，因为num变量已经出了if语句
+</code></pre>
+<p>注：<strong>若采用上述的特殊if语句，则该初始化的变量只能在if语句内使用，出了if语句使用回报错</strong></p>
+<hr>
+<h3 id="switch分支语句"><a href="#switch分支语句" class="headerlink" title="switch分支语句"></a><strong>switch分支语句</strong></h3><pre><code class="go">switch 变量名&#123;
+case 数值1：分支1
+case 数值2：分支2
+....
+default：最后一个分支
+&#125;
+</code></pre>
+<pre><code class="go">num:=3
+switch num&#123;
+case 1:fmt.println(&quot;第一季度&quot;)
+case 2:fmt.println(&quot;第二季度&quot;)
+case 3:fmt.println(&quot;第三季度&quot;)
+case 4:fmt.println(&quot;第四季度&quot;)
+default :fmt.println(&quot;输入有误&quot;)
+&#125;
+
+//若num改为5，则跳到default语句
+</code></pre>
+<p>注：</p>
+<p>1.switch可以作用在其他类型上，case后的数值必须和switch作用的变量类型一致</p>
+<p>2.case是无序的</p>
+<p>3.case后的数值是唯一的</p>
+<p>4.default语句可有可没有</p>
+<p>其他写法</p>
+<p>1.省略switch后的变量，相当于直接作用在true上，匹配true类型的case语句</p>
+<pre><code class="go">switch&#123;
+case true :fmt.println(&quot;true&quot;)
+case false :fmt.println(&quot;false&quot;)
+&#125;
+
+//结果输出true
+</code></pre>
+<p>2.case后可以跟随多个数值</p>
+<pre><code class="go">switch 变量&#123;
+    case 数值1，数值2，数值3... ：
+    代码块
+    
+&#125;
+//case后的数值只需满足一个即可执行该语句
+</code></pre>
+<p>3.switch后也可以加初始化语句，初始化的变量只能作用于switch结构内</p>
+<p><strong>与if语句初始化语法类似</strong></p>
+<hr>
+<h3 id="break和fallthrough"><a href="#break和fallthrough" class="headerlink" title="break和fallthrough"></a>break和fallthrough</h3><p>break：可以使用在switch语句，也可以使用在for循环中，用来强制结束case语句，进而结束switch分支</p>
+<p>fallthrough：执行完一个case后紧跟着执行下一个case,用于穿透switch，应该位于某个case语句的最后一行</p>
+<pre><code class="go">m:=2
+switch m&#123;
+    case 1:
+        fmt.println(&quot;第一季度&quot;)
+    case 2:
+        fmt.println(&quot;第二季度&quot;)
+         fallthrough
+    case 3:
+        fmt.println(&quot;第三季度&quot;)
+    case 4:
+        fmt.println(&quot;第四季度&quot;)	
+&#125;
+//结果会将第二季度和第三季度都打印出来
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

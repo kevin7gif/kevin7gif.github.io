@@ -1,0 +1,2132 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('../home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>菜菜</h1>
+                <h3>开发小白</h3>
+                <h5>Kevin's blog</h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/打包/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/打包/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/Thymeleaf模板/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>Thymeleaf： 是使用java开发的模板技术， 在服务器端运行。 把处理后的数据发送给浏览器。</p>
+<p> 模板是作视图层工作的。  显示数据的。  Thymeleaf是基于Html语言。 Thymleaf语法是应用在html标签中 。 SpringBoot框架集成Thymealeaf,  <strong>使用Thymeleaf代替jsp</strong>。</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/Thymeleaf模板/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/ORM操作MySQL/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>使用MyBatis框架操作数据，  在SpringBoot框架集成MyBatis</p>
+<p>使用步骤：</p>
+<ul>
+<li>mybatis起步依赖 ： 完成mybatis对象自动配置， 对象放在容器中 </li>
+<li>pom.xml 指定把src&#x2F;main&#x2F;java目录中的xml文件包含到classpath中 </li>
+<li>创建实体类Student </li>
+<li>创建Dao接口 StudentDao , 创建一个查询学生的方法</li>
+<li>创建Dao接口对应的Mapper文件， xml文件， 写sql语句 </li>
+<li>创建Service层对象， 创建StudentService接口和他的实现类。 去调用dao对象的方法。完成数据库的操作 </li>
+<li>创建Controller对象，访问Service。 </li>
+<li>写application.properties文件</li>
+</ul>
+<p>配置数据库的连接信息。 </p>
+<p>关于使用mapper注解的三种方式</p>
+<p>@Mapper：放在dao接口的上面， 每个接口都需要使用这个注解。</p>
+<pre><code class="java">/**
+ * @Mapper：告诉MyBatis这是dao接口，创建此接口的代理对象。
+ *     位置：在类的上面
+ */
+@Mapper
+public interface StudentDao &#123;
+
+    Student selectById(@Param(&quot;stuId&quot;) Integer id);
+&#125;
+</code></pre>
+<p>@MapperScan</p>
+<pre><code class="java">/**
+ * @MapperScan: 找到Dao接口和对应的Mapper文件
+ *     basePackages：Dao接口所在的包名
+ */
+@SpringBootApplication
+@MapperScan(basePackages = &#123;&quot;com.bjpowernode.dao&quot;,&quot;com.bjpowernode.mapper&quot;&#125;)
+public class Application &#123;
+&#125;
+</code></pre>
+<p>Mapper文件和Dao接口分开管理</p>
+<p>1）在resources目录中创建子目录 （自定义的） ， 例如mapper</p>
+<p>2）把mapper文件放到 mapper目录中</p>
+<p>3）在application.properties文件中，指定mapper文件的目录</p>
+<pre><code class="properties">#指定mapper文件的位置
+mybatis.mapper-locations=classpath:mapper/*.xml
+#指定mybatis的日志
+mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+</code></pre>
+<ol start="4">
+<li>在pom.xml中指定 把resources目录中的文件 ， 编译到目标目录中</li>
+</ol>
+<pre><code class="xml">&lt;!--resources插件--&gt;
+&lt;resources&gt;
+   &lt;resource&gt;
+      &lt;directory&gt;src/main/resources&lt;/directory&gt;
+      &lt;includes&gt;
+         &lt;include&gt;**/*.*&lt;/include&gt;
+      &lt;/includes&gt;
+   &lt;/resource&gt;
+&lt;/resources&gt;
+</code></pre>
+<h3 id="事务支持"><a href="#事务支持" class="headerlink" title="事务支持"></a>事务支持</h3><p>Spring框架中的事务：</p>
+<p>1） 管理事务的对象： 事务管理器（接口， 接口有很多的实现类）</p>
+<p>​    例如：使用Jdbc或mybatis访问数据库，使用的事务管理器：DataSourceTransactionManager</p>
+<p>2 ) 声明式事务：  在xml配置文件或者使用注解说明事务控制的内容</p>
+<p>   控制事务： 隔离级别，传播行为， 超时时间</p>
+<p>3）事务处理方式：</p>
+<p>​    1） Spring框架中的<a target="_blank" rel="noopener" href="https://www.yuque.com/Transactional">@Transactional </a> </p>
+<p>​    2)   aspectj框架可以在xml配置文件中，声明事务控制的内容</p>
+<p>SpringBoot中使用事务：上面两种方式都可以</p>
+<p>1）在业务方法的上面加入<a target="_blank" rel="noopener" href="https://www.yuque.com/Transactional">@Transactional </a> ,  加入注解后，方法有事务功能了。 </p>
+<p>2）明确的在 主启动类的上面 ，加入@EnableTransactionManager</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/SpringBoot2/ORM操作MySQL/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/面向切面编程AOP/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>IoC使软件组件松耦合。AOP让你能够捕捉系统中经常使用的功能，把它转化成组件。</p>
+<p>AOP（Aspect Oriented Programming）：面向切面编程，面向方面编程。（AOP是一种编程技术）<br>AOP是对OOP的补充延伸。<br>AOP底层使用的就是动态代理来实现的。</p>
+<p>Spring的AOP使用的动态代理是：JDK动态代理 + CGLIB动态代理技术。Spring在这两种动态代理中灵活切换，如果是代理接口，会默认使用JDK动态代理，如果要代理某个类，这个类没有实现接口，就会切换使用CGLIB。当然，你也可以强制通过一些配置让Spring只使用CGLIB。</p>
+<p>AOP介绍</p>
+<p>一般一个系统当中都会有一些系统服务，例如：日志、事务管理、安全等。这些系统服务被称为：<strong>交叉业务</strong><br>这些<strong>交叉业务</strong>几乎是通用的，不管你是做银行账户转账，还是删除用户数据。日志、事务管理、安全，这些都是需要做的。<br>如果在每一个业务处理过程当中，都掺杂这些交叉业务代码进去的话，存在两方面问题：</p>
+<ul>
+<li>第一：交叉业务代码在多个业务流程中反复出现，显然这个交叉业务代码没有得到复用。并且修改这些交叉业务代码的话，需要修改多处。</li>
+<li>第二：程序员无法专注核心业务代码的编写，在编写核心业务代码的同时还需要处理这些交叉业务。</li>
+<li></li>
+<li>使用AOP可以很轻松的解决以上问题。<br>请看下图，可以帮助你快速理解AOP的思想：</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665732609757-d8ae52ba-915e-49cf-9ef4-c7bcada0d601.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_25,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<p><strong>用一句话总结AOP：将与核心业务无关的代码独立的抽取出来，形成一个独立的组件，然后以横向交叉的方式应用到业务流程当中的过程被称为AOP。</strong></p>
+<p><strong>AOP的优点：</strong></p>
+<ul>
+<li><strong>第一：代码复用性增强。</strong></li>
+<li><strong>第二：代码易维护。</strong></li>
+<li><strong>第三：使开发者更关注业务逻辑。</strong></li>
+</ul>
+<h3 id="AOP的七大术语"><a href="#AOP的七大术语" class="headerlink" title="AOP的七大术语"></a>AOP的七大术语</h3><pre><code class="java">public class UserService&#123;
+    public void do1()&#123;
+        System.out.println(&quot;do 1&quot;);
+    &#125;
+    public void do2()&#123;
+        System.out.println(&quot;do 2&quot;);
+    &#125;
+    public void do3()&#123;
+        System.out.println(&quot;do 3&quot;);
+    &#125;
+    public void do4()&#123;
+        System.out.println(&quot;do 4&quot;);
+    &#125;
+    public void do5()&#123;
+        System.out.println(&quot;do 5&quot;);
+    &#125;
+    // 核心业务方法
+    public void service()&#123;
+        //连接点
+        do1();   //切点
+        //连接点
+        do2();   //切点
+        //连接点
+        do3();   //切点
+        //连接点
+        do5();   //切点
+        //连接点
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li><p><strong>连接点   Joinpoint</strong></p>
+<ul>
+<li>在程序的整个执行流程中，<strong>可以织入</strong>切面的位置。方法的执行前后，异常抛出之后等位置。</li>
+<li>描述的是位置</li>
+</ul>
+</li>
+<li><p><strong>切点    Pointcut</strong></p>
+<ul>
+<li>在程序执行流程中，<strong>真正织入</strong>切面的方法</li>
+<li>本质上描述的是方法</li>
+</ul>
+</li>
+<li><p><strong>通知    Advice</strong></p>
+<ul>
+<li>又叫增强，就是具体你要织入的代码</li>
+<li>例如：具体的事务代码，日志代码，统计时长的代码，<strong>具体的代码就是通知</strong></li>
+<li>通知包括：<ul>
+<li>前置通知</li>
+<li>后置通知</li>
+<li>环绕通知</li>
+<li>异常通知</li>
+<li>最终通知</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>切面     Aspect</strong></p>
+<ul>
+<li><strong>切点 + 通知</strong></li>
+</ul>
+</li>
+<li><p>织入    Weaving</p>
+<ul>
+<li>把通知应用到目标对象上的过程。</li>
+</ul>
+</li>
+<li><p>代理对象</p>
+<ul>
+<li>一个目标对象被织入通知后产生的新对象</li>
+</ul>
+</li>
+<li><p>目标对象</p>
+<ul>
+<li>被织入通知的对象</li>
+</ul>
+</li>
+</ul>
+<p>请看下图：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665735638342-44194599-66e2-4c02-a843-8a8b3ba5b0c8.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_17,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<h3 id="切点表达式"><a href="#切点表达式" class="headerlink" title="切点表达式"></a>切点表达式</h3><p>定义通知往哪些方法上切入</p>
+<pre><code class="java">//语法格式
+execution([访问控制权限修饰符] 返回值类型 [全限定类名]方法名(形式参数列表) [异常])
+</code></pre>
+<p>访问控制权限修饰符：<br>     可选项。<br>     没写，就是4个权限都包括。<br>     写public就表示只包括公开的方法。<br>返回值类型：<br>      必填项。<br>      * 表示返回值类型任意。<br>    全限定类名：<br>     可选项。<br>     两个点“..”代表当前包以及子包下的所有类。<br>     省略时表示所有的类。<br>    方法名：<br>        必填项。<br>      * 表示所有方法。<br>          set<em>表示所有的set方法。<br>          形式参数列表：<br>           必填项<br>           () 表示没有参数的方法<br>           (..) 参数类型和个数随意的方法<br>           (</em>) 只有一个参数的方法<br>           (*, String) 第一个参数类型随意，第二个参数是String的。<br>          异常：<br>          可选项。<br>          省略时表示任意异常类型。</p>
+<h3 id="使用Spring的AOP"><a href="#使用Spring的AOP" class="headerlink" title="使用Spring的AOP"></a>使用Spring的AOP</h3><p>Spring对AOP的实现包括以下3种方式：</p>
+<ul>
+<li><strong>第一种方式：Spring框架结合AspectJ框架实现的AOP，基于注解方式</strong>。</li>
+<li><strong>第二种方式：Spring框架结合AspectJ框架实现的AOP，基于XML方式</strong>。</li>
+<li>第三种方式：Spring框架自己实现的AOP，基于XML配置方式。</li>
+</ul>
+<p>先在pom.xml中引入依赖</p>
+<pre><code class="xml">&lt;!--spring context依赖--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+  &lt;version&gt;6.0.0-M2&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!--spring aspects依赖--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+  &lt;version&gt;6.0.0-M2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>在spring配置文件中添加context命名空间和aop命名空间</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<h4 id="AOP基于注解"><a href="#AOP基于注解" class="headerlink" title="AOP基于注解"></a>AOP基于注解</h4><p>先定义目标类</p>
+<pre><code class="java">package com.xiehn.spring6.service;
+
+import org.springframework.stereotype.Service;
+
+@Service(&quot;userService&quot;)
+public class UserService &#123; //目标类
+
+
+    public void login()&#123; //目标方法
+        System.out.println(&quot;系统正在进行身份认证。。。&quot;);
+    &#125;
+
+    public void logout()&#123;
+        System.out.println(&quot;退出系统！！！&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>定义切面类，在其中添加通知和切点表达式</p>
+<pre><code class="java">package com.xiehn.spring6.service;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
+
+@Component(&quot;logAspect&quot;)
+@Aspect //切面类需要用@Aspect注解进行标注
+public class LogAspect &#123; //切面
+
+    // 切面=切点 + 通知
+    //通知就是增强，就是具体编写的增强代码.
+
+
+    //前置通知
+    @Before(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void beforeAdvice()&#123;
+        System.out.println(&quot;前置增强代码执行了！！！&quot;);
+    &#125;
+
+    //后置通知
+    @AfterReturning(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void afterReturningAdvice()&#123;
+        System.out.println(&quot;后置增强代码执行了！！！&quot;);
+    &#125;
+
+    //环绕通知
+    @Around(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable &#123;
+        //前面的代码
+        System.out.println(&quot;前环绕执行了！！！&quot;);
+        //执行目标
+        joinPoint.proceed();
+        //后面的代码
+        System.out.println(&quot;后环绕执行了！！！&quot;);
+    &#125;
+
+    //最终通知
+    @After(&quot;execution(* com.xiehn.spring6.service..*(..))&quot;)
+    public void afterAdvice()&#123;
+        System.out.println(&quot;最终通知了！！！&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>将目标类和切面类都纳入spring bean管理：<strong>即在类上添加@Component注解</strong></p>
+<p>在spring配置文件中开启组件扫描和自动代理</p>
+<pre><code class="xml"> &lt;!--进行组件扫描--&gt;
+    &lt;context:component-scan base-package=&quot;com.xiehn.spring6.service&quot;/&gt;
+
+    &lt;!--开启aspectj的自动代理--&gt;
+    &lt;!--spring容器在扫描类的时候，查看该类上是否有@Aspectj注解。如果有，则给这个类生成代理对象--&gt;
+    &lt;!--
+        proxy-target-class=&quot;true&quot;    表示强制使用CGLIB动态代理
+        proxy-target-class=&quot;false&quot;   这是默认值，表示接口使用JDK动态代理
+    --&gt;
+    &lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot;/&gt;
+</code></pre>
+<p>编写测试程序</p>
+<pre><code class="java">package com.xiehn.spring6.test;
+
+import com.xiehn.spring6.service.OrderService;
+import com.xiehn.spring6.service.UserService;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class SpringAOPTest &#123;
+
+    @Test
+    public void testBefore()&#123;
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext(&quot;spring.xml&quot;);
+
+        UserService userService = applicationContext.getBean(&quot;userService&quot;, UserService.class);
+        userService.login();
+        userService.logout();
+&#125;
+</code></pre>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>​	<strong>环绕开始</strong></p>
+<p>​	<strong>前置通知</strong></p>
+<p>​	<strong>目标执行</strong></p>
+<p>​	<strong>后置通知</strong></p>
+<p>​	<strong>最终通知</strong></p>
+<p>​	<strong>环绕通知结束</strong></p>
+<p><strong>当出现异常后：</strong> <strong>后置通知</strong>和<strong>环绕通知的结束部分</strong>不会执行</p>
+<p>​	环绕开始</p>
+<p>​	前置通知</p>
+<p>​	目标执行</p>
+<p>​	<strong>异常通知</strong></p>
+<p>​	<strong>最终通知</strong></p>
+<p>如果多个切面的话，顺序如何控制：<strong>可以使用@Order注解来标识切面类，为@Order注解的value指定一个整数型的数字，数字越小，优先级越高。</strong></p>
+<h3 id="全注解式开发AOP"><a href="#全注解式开发AOP" class="headerlink" title="全注解式开发AOP"></a>全注解式开发AOP</h3><p>就是编写一个类，在这个类上使用大量注解来代替spring的配置文件，spring配置文件就消失了</p>
+<p>例如：</p>
+<pre><code class="java">package com.powernode.spring6.service;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@Configuration //代替spring.xml文件
+@ComponentScan(&quot;com.powernode.spring6.service&quot;)  //组件扫描
+@EnableAspectJAutoProxy(proxyTargetClass = true)  //启用自动代理
+public class Spring6Configuration &#123;
+&#125;
+</code></pre>
+<p>测试文件</p>
+<pre><code class="java">@Test
+public void testAOPWithAllAnnotation()&#123;
+    ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Spring6Configuration.class);
+    OrderService orderService = applicationContext.getBean(&quot;orderService&quot;, OrderService.class);
+    orderService.generate();
+&#125;
+</code></pre>
+<h3 id="基于XML配置方式的AOP（了解）"><a href="#基于XML配置方式的AOP（了解）" class="headerlink" title="基于XML配置方式的AOP（了解）"></a>基于XML配置方式的AOP（了解）</h3>
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/面向切面编程AOP/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/反射机制/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>调用一个方法，当中含有四要素</p>
+<ul>
+<li>调用哪个对象</li>
+<li>调用哪个方法</li>
+<li>调用方法的时候传什么参数</li>
+<li>方法执行结束之后的返回结果</li>
+</ul>
+<p>使用反射机制调用方法</p>
+<pre><code class="java">//获取类
+Class&lt;?&gt; clazz = Class.forName(&quot;该类的全限定类名&quot;);
+//获取方法
+Method doSomeMethod = clazz.getDeclaredMethod(&quot;doSome&quot;,String.class,int.class);//doSome是该类的方法名，String.class,int.class是该方法的两个参数
+//调用方法
+//四要素：调用哪个对象，哪个方法，传什么参数，返回什么值
+// obj 要素：哪个对象
+// deSomeMethod 要素：哪个方法
+// &quot;李四&quot;，100 要素：传什么参数
+// retValue 要素：返回什么值
+Constructor&lt;?&gt; con = clazz.getDeclaredConstructor();//获取该类的无参数构造方法
+Object obj = con.newInstance();//调用该类的无参数构造方法
+Object retValue = doSomeMethod.invoke(obj,&quot;李四&quot;,100);
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/反射机制/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/代理模式/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h3 id="对代理模式的理解"><a href="#对代理模式的理解" class="headerlink" title="对代理模式的理解"></a>对代理模式的理解</h3><p><strong>西游记场景</strong>：八戒和高小姐的故事。八戒要强抢民女高翠兰。悟空得知此事之后怎么做的？悟空幻化成高小姐的模样。代替高小姐与八戒会面。其中八戒是客户端程序。悟空是代理类。高小姐是目标类。那天夜里，在八戒眼里，眼前的就是高小姐，对于八戒来说，他是不知道眼前的高小姐是悟空幻化的，在他内心里这就是高小姐。所以悟空代替高小姐和八戒亲了嘴儿。这是非常典型的代理模式实现的保护机制。<strong>代理模式中有一个非常重要的特点：对于客户端程序来说，使用代理对象时就像在使用目标对象一样。【在程序中，目标需要被保护时】</strong></p>
+<p><strong>业务场景</strong>：系统中有A、B、C三个模块，使用这些模块的前提是需要用户登录，也就是说在A模块中要编写判断登录的代码，B模块中也要编写，C模块中还要编写，这些判断登录的代码反复出现，显然代码没有得到复用，可以为A、B、C三个模块提供一个代理，在代理当中写一次登录判断即可。代理的逻辑是：请求来了之后，判断用户是否登录了，如果已经登录了，则执行对应的目标，如果没有登录则跳转到登录页面。【在程序中，目标不但受到保护，并且代码也得到了复用。】</p>
+<p>代理模式的作用是：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个客户不想或者不能直接引用一个对象，此时可以通过一个称之为“代理”的第三者来实现间接引用。代理对象可以在客户端和目标对象之间起到中介的作用，并且可以通过代理对象去掉客户不应该看到的内容和服务或者添加客户需要的额外服务。 通过引入一个新的对象来实现对真实对象的操作或者将新的对象作为真实对象的一个替身，这种实现机制即为代理模式，通过引入代理对象来间接访问一个对象，这就是代理模式的模式动机。</p>
+<p><strong>当两个对象无法直接交互 或  在程序中功能需要增强时 或 在程序中目标需要被保护的时候  需要使用代理模式</strong></p>
+<p><strong>代理模式中的角色：</strong></p>
+<ul>
+<li>代理类（代理主题）</li>
+<li>目标类（真实主题）</li>
+<li>代理类和目标类的<strong>公共接口</strong>（抽象主题）：客户端在使用代理类时就像在使用目标类，不被客户端所察觉，所以代理类和目标类要有共同的行为，也就是实现共同的接口。</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665651817094-af9ecbad-24ae-4c11-9fa2-efe46653df25.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_15,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>现在有一个接口和一个实现类</p>
+<pre><code class="java">package com.powernode.mall.service;
+
+public interface OrderService &#123;
+    /**
+     * 生成订单
+     */
+    void generate();
+
+    /**
+     * 查看订单详情
+     */
+    void detail();
+
+    /**
+     * 修改订单
+     */
+    void modify();
+&#125;
+</code></pre>
+<pre><code class="java">package com.powernode.mall.service.impl;
+
+import com.powernode.mall.service.OrderService;
+
+public class OrderServiceImpl implements OrderService &#123;
+    @Override
+    public void generate() &#123;
+        try &#123;
+            Thread.sleep(1234);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+        System.out.println(&quot;订单已生成&quot;);
+    &#125;
+
+    @Override
+    public void detail() &#123;
+        try &#123;
+            Thread.sleep(2541);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+        System.out.println(&quot;订单信息如下：******&quot;);
+    &#125;
+
+    @Override
+    public void modify() &#123;
+        try &#123;
+            Thread.sleep(1010);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+        System.out.println(&quot;订单已修改&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>其中Thread.sleep()方法的调用是为了模拟操作耗时。</p>
+<p>项目已上线，并且运行正常，只是客户反馈系统有一些地方运行较慢，要求项目组对系统进行优化。于是项目负责人就下达了这个需求。首先需要搞清楚是哪些业务方法耗时较长，于是让我们统计每个业务方法所耗费的时长。如果是你，你该怎么做呢？</p>
+<p>有三种方案：</p>
+<ul>
+<li><p>第一种：直接修改Java源代码，在每个业务方法中添加统计逻辑———&gt;缺点：违背OCP开闭原则</p>
+</li>
+<li><p>第二种：编写一个子类继承OrderServiceImpl，在子类中重写每个方法</p>
+<ul>
+<li>存在的问题：假设系统中有100个这样的业务类，需要提供100个子类，并且之前写好的创建Service对象的代码，都要修改为创建子类对象。</li>
+<li>由于采用了继承的方式，导致代码之间的耦合度较高。</li>
+</ul>
+</li>
+<li><p>第三种：使用代理模式（这里采用静态代理）</p>
+<ul>
+<li><p>为OrderService接口提供一个代理类。</p>
+</li>
+<li><pre><code class="java">package com.powernode.mall.service;
+
+public class OrderServiceProxy implements OrderService&#123; // 代理对象
+
+    // 目标对象
+    //将目标对象作为代理对象的一个属性。这种关系叫做关联关系，比继承关系耦合度低
+    //代理对象中含有目标对象的引用。关联关系：has a
+    //注意：这里要写一个公共接口类型。因为公共接口耦合度低
+    private OrderService orderService;
+
+    // 通过构造方法将目标对象传递给代理对象
+    public OrderServiceProxy(OrderService orderService) &#123;
+        this.orderService = orderService;
+    &#125;
+
+    @Override
+    public void generate() &#123;
+        long begin = System.currentTimeMillis();
+        // 执行目标对象的目标方法
+        orderService.generate();
+        long end = System.currentTimeMillis();
+        System.out.println(&quot;耗时&quot;+(end - begin)+&quot;毫秒&quot;);
+    &#125;
+
+    @Override
+    public void detail() &#123;
+        long begin = System.currentTimeMillis();
+        // 执行目标对象的目标方法
+        orderService.detail();
+        long end = System.currentTimeMillis();
+        System.out.println(&quot;耗时&quot;+(end - begin)+&quot;毫秒&quot;);
+    &#125;
+
+    @Override
+    public void modify() &#123;
+        long begin = System.currentTimeMillis();
+        // 执行目标对象的目标方法
+        orderService.modify();
+        long end = System.currentTimeMillis();
+        System.out.println(&quot;耗时&quot;+(end - begin)+&quot;毫秒&quot;);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>编写客户端程序</p>
+<pre><code class="java">package com.powernode.mall;
+
+import com.powernode.mall.service.OrderService;
+import com.powernode.mall.service.OrderServiceProxy;
+import com.powernode.mall.service.impl.OrderServiceImpl;
+
+public class Client &#123;
+    public static void main(String[] args) &#123;
+        // 创建目标对象
+        OrderService target = new OrderServiceImpl();
+        // 创建代理对象
+        OrderService proxy = new OrderServiceProxy(target);
+        // 调用代理对象的代理方法
+        proxy.generate();
+        proxy.modify();
+        proxy.detail();
+    &#125;
+&#125;
+</code></pre>
+<p>以上就是代理模式中的静态代理，其中OrderService接口是代理类和目标类的共同接口。OrderServiceImpl是目标类。OrderServiceProxy是代理类。</p>
+<p>思考：如果系统中业务接口很多，一个接口对应一个代理类，显然也是不合理的，会导致类爆炸。</p>
+<p>怎么解决这个问题？动态代理可以解决。因为在动态代理中可以在内存中动态的为我们生成代理类的字节码。代理类不需要我们写了。类爆炸解决了，而且代码只需要写一次，代码也会得到复用。</p>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><h4 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h4><p>在程序运行阶段，在内存中动态生成代理类，被称为动态代理，目的是为了减少代理类的数量。解决代码复用的问题。</p>
+<p>在内存当中动态生成类的技术常见的包括：</p>
+<ul>
+<li>JDK动态代理技术：只能代理接口。</li>
+<li>CGLIB动态代理技术：CGLIB(Code Generation Library)是一个开源项目。是一个强大的，高性能，高质量的Code生成类库，它可以在运行期扩展Java类与实现Java接口。它既可以代理接口，又可以代理类，<strong>底层是通过继承的方式实现的</strong>。性能比JDK动态代理要好。<strong>（底层有一个小而快的字节码处理框架ASM。）</strong>，效率更高</li>
+<li>Javassist动态代理技术：Javassist是一个开源的分析、编辑和创建Java字节码的类库。它已加入了开放源代码JBoss 应用服务器项目，通过使用Javassist对字节码操作为JBoss实现动态”AOP”框架。</li>
+</ul>
+<p>先写一个接口和一个实现类</p>
+<pre><code class="java">package com.xiehn.proxy.service;
+
+/**
+ * 订单业务接口
+ * @author 蟹老板
+ * @since 1.0
+ * @version 1.0
+ */
+public interface OrderService &#123;
+    String getName();
+    /**
+     * 生成订单
+     */
+    void generate();
+
+    /**
+     * 修改订单信息
+     */
+    void modify();
+
+    /**
+     * 查看订单详情
+     */
+    void detail();
+&#125;
+</code></pre>
+<pre><code class="java">package com.xiehn.proxy.service;
+
+public class OrderServiceImpl implements OrderService&#123;
+    @Override
+    public String getName() &#123;
+        return &quot;李云龙&quot;;
+    &#125;
+
+    @Override
+    public void generate() &#123;   //目标方法
+        //模拟生成订单的耗时
+        try &#123;
+            Thread.sleep(2000);
+        &#125; catch (InterruptedException e) &#123;
+            throw new RuntimeException(e);
+        &#125;
+        System.out.println(&quot;订单已生成&quot;);
+    &#125;
+
+    @Override
+    public void modify() &#123;
+        //模拟修改订单的耗时
+        try &#123;
+            Thread.sleep(1000);
+        &#125; catch (InterruptedException e) &#123;
+            throw new RuntimeException(e);
+        &#125;
+        System.out.println(&quot;订单已修改&quot;);
+    &#125;
+
+    @Override
+    public void detail() &#123;
+        //模拟查询订单的耗时
+        try &#123;
+            Thread.sleep(1500);
+        &#125; catch (InterruptedException e) &#123;
+            throw new RuntimeException(e);
+        &#125;
+        System.out.println(&quot;请看订单详情&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>写一个java.lang.reflect.InvocationHandler接口的实现类，并且实现接口中的方法<strong>（程序中的注释要好好看）</strong></p>
+<pre><code class="java">package com.xiehn.proxy.service;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+/**
+ * 专门负责计时的一个调用处理器对象
+ * 在这个调用处理器当中编写计时相关的增强代码
+ * 只需要写一个就行了
+ */
+public class TimerInvocationHandler implements InvocationHandler &#123;
+
+    private OrderService target;
+
+    public TimerInvocationHandler(OrderService target) &#123;
+        this.target = target;
+    &#125;
+
+    /*
+    * 当代理对象调用代理方法的时候，注册在InvocationHandler调用处理器中的invoke()方法被调用
+    *
+    * invoke方法的三个参数：
+    *   invoke方法是JDK负责调用的，所以JDK调用这个方法的时候会自动传过来这三个参数。
+    *   我们可以在invoke方法体内直接使用
+    * 第一个参数：Object proxy  代理对象的引用。这个参数使用较少
+    * 第二个参数：Method method  目标对象上的目标方法。（要执行的目标方法就是他）
+    * 第三个参数：Object[] args  目标方法上的实参
+    *
+    *
+    * invoke方法执行时，使用method来调用目标对象的目标方法
+    * */
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+        //这个接口的目的是写增强代码的
+        long begin=System.currentTimeMillis();
+
+        //调用目标对象上的目标方法
+        //方法四要素：哪个对象，哪个方法，传什么参数，返回什么值
+        Object invoke = method.invoke(target, args);
+        long end=System.currentTimeMillis();
+        System.out.println(&quot;耗时&quot;+(end-begin)+&quot;毫秒&quot;);
+
+        //注意这个invoke方法的返回值，如果代理对象调用代理方法之后，需要返回结果的话，invoke方法必须将目标对象的目标方法执行结果继续返回
+        return invoke;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>写了上述代码后不管有多少个Service接口，多少个业务类，这个TimerInvocationHandler接口只需要写一次就行了，代码得到复用了！！！！</strong></p>
+<p>编写客户端程序<strong>（程序中的注释要好好看）</strong></p>
+<pre><code class="java">package com.xiehn.proxy.cilent;
+
+import com.xiehn.proxy.service.OrderService;
+import com.xiehn.proxy.service.OrderServiceImpl;
+import com.xiehn.proxy.service.TimerInvocationHandler;
+
+import java.lang.reflect.Proxy;
+
+public class Client &#123;
+    //客户端程序
+    public static void main(String[] args) &#123;
+        //创建目标对象
+        OrderService target=new OrderServiceImpl();
+        //创建代理对象
+        /*
+         * newProxyInstance：新建代理对象
+         * 本质上，这个方法做了两件事：
+         *      第一件事：在内存中动态的生成了一个代理类的字节码class
+         *      第二件事：通过内存中生成的代理类这个代码，实例化了代理对象
+         * 关于newProxyInstance方法的三个参数：
+         *      第一个参数：ClassLoader loader------&gt;类加载器
+         *          类加载器，在内存中生成的字节码也是class文件，要执行也得先加载到内存当中。加载类就需要类加载器，所以这里需要指定类加载器
+         *                  并且JDK要求，目标类的类加载器必须和代理类的类加载器使用同一个
+         *      第二个参数：Class&lt;?&gt;[] interfaces------&gt;接口
+         *          代理类和目标类要实现同一个接口
+         *          在内存中生成代理类的时候，这个代理类是需要你告诉他实现哪些接口的
+         *      第三个参数：InvocationHandler h------&gt;调用处理器，是一个接口
+         *          在调用处理器接口中编写的就是：增强代码
+         *          因为具体要增强什么代码，JDK动态代理技术是猜不到的
+         * 代理对象和目标对象实现的接口一样，所以可以向下转型
+         */
+        OrderService proxy = (OrderService)Proxy.newProxyInstance(target.getClass().getClassLoader(),target.getClass().getInterfaces(),new TimerInvocationHandler(target));
+        //调用代理对象的代理方法
+        proxy.generate();
+        proxy.modify();
+        proxy.detail();
+        String name=proxy.getName();
+        System.out.println(name);
+    &#125;
+&#125;
+</code></pre>
+<p><strong>总结！！！重点理解newProxyInstance()方法的三个参数和invoke()方法的三个参数</strong></p>
+<h4 id="CGLIB动态代理"><a href="#CGLIB动态代理" class="headerlink" title="CGLIB动态代理"></a>CGLIB动态代理</h4><p>cglib可以代理接口和类</p>
+<p>需要先引入依赖</p>
+<pre><code class="xml">&lt;dependency&gt;
+  &lt;groupId&gt;cglib&lt;/groupId&gt;
+  &lt;artifactId&gt;cglib&lt;/artifactId&gt;
+  &lt;version&gt;3.3.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>先写一个没有实现接口的类</p>
+<pre><code class="java">package com.powernode.mall.service;
+
+/**
+ * @author 动力节点
+ * @version 1.0
+ * @className UserService
+ * @since 1.0
+ **/
+public class UserService &#123;
+
+    public void login()&#123;
+        System.out.println(&quot;用户正在登录系统....&quot;);
+    &#125;
+
+    public void logout()&#123;
+        System.out.println(&quot;用户正在退出系统....&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>和JDK动态代理原理差不多，在CGLIB中需要提供的不是InvocationHandler，而是：net.sf.cglib.proxy.MethodInterceptor</p>
+<p>编写MethodInterceptor接口实现类：</p>
+<p>MethodInterceptor接口中有一个方法intercept()，该方法有4个参数：<br>第一个参数：目标对象<br>第二个参数：目标方法<br>第三个参数：目标方法调用时的实参<br>第四个参数：代理方法<br>在MethodInterceptor的intercept()方法中调用目标以及添加增强：</p>
+<pre><code class="java">package com.powernode.mall.service;
+
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+import java.lang.reflect.Method;
+
+public class TimerMethodInterceptor implements MethodInterceptor &#123;
+    @Override
+    public Object intercept(Object target, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable &#123;
+        // 前增强
+        long begin = System.currentTimeMillis();
+        // 调用目标
+        Object retValue = methodProxy.invokeSuper(target, objects);
+        // 后增强
+        long end = System.currentTimeMillis();
+        System.out.println(&quot;耗时&quot; + (end - begin) + &quot;毫秒&quot;);
+        // 一定要返回
+        return retValue;
+    &#125;
+&#125;
+</code></pre>
+<p>使用CGLIB在内存中为UserService类生成代理类，并创建对象：</p>
+<pre><code class="java">package com.powernode.mall;
+
+import com.powernode.mall.service.TimerMethodInterceptor;
+import com.powernode.mall.service.UserService;
+import net.sf.cglib.proxy.Enhancer;
+
+public class Client &#123;
+    public static void main(String[] args) &#123;
+        // 创建字节码增强器
+        Enhancer enhancer = new Enhancer();
+        // 告诉cglib要继承哪个类
+        enhancer.setSuperclass(UserService.class);
+        // 设置回调接口
+        enhancer.setCallback(new TimerMethodInterceptor());
+        // 生成源码，编译class，加载到JVM，并创建代理对象
+        UserService userServiceProxy = (UserService)enhancer.create();
+
+        userServiceProxy.login();
+        userServiceProxy.logout();
+    &#125;
+&#125;
+</code></pre>
+<p>高版本的jdk会出问题，如果使用CGLIB，需要在启动项中添加两个启动参数：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665719287350-761d69a9-2666-40b3-9332-91d695f1eb86.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_20,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<p>–add-opens java.base&#x2F;java.lang&#x3D;ALL-UNNAMED<br>–add-opens java.base&#x2F;sun.net.util&#x3D;ALL-UNNAMED</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/代理模式/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/事务/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h3 id="事务概述"><a href="#事务概述" class="headerlink" title="事务概述"></a>事务概述</h3>
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/事务/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/Spring IoC注解式开发/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p><strong>注解的存在主要是为了简化XML的配置。Spring6倡导全注解开发。</strong></p>
+<pre><code class="java">package com.powernode.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target(value = &#123;ElementType.TYPE&#125;)
+@Retention(value = RetentionPolicy.RUNTIME)
+public @interface Component &#123;
+    String value();
+&#125;
+</code></pre>
+<p>以上是自定义了一个注解：Component</p>
+<p>该注解上面修饰的注解包括：Target注解和Retention注解，这两个注解被称为<strong>元注解</strong>。<br>Target注解用来设置Component注解可以出现的位置，以上代表表示Component注解只能用在类和接口上。<br>Retention注解用来设置Component注解的保持性策略，以上代表Component注解可以被反射机制读取。<br>String value()：是Component注解中的一个属性。该属性类型String，属性名是value。</p>
+<p>语法格式：@注解类型名(属性名&#x3D;属性值, 属性名&#x3D;属性值, 属性名&#x3D;属性值……)</p>
+<pre><code class="java">package com.powernode.bean;
+
+import com.powernode.annotation.Component;
+
+//@Component(value = &quot;userBean&quot;)，若注解中属性的值是value，则value可以省略
+@Component(&quot;userBean&quot;)
+public class User &#123;
+&#125;
+</code></pre>
+<p>例如：假设我们现在只知道包名：com.powernode.bean。至于这个包下有多少个Bean我们不知道。哪些Bean上有注解，哪些Bean上没有注解，这些我们都不知道，如何通过程序全自动化判断？</p>
+<pre><code class="java">package com.powernode.test;
+
+import com.powernode.annotation.Component;
+
+import java.io.File;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Test &#123;
+    public static void main(String[] args) throws Exception &#123;
+        // 存放Bean的Map集合。key存储beanId。value存储Bean。
+        Map&lt;String,Object&gt; beanMap = new HashMap&lt;&gt;();
+
+        String packageName = &quot;com.powernode.bean&quot;;
+        //开始扫描程序
+        //在正则表达式中 \\.  表示一个普通字符 .
+        String path = packageName.replaceAll(&quot;\\.&quot;, &quot;/&quot;);
+        //com是在类的根路径下的一个目录，调用类加载器的方法，拿到绝对路径
+        URL url = ClassLoader.getSystemClassLoader().getResource(path);
+        //获取一个绝对路径下的所有文件
+        File file = new File(url.getPath());
+        //listFiles方法是获取所有的子文件
+        File[] files = file.listFiles();
+        //对得到的数组进行遍历，每一个元素就是具体的类
+        Arrays.stream(files).forEach(f -&gt; &#123;
+            //将类和包名进行拼接，得到类名
+            String className = packageName + &quot;.&quot; + f.getName().split(&quot;\\.&quot;)[0];
+            try &#123;
+                //通过反射机制进行注解
+                Class&lt;?&gt; clazz = Class.forName(className);
+                //判断类上是否有这个注解
+                if (clazz.isAnnotationPresent(Component.class)) &#123;
+                    //获取注解
+                    Component component = clazz.getAnnotation(Component.class);
+                    String beanId = component.value();
+                    //有这个注解的都要创建对象
+                    Object bean = clazz.newInstance();
+                    beanMap.put(beanId, bean);
+                &#125;
+            &#125; catch (Exception e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        System.out.println(beanMap);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="声明Bean的注解"><a href="#声明Bean的注解" class="headerlink" title="声明Bean的注解"></a>声明Bean的注解</h3><p>负责声明bean的注解，常见的包括四个：</p>
+<ul>
+<li>@Component：控制器，以下三个注解都是@Component的别名</li>
+<li>@Controller：组件，建议控制器类上使用</li>
+<li>@Service：业务，建议service类上使用</li>
+<li>@Repository：仓库，Dao，建议dao类上使用</li>
+</ul>
+<h4 id="spring注解的使用"><a href="#spring注解的使用" class="headerlink" title="spring注解的使用"></a>spring注解的使用</h4><p>在配置文件中添加context命名空间</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<p>在配置文件中指定要扫描的包</p>
+<p><strong>注意！！！   如果有多个包要扫描的话，在配置文件中指定多个包，用逗号隔开。或者指定多个包的共同父包(这种方法会损失一些效率)。</strong></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+    &lt;context:component-scan base-package=&quot;com.powernode.spring6.bean&quot;/&gt;
+&lt;/beans&gt;
+</code></pre>
+<p>在Bean类上使用注解</p>
+<p> <strong>注意！！！  如果把value属性彻底去掉，spring会被Bean自动取名，并且默认名字的规律是：Bean类名首字母小写即可。</strong></p>
+<pre><code class="java">package com.powernode.spring6.bean;
+
+import org.springframework.stereotype.Component;
+
+@Component(value = &quot;userBean&quot;)
+public class User &#123;
+&#125;
+
+//如果写成这种方式，spring会被bean自动取名
+@Component
+public class User &#123;
+&#125;
+</code></pre>
+<h4 id="选择性实例化Bean"><a href="#选择性实例化Bean" class="headerlink" title="选择性实例化Bean"></a>选择性实例化Bean</h4><pre><code class="xml">      &lt;!--第一种解决方案：
+              use-default-filters=&quot;false&quot;，默认是true
+              如果这个属性是false，表示com.xiehn.spring6.bean2包下所有的带有声明Bean的注解全部失效
+       --&gt;
+       &lt;context:component-scan base-package=&quot;com.xiehn.spring6.bean2&quot; use-default-filters=&quot;false&quot;&gt;
+              &lt;!--只有@Repository被包含进来，生效--&gt;
+              &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Repository&quot;/&gt;
+       &lt;/context:component-scan&gt;
+</code></pre>
+<pre><code class="xml">&lt;!--第二种解决方案：
+        context:exclude-filter表示排除掉哪些注解
+--&gt;
+&lt;context:component-scan base-package=&quot;com.powernode.spring6.bean3&quot;&gt;
+  &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Repository&quot;/&gt;
+  &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Service&quot;/&gt;
+  &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+&lt;/context:component-scan&gt;
+</code></pre>
+<h3 id="负责注入的注解"><a href="#负责注入的注解" class="headerlink" title="负责注入的注解"></a>负责注入的注解</h3><p>Bean属性赋值需要用到这些注解：</p>
+<ul>
+<li>@Value</li>
+<li>@Autowired</li>
+<li>@Qualifier</li>
+<li>@Resource</li>
+</ul>
+<h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h4><p>当注入类型是简单类型时，可以使用value注解</p>
+<p>@Value注解可以直接使用在属性上，也可以使用在setter方法上。都是可以的。都可以完成属性的赋值。<br>为了简化代码，一般不提供setter方法，直接在属性上使用@Value注解完成属性赋值。</p>
+<pre><code class="java">package com.powernode.spring6.bean4;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class User &#123;
+
+    private String name;
+
+    private int age;
+
+    public User(@Value(&quot;隔壁老王&quot;) String name, @Value(&quot;33&quot;) int age) &#123;
+        this.name = name;
+        this.age = age;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;User&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age=&quot; + age +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="Autowired与-Qualifier"><a href="#Autowired与-Qualifier" class="headerlink" title="@Autowired与@Qualifier"></a>@Autowired与@Qualifier</h4><p>@Autowired注解可以用来注入非简单类型。被翻译为：自动连线的，或者自动装配。<br>单独使用@Autowired注解，默认根据类型装配。【默认是byType】</p>
+<p>该标注可以标注在哪里：</p>
+<ul>
+<li>构造方法上</li>
+<li>方法上</li>
+<li>形参上</li>
+<li>属性上</li>
+<li>注解上</li>
+</ul>
+<p>当有参数的构造方法只有一个时，@Autowired注解可以省略</p>
+<p>@Autowired注解默认是byType进行注入的，也就是说根据类型注入的，如果一个接口中的程序有多个实现类，就会出现问题</p>
+<p><strong>@Autowired注解和@Qualifier注解联合起来才可以根据名称进行装配，就可以解决一个接口不能用多个实现类的问题，在@Qualifier注解中指定Bean名称。</strong></p>
+<pre><code class="java">package com.powernode.spring6.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository // 这里没有给bean起名，默认名字是：userDaoForOracle
+public class UserDaoForOracle implements UserDao&#123;
+    @Override
+    public void insert() &#123;
+        System.out.println(&quot;正在向Oracle数据库插入User数据&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">package com.powernode.spring6.service;
+
+import com.powernode.spring6.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService &#123;
+
+    private UserDao userDao;
+
+    @Autowired
+    @Qualifier(&quot;userDaoForOracle&quot;) // 这个是bean的名字。
+    public void setUserDao(UserDao userDao) &#123;
+        this.userDao = userDao;
+    &#125;
+
+    public void save()&#123;
+        userDao.insert();
+    &#125;
+&#125;
+</code></pre>
+<h4 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h4><p>@Resource注解也可以完成非简单类型注入。那它和@Autowired注解有什么区别？</p>
+<ul>
+<li>@Resource注解是JDK扩展包中的，也就是说属于JDK的一部分。所以该注解是标准注解，更加具有通用性。(JSR-250标准中制定的注解类型。JSR是Java规范提案。)</li>
+<li>@Autowired注解是Spring框架自己的。</li>
+<li><strong>@Resource注解默认根据名称装配byName，未指定name时，使用属性名作为name。通过name找不到的话会自动启动通过类型byType装配。</strong></li>
+<li><strong>@Autowired注解默认根据类型装配byType，如果想根据名称装配，需要配合@Qualifier注解一起用。</strong></li>
+<li>@Resource注解用在属性上、setter方法上。</li>
+<li>@Autowired注解用在属性上、setter方法上、构造方法上、构造方法参数上。</li>
+</ul>
+<p>@Resource注解属于JDK扩展包，所以不在JDK当中，需要额外引入以下依赖：【如果是JDK8的话不需要额外引入依赖。高于JDK11或低于JDK8需要引入以下依赖。】</p>
+<pre><code class="xml">&lt;dependency&gt;
+  &lt;groupId&gt;jakarta.annotation&lt;/groupId&gt;
+  &lt;artifactId&gt;jakarta.annotation-api&lt;/artifactId&gt;
+  &lt;version&gt;2.1.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><strong>如果你用Spring6，要知道Spring6不再支持JavaEE，它支持的是JakartaEE9。（Oracle把JavaEE贡献给Apache了，Apache把JavaEE的名字改成JakartaEE了，大家之前所接触的所有的  javax.*  包名统一修改为  jakarta.*包名了。）</strong></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230405011327753.png" alt="image-20230405011327753"></p>
+<p><strong>一句话总结@Resource注解：默认byName注入，没有指定name时把属性名当做name，根据name找不到时，才会byType注入。byType注入时，某种类型的Bean只能有一个。</strong></p>
+<h3 id="全注解式开发"><a href="#全注解式开发" class="headerlink" title="全注解式开发"></a>全注解式开发</h3><p>所谓的全注解开发就是不再使用spring配置文件了。写一个配置类来代替配置文件。</p>
+<pre><code class="java">package com.powernode.spring6.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(&#123;&quot;com.powernode.spring6.dao&quot;, &quot;com.powernode.spring6.service&quot;&#125;)   //组件扫描
+public class Spring6Configuration &#123;
+&#125;
+</code></pre>
+<p>编写测试程序：不再new ClassPathXmlApplicationContext()对象了。</p>
+<pre><code class="java">@Test
+public void testNoXml()&#123;
+    ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Spring6Configuration.class);
+    UserService userService = applicationContext.getBean(&quot;userService&quot;, UserService.class);
+    userService.save();
+&#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/Spring IoC注解式开发/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/GoF之工厂模式/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>GoF23种设计模式可分为三大类：</p>
+<p>创建型（5个）：解决对象创建问题</p>
+<ul>
+<li>单例模式</li>
+<li>工厂方法模式</li>
+<li>抽象工厂模式</li>
+<li>建造者模式</li>
+<li>原型模式</li>
+</ul>
+<p>结构型（7个）：一些类或对象组合在一起的经典结构</p>
+<ul>
+<li>代理模式</li>
+<li>适配器模式</li>
+<li>装饰模式</li>
+<li>….</li>
+</ul>
+<p>行为型（11个）：解决类或对象之间的交互问题</p>
+<ul>
+<li>策略模式</li>
+<li>模板方法模式</li>
+<li>责任链模式</li>
+<li>观察者模式（MVC模式、监听器等）</li>
+<li>解释器模式</li>
+<li>….</li>
+</ul>
+<p><strong>Spring框架底层大量使用了工厂模式</strong></p>
+<h3 id="工厂模式的三种形态"><a href="#工厂模式的三种形态" class="headerlink" title="工厂模式的三种形态"></a>工厂模式的三种形态</h3><p>第一种：简单工厂模式（Simple Factory）：不属于23种设计模式之一。简单工厂模式又叫做：静态 工厂方法模式。简单工厂模式是工厂方法模式的一种特殊实现。</p>
+<p>第二种：工厂方法模式（Factory Method）：是23种设计模式之一。</p>
+<p>第三种：抽象工厂模式（Abstract Factory）：是23种设计模式之一。</p>
+<h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>简单工厂模式的角色包括三个：</p>
+<ul>
+<li>抽象产品 角色 ——&gt;抽象类</li>
+<li>具体产品 角色 ——&gt;继承该抽象类，并重写里面的方法</li>
+<li>工厂类 角色 ——&gt;用一个方法调用各个具体类，该方法是静态方法</li>
+</ul>
+<p>简单工厂模式的优点：</p>
+<p>客户端程序不需要关心对象的创建细节，需要哪个对象时，只需要向工厂索要即可，初步实现了责任的分离。客户端只负责“消费”，工厂负责“生产”。生产和消费分离。</p>
+<p>简单工厂模式的缺点：</p>
+<ul>
+<li><p>缺点1：工厂类集中了所有产品的创造逻辑，形成一个无所不知的全能类，有人把它叫做上帝类。显然工厂类非常关键，不能出问题，一旦出问题，整个系统瘫痪。</p>
+</li>
+<li><p>缺点2：不符合OCP开闭原则，在进行系统扩展时，需要修改工厂类。</p>
+</li>
+</ul>
+<p><strong>Spring中的BeanFactory就使用了简单工厂模式。</strong></p>
+<h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><p>工厂方法模式既保留了简单工厂模式的优点，同时又解决了简单工厂模式的缺点。</p>
+<p>工厂方法模式的角色包括：</p>
+<ul>
+<li>抽象工厂角色</li>
+<li>具体工厂角色</li>
+<li>抽象产品角色</li>
+<li>具体产品角色</li>
+</ul>
+<p>我们可以看到在进行功能扩展的时候，不需要修改之前的源代码，显然工厂方法模式符合OCP原则。</p>
+<p>工厂方法模式的优点：</p>
+<ul>
+<li>一个调用者想创建一个对象，只要知道其名称就可以了。 </li>
+<li>扩展性高，如果想增加一个产品，只要扩展一个工厂类就可以。</li>
+<li>屏蔽产品的具体实现，调用者只关心产品的接口。</li>
+</ul>
+<p>工厂方法模式的缺点：</p>
+<ul>
+<li>每次增加一个产品时，都需要增加一个具体类和对象实现工厂，使得系统中类的个数成倍增加，在一定程度上增加了系统的复杂度，同时也增加了系统具体类的依赖。这并不是什么好事。</li>
+</ul>
+<p><strong>具体代码请看语雀</strong></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/GoF之工厂模式/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/bean的细节/">
+        <h2>
+            
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h3 id="bean的实例化方式"><a href="#bean的实例化方式" class="headerlink" title="bean的实例化方式"></a>bean的实例化方式</h3><p>Spring为bean提供了多种实例化方式，包括四种（Spring中为bean对象的创建准备了多种方案，目的是：更加灵活）</p>
+<ul>
+<li>第一种：通过构造方法实例化</li>
+<li>第二种：通过简单工厂模式实例化</li>
+<li>第三种：通过factory-bean实例化</li>
+<li>第四种：通过FactoryBean接口实例化</li>
+</ul>
+<h3 id="BeanFactory和FactoryBean的区别"><a href="#BeanFactory和FactoryBean的区别" class="headerlink" title="BeanFactory和FactoryBean的区别"></a>BeanFactory和FactoryBean的区别</h3><p><strong>BeanFactory</strong> </p>
+<p>Spring IoC容器的顶级对象，BeanFactory被翻译为“Bean工厂”，在Spring的IoC容器中，“Bean工厂”负责创建Bean对象。</p>
+<p>BeanFactory是工厂。</p>
+<p><strong>FactoryBean</strong>：它是一个Bean，是一个<strong>能够辅助Spring</strong>实例化其它Bean对象的一个Bean。</p>
+<p>在Spring中，Bean可以分为两类：</p>
+<ul>
+<li><p>第一类：普通Bean</p>
+</li>
+<li><p>第二类：工厂Bean（记住：工厂Bean也是一种Bean，只不过这种Bean比较特殊，它可以辅助Spring实例化其它Bean对象。）</p>
+</li>
+</ul>
+<h3 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h3><p><strong>Spring其实就是一个管理Bean对象的工厂</strong>。它负责对象的创建，对象的销毁等。<br><strong>生命周期就是：对象从创建开始到最终销毁的整个过程。</strong><br>什么时候创建Bean对象？<br>创建Bean对象的前后会调用什么方法？<br>Bean对象什么时候销毁？<br>Bean对象的销毁前后调用什么方法？</p>
+<p>生命周期的本质是：在哪个时间节点上调用了哪个类的哪个方法</p>
+<h4 id="Bean的生命周期之5步"><a href="#Bean的生命周期之5步" class="headerlink" title="Bean的生命周期之5步"></a>Bean的生命周期之5步</h4><ul>
+<li>第一步：实例化Bean ——–&gt; 调用bean的无参数构造方法</li>
+<li>第二步：Bean属性赋值 ——–&gt; 执行set注入</li>
+<li>第三步：初始化Bean </li>
+<li>第四步：使用Bean</li>
+<li>第五步：销毁Bean</li>
+</ul>
+<h4 id="Bean生命周期之7步"><a href="#Bean生命周期之7步" class="headerlink" title="Bean生命周期之7步"></a>Bean生命周期之7步</h4><p>在以上的5步中，第3步是初始化Bean，如果你还想在初始化前和初始化后添加代码，可以加入“Bean后处理器”。</p>
+<p><strong>注意！！！：将Bean后处理器配置到xml文件后，该后处理器将作用于整个配置文件中的bean</strong></p>
+<p>编写一个类实现BeanPostProcessor类，并且重写before和after方法：</p>
+<pre><code class="java">package com.powernode.spring6.bean;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+
+/**
+ * @author 动力节点
+ * @version 1.0
+ * @className LogBeanPostProcessor
+ * @since 1.0
+ **/
+public class LogBeanPostProcessor implements BeanPostProcessor &#123;
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException &#123;
+        System.out.println(&quot;Bean后处理器的before方法执行，即将开始初始化&quot;);
+        return bean;
+    &#125;
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException &#123;
+        System.out.println(&quot;Bean后处理器的after方法执行，已完成初始化&quot;);
+        return bean;
+    &#125;
+&#125;
+</code></pre>
+<p>在xml文件中进行配置</p>
+<pre><code class="xml">&lt;!--配置Bean后处理器。这个后处理器将作用于当前配置文件中所有的bean。--&gt;
+&lt;bean class=&quot;com.powernode.spring6.bean.LogBeanPostProcessor&quot;/&gt;
+</code></pre>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665393936765-0ea5dcdd-859a-4ac5-9407-f06022c498b9.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_29,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<h4 id="Bean生命周期之10步"><a href="#Bean生命周期之10步" class="headerlink" title="Bean生命周期之10步"></a>Bean生命周期之10步</h4><p>增加的三个点位的地方</p>
+<ul>
+<li>点位1：在 Bean后处理器  before方法之前<ul>
+<li>检查Bean是否实现了Aware相关的接口，如果实现了，则调用这些接口中的方法</li>
+<li>调用这些方法的目的是：传递数据，可以更加方便的使用</li>
+</ul>
+</li>
+<li>点位2：在 Bean后处理器  before方法之后<ul>
+<li>检查Bean是否实现了InitializingBean接口，如果实现了，则调用这些接口中的方法</li>
+</ul>
+</li>
+<li>点位3：在使用Bean之后<ul>
+<li>检查Bean是否实现了DisposableBean接口，如果实现了，则调用这些接口中的方法</li>
+</ul>
+</li>
+</ul>
+<p>在7步的基础上添加的这三个点位的特点：都是在检查Bean是否实现了某些特定的接口，如果实现了这些接口，则Spring容器会都调用这个接口中的方法</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665394697870-15de433a-8d50-4b31-9b75-b2ca7090c1c6.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_12,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="img"></p>
+<p>Aware相关的接口包括：BeanNameAware、BeanClassLoaderAware、BeanFactoryAware</p>
+<ul>
+<li><p>当Bean实现了BeanNameAware，Spring会将Bean的名字传递给Bean。</p>
+</li>
+<li><p>当Bean实现了BeanClassLoaderAware，Spring会将加载该Bean的类加载器传递给Bean。</p>
+</li>
+<li><p>当Bean实现了BeanFactoryAware，Spring会将Bean工厂对象传递给Bean。</p>
+</li>
+<li><p>测试以上10步，可以让User类实现5个接口，并实现所有方法：<br>●BeanNameAware<br>●BeanClassLoaderAware<br>●BeanFactoryAware<br>●InitializingBean<br>●DisposableBean</p>
+</li>
+</ul>
+<p><strong>Spring 根据Bean的作用域来选择管理方式。</strong></p>
+<ul>
+<li><p><strong>对于singleton作用域的Bean，Spring 能够精确地知道该Bean何时被创建，何时初始化完成，以及何时被销毁；</strong></p>
+</li>
+<li><p><strong>对于prototype作用域的Bean，Spring 只负责创建，当容器创建了 Bean 的实例后，Bean 的实例就交给客户端代码管理，Spring 容器将不再跟踪其生命周期。</strong></p>
+<ul>
+<li>如果在prototype作用域下，对上述代码进行测试，只执行了前8步，第9（<strong>使用bean</strong>）和10（<strong>销毁bean</strong>）都没有执行</li>
+</ul>
+</li>
+</ul>
+<h3 id="自己new的对象如何让Spring管理"><a href="#自己new的对象如何让Spring管理" class="headerlink" title="自己new的对象如何让Spring管理"></a>自己new的对象如何让Spring管理</h3><p>假设User这个类没有写到xml配置文件中</p>
+<pre><code class="java">  @Test
+    public void testRegisterBean()&#123;
+        //自己new的对象
+        User user=new User();
+        System.out.println(user);
+
+        //将以上自己new的对象纳入Spring容器来管理
+        DefaultListableBeanFactory factory=new DefaultListableBeanFactory();
+        factory.registerSingleton(&quot;user&quot;,user); //自己给这个bean起一个名字，叫user
+
+        //从spring容器中进行获取
+        User user1 = factory.getBean(&quot;user&quot;, User.class);
+        System.out.println(user1);
+    &#125;
+</code></pre>
+<h3 id="Bean的循环依赖问题"><a href="#Bean的循环依赖问题" class="headerlink" title="Bean的循环依赖问题"></a>Bean的循环依赖问题</h3><p>A对象中有B属性。B对象中有A属性。这就是循环依赖。</p>
+<h4 id="使用-singleton-setter-模式"><a href="#使用-singleton-setter-模式" class="headerlink" title="使用 singleton + setter 模式"></a>使用 singleton + setter 模式</h4><p>新建两个bean类，一个Husband类，一个Wife类</p>
+<pre><code class="java">public class Wife &#123;
+
+    private String name;
+    private Husband husband;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Wife&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, husband=&quot; + husband.getName() + //注意，这里重写toString方法时，husband这个属性要调用Husband类的getName()方法，要不然会出现递归导致的栈内存溢出错误。
+                &#39;&#125;&#39;;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setHusband(Husband husband) &#123;
+        this.husband = husband;
+    &#125;
+&#125;
+
+
+
+public class Husband &#123;
+
+    private String name;
+    private Wife wife;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Husband&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, wife=&quot; + wife.getName() +  //注意，这里重写toString方法时，wife这个属性要调用Wife类的getName()方法，要不然会出现递归导致的栈内存溢出错误。
+                &#39;&#125;&#39;;
+    &#125;
+
+    public void setWife(Wife wife) &#123;
+        this.wife = wife;
+    &#125;
+&#125;
+</code></pre>
+<p>编写xml配置文件</p>
+<pre><code class="xml">&lt;!--    singleton + setter模式下的循环依赖 是没有任何问题的 
+        singleton表示在整个Spring容器中是单例的，独一无二的对象
+    --&gt;
+    &lt;bean id=&quot;husbandBean&quot; class=&quot;com.xiehn.spring6.bean.Husband&quot; scope=&quot;singleton&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;zhangsan&quot;/&gt;
+        &lt;property name=&quot;wife&quot; ref=&quot;wifeBean&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=&quot;wifeBean&quot; class=&quot;com.xiehn.spring6.bean.Wife&quot; scope=&quot;singleton&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;xiaohua&quot;/&gt;
+        &lt;property name=&quot;husband&quot; ref=&quot;husbandBean&quot;/&gt;
+    &lt;/bean&gt;
+</code></pre>
+<p><strong>在这种模式下循环依赖不会出现问题，Spring是如何应对的：</strong></p>
+<p>主要的原因是，在这种模式下，Spring对Bean的管理主要分为两个阶段</p>
+<ul>
+<li>第一个阶段：在Spring容器加载的时候，实例化Bean，只要其中任意一个Bean实例化之后，马上进行“曝光”【不等属性赋值就曝光】</li>
+<li>第二个阶段：Bean“曝光”之后，再进行属性的赋值（调用set方法）</li>
+</ul>
+<p><strong>核心的解决方案是：实例化对象和对象的属性赋值分为两个阶段来完成</strong></p>
+<p><strong>只有在scope属性是singleton的情况下，Bean才会采取提前“曝光”的措施</strong></p>
+<p>编写测试类</p>
+<pre><code class="java">@Test
+    public void testCD()&#123;
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext(&quot;spring.xml&quot;);
+        Husband husbandBean = applicationContext.getBean(&quot;husbandBean&quot;, Husband.class);
+        Wife wifeBean=applicationContext.getBean(&quot;wifeBean&quot;, Wife.class);
+        System.out.println(husbandBean);
+        System.out.println(wifeBean);
+    &#125;
+</code></pre>
+<h4 id="使用prototype-setter-模式"><a href="#使用prototype-setter-模式" class="headerlink" title="使用prototype + setter 模式"></a>使用prototype + setter 模式</h4><p>还是上面的程序代码，只将xml配置文件中scope的值改为prototype</p>
+<pre><code class="xml"> &lt;bean id=&quot;husbandBean&quot; class=&quot;com.xiehn.spring6.bean.Husband&quot; scope=&quot;prototype&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;zhangsan&quot;/&gt;
+        &lt;property name=&quot;wife&quot; ref=&quot;wifeBean&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=&quot;wifeBean&quot; class=&quot;com.xiehn.spring6.bean.Wife&quot; scope=&quot;prototype&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;xiaohua&quot;/&gt;
+        &lt;property name=&quot;husband&quot; ref=&quot;husbandBean&quot;/&gt;
+    &lt;/bean&gt;
+</code></pre>
+<p>在prototype + setter 模式下的循环依赖存在问题，会出现异常</p>
+<p><strong>BeanCurrentlyInCreationException：当前请求的Bean正处于创建中异常</strong></p>
+<p>解决方法：将其中一个scope的属性改为singleton即可</p>
+<h4 id="使用构造注入模式"><a href="#使用构造注入模式" class="headerlink" title="使用构造注入模式"></a>使用构造注入模式</h4><pre><code class="xml"> &lt;!--构造注入--&gt;
+    &lt;bean scope=&quot;singleton&quot; class=&quot;com.xiehn.spring6.bean2.Husband&quot; id=&quot;h&quot;&gt;
+        &lt;constructor-arg index=&quot;0&quot; value=&quot;张三&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg index=&quot;1&quot; ref=&quot;w&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+
+    &lt;bean scope=&quot;singleton&quot; class=&quot;com.xiehn.spring6.bean2.Wife&quot; id=&quot;w&quot;&gt;
+        &lt;constructor-arg index=&quot;0&quot; value=&quot;小花&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg index=&quot;1&quot; ref=&quot;h&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+</code></pre>
+<p><strong>使用构造注入这种模式产生的循环依赖是无法解决的，所有尽量避免使用</strong></p>
+<p><strong>主要原因是因为通过构造方法注入导致的：因为构造方法注入会导致实例化对象的过程和对象属性赋值的过程没有分离开，必须在一起完成导致的。</strong></p>
+<h3 id="Spring解决循环依赖的机理"><a href="#Spring解决循环依赖的机理" class="headerlink" title="Spring解决循环依赖的机理"></a>Spring解决循环依赖的机理</h3><p>Spring为什么可以解决set + singleton模式下循环依赖？</p>
+<p>根本的原因在于：这种方式可以做到将“实例化Bean”和“给Bean属性赋值”这两个动作分开去完成。<br>实例化Bean的时候：调用无参数构造方法来完成。此时可以先不给属性赋值，可以提前将该Bean对象“曝光”给外界。<br>给Bean属性赋值的时候：调用setter方法来完成。</p>
+<p><strong>两个步骤是完全可以分离开去完成的，并且这两步不要求在同一个时间点上完成。</strong></p>
+<p>也就是说，Bean都是单例的，我们可以先把所有的单例Bean实例化出来，放到一个集合当中（我们可以称之为缓存），所有的单例Bean全部实例化完成之后，以后我们再慢慢的调用setter方法给属性赋值。这样就解决了循环依赖的问题。</p>
+<p>Spring框架底层的源码：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665456331018-18c45ae3-fa4c-4cd8-aabf-d9bace567693.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_41,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="img"></p>
+<p>在以上类中包含三个重要的属性：</p>
+<p>Cache of <strong>singleton</strong> <strong>objects</strong>: bean name to bean instance. 单例对象的缓存：key存储bean名称，value存储Bean对象【一级缓存】</p>
+<p>Cache of <strong>early singleton objects</strong>: bean name to bean instance. 早期单例对象的缓存：key存储bean名称，value存储早期的Bean对象【二级缓存】</p>
+<p>Cache of <strong>singleton factories</strong>: bean name to ObjectFactory. 单例工厂缓存：key存储bean名称，value存储该Bean对应的ObjectFactory对象【三级缓存】</p>
+<p><strong>一级缓存</strong>存储的是：单例Bean对象。完整的单例Bean对象，也就是说这个缓存中的Bean对象的属性都已经赋值了。是一个完整的Bean对象</p>
+<p><strong>二级缓存</strong>存储的是：早期的单例Bean对象。这个缓存中的单例Bean对象的属性没有赋值。只是一个早期的实例对象</p>
+<p><strong>三级缓存</strong>存储的是：单例工厂对象。这个里面存储了大量的“工厂对象”，每一个单例Bean对象都会对应一个单例工厂对象。</p>
+<p>​								这个集合中存储的是，创建该单例对象时对应的那个单例工厂对象</p>
+<p><strong>三个缓存本质上是Map集合</strong></p>
+<p>该类中有这样一个方法addSingletonFactory()，这个方法的作用是：将创建Bean对象的ObjectFactory对象提前曝光。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665460724682-2222366d-cc07-43db-a8d0-fb27712b20a4.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_31,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/21376908/1665460240687-3d0794c4-e6ed-4653-9463-767a7f943ff9.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_34,text_5Yqo5Yqb6IqC54K5,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10/resize,w_1020,limit_0" alt="image.png"></p>
+<p><strong>Spring只能解决setter方法注入的单例bean之间的循环依赖。ClassA依赖ClassB，ClassB又依赖ClassA，形成依赖闭环。Spring在创建ClassA对象后，不需要等给属性赋值，直接将其曝光到bean缓存当中。在解析ClassA的属性时，又发现依赖于ClassB，再次去获取ClassB，当解析ClassB的属性时，又发现需要ClassA的属性，但此时的ClassA已经被提前曝光加入了正在创建的bean的缓存中，则无需创建新的的ClassA的实例，直接从缓存中获取即可。从而解决循环依赖问题。</strong></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2023/05/16/菜狗带俩娃/Spring6/bean的细节/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/5/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            <a href="/"><span class="page-num">1</span></a>
+            <span class="page-omit">...</span>
+            
+
+            
+
+            
+
+            
+            <a href="/page/4">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+
+            
+            <a href="/page/5/">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            6
+        </span>
+
+        
+        <span>
+            <a href="/page/7/">
+                <span class="page-num">
+                    7
+                </span>
+            </a>
+            
+            <a href="/page/8">
+                <span class="page-num">
+                    8
+                </span>
+            </a>
+            
+
+            
+            <span class="page-omit">...</span>
+            <a href="/page/12">
+                <span class="page-num">
+                    12
+                </span>
+            </a>
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/7/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/img/16584.png " alt="头像">
+        </div>
+        <div class="name">
+            kevin7gif
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                弱小和无知不是生存的障碍，傲慢才是
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="https://github.com/kevin7gif">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/korilin_dev">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a href="/img/20230516204349.jpg">
+                    微信联系我
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜菜 || 开发小白</title>
+    <meta name="author" content="kevin7gif">
+    <meta name="description" content="Kevin's blog ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//img/16584.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">菜菜</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>菜菜</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/5/16
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>针对请求和响应进行的额外的处理，在请求和响应的过程中添加预处理，后处理和最终处理</p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230414190245098.png" alt="image-20230414190245098"></p>
+<p>SpringMVC的处理器拦截器类似于Servlet开发中的过滤器Filter,用于对处理器进行预处理和后处理。开发者可以自己定义一些拦截器来实现特定的功能。</p>
+<p><strong>过滤器与拦截器的区别：</strong>拦截器是AOP思想的具体应用。</p>
+<p><strong>过滤器</strong></p>
+<ul>
+<li>servlet规范中的一部分，任何java web工程都可以使用</li>
+<li>在url-pattern中配置了&#x2F;*之后，可以对所有要访问的资源进行拦截</li>
+</ul>
+<p><strong>拦截器</strong></p>
+<ul>
+<li>拦截器是SpringMVC框架自己的，只有使用了SpringMVC框架的工程才能使用</li>
+<li>拦截器只会拦截访问的控制器方法， 如果访问的是jsp&#x2F;html&#x2F;css&#x2F;image&#x2F;js是不会进行拦截的</li>
+</ul>
+<p>拦截器的执行时机：</p>
+<ul>
+<li>preHandle()：在请求被处理之前进行操作，预处理</li>
+<li>postHandle()：在请求被处理之后，但结果还没有渲染前进行操作，可以改变响应结果，后处理</li>
+<li>afterCompletion()：所有的请求响应结束后执行善后工作，清理对象，关闭资源，最终处理</li>
+</ul>
+<p>拦截器实现的两种方式：</p>
+<ul>
+<li>继承HandlerInterceptorAdapter的父类</li>
+<li><strong>实现HandleInterceptor接口，实现的接口，推荐使用实现接口的方式</strong></li>
+</ul>
+<p>拦截器实现的步骤：</p>
+<ul>
+<li><p>改造登陆方法，在session中存储用户信息，用于进行权限验证</p>
+</li>
+<li><p>开发拦截器的功能，实现HandleInterceptor接口，重写preHandle()方法</p>
+<ul>
+<li><pre><code class="java">package com.kuang.interceptor;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+public class LoginInterceptor implements HandlerInterceptor &#123;
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException &#123;
+        // 如果是登陆页面则放行
+        System.out.println(&quot;uri: &quot; + request.getRequestURI());
+        if (request.getRequestURI().contains(&quot;login&quot;)) &#123;
+            return true;
+        &#125;
+        HttpSession session = request.getSession();
+        // 如果用户已登陆也放行
+        if(session.getAttribute(&quot;user&quot;) != null) &#123;
+            return true;
+        &#125;
+        // 用户没有登陆跳转到登陆页面
+        request.getRequestDispatcher(&quot;/WEB-INF/jsp/login.jsp&quot;).forward(request, response);
+        return false;
+    &#125;
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception &#123;
+    &#125;
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception &#123;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>编写一个controller处理请求</p>
+</li>
+<li><pre><code class="java">package com.kuang.controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.http.HttpSession;
+@Controller
+@RequestMapping(&quot;/user&quot;)
+public class UserController &#123;
+    //跳转到登陆页面
+    @RequestMapping(&quot;/jumplogin&quot;)
+    public String jumpLogin() throws Exception &#123;
+        return &quot;login&quot;;
+    &#125;
+    //跳转到成功页面
+    @RequestMapping(&quot;/jumpSuccess&quot;)
+    public String jumpSuccess() throws Exception &#123;
+        return &quot;success&quot;;
+    &#125;
+    //登陆提交
+    @RequestMapping(&quot;/login&quot;)
+    public String login(HttpSession session, String username, String pwd) throws Exception &#123;
+        // 向session记录用户身份信息
+        System.out.println(&quot;接收前端===&quot;+username);
+        session.setAttribute(&quot;user&quot;, username);
+        return &quot;success&quot;;
+    &#125;
+    //退出登陆
+    @RequestMapping(&quot;logout&quot;)
+    public String logout(HttpSession session) throws Exception &#123;
+        // session 过期
+        session.invalidate();
+        return &quot;login&quot;;
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>编写一个登录页面login.jsp</p>
+</li>
+<li><pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;h1&gt;登录页面&lt;/h1&gt;
+&lt;hr&gt;
+&lt;body&gt;
+&lt;form action=&quot;$&#123;pageContext.request.contextPath&#125;/user/login&quot;&gt;
+    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt; &lt;br&gt;
+    密码： &lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt; &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li><p>编写一个登陆成功的页面success.jsp</p>
+</li>
+<li><pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;登录成功页面&lt;/h1&gt;
+&lt;hr&gt;
+$&#123;user&#125;
+&lt;a href=&quot;$&#123;pageContext.request.contextPath&#125;/user/logout&quot;&gt;注销&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>在springmvc.xml文件中注册拦截器</p>
+<ul>
+<li><pre><code class="xml">&lt;!--关于拦截器的配置--&gt;
+&lt;mvc:interceptors&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;mvc:mapping path=&quot;/**&quot;/&gt;
+        &lt;bean id=&quot;loginInterceptor&quot; class=&quot;com.kuang.interceptor.LoginInterceptor&quot;/&gt;
+    &lt;/mvc:interceptor&gt;
+&lt;/mvc:interceptors&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2023 菜菜
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @kevin7gif
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div>
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                粤ICP备xxxxxx号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>
