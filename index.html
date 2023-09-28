@@ -474,7 +474,7 @@
         coverSlider.carousel({
             duration: Number('120'),
             fullWidth: true,
-            indicators: 'false' === 'true',
+            indicators: 'true' === 'true',
             onCycleTo() {
                 if (!initUserPressedOrDraggedActive) {
                     // console.log('initUserPressedOrDraggedActive')
@@ -486,8 +486,19 @@
 
         let carouselIntervalId;
         
+        // Loop to call the next cover article picture.
+        let autoCarousel = function () {
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, 5000);
+        };
+        autoCarousel();
+        
 
         function restartPlay() {
+            
+            clearInterval(carouselIntervalId);
+            autoCarousel();
             
         };
 
