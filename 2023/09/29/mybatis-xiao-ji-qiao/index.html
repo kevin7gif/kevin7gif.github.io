@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MVC架构, Kevin&#39;s blog">
+    <meta name="keywords" content="Mybatis小技巧, Kevin&#39;s blog">
     <meta name="description" content="kevin的日记本">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MVC架构 | Kevin&#39;s blog</title>
+    <title>Mybatis小技巧 | Kevin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/16584.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MVC架构</h1>
+                    <h1 class="description center-align post-title">Mybatis小技巧</h1>
                 </div>
             </div>
         </div>
@@ -443,8 +443,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JavaWeb/">
-                                <span class="chip bg-color">JavaWeb</span>
+                            <a href="/tags/Mybatis/">
+                                <span class="chip bg-color">Mybatis</span>
                             </a>
                         
                     </div>
@@ -455,8 +455,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/SSM%E6%A1%86%E6%9E%B6/" class="post-category">
+                                SSM框架
                             </a>
                         
                     </div>
@@ -477,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    210
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -504,25 +504,160 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1.系统为什么要分层？</p>
+                <p>mybatis小技巧</p>
+<ol>
+<li><p>#{} 和 ${} 的区别</p>
 <ul>
-<li>希望专人干专事，职能分工明确。这样可以让代码耦合度降低，扩展力增强，组件的可复用性强</li>
+<li>#{}：底层使用PreparedStatement。特点：先进行SQL语句的编译，然后给SQL语句的占位符问号 ？ 传值，可以避免SQL注入</li>
+<li>${}：底层使用Statement。特点：先进行SQL语句的拼接，然后再对SQL语句进行编译。有SQL注入的风险</li>
+<li><strong>优先使用 #{}，这是原则</strong></li>
+<li>如果需要<strong>SQL语句的关键字</strong>（例如：升序asc，降序desc）放到SQL语句中，**只能使用${}**，因为#{}是以值的形式放到SQL语句中的。</li>
 </ul>
-<p>2.软件的架构中，有一个很著名的架构模式：MVC架构模式</p>
+</li>
+<li><p>向SQL语句中拼接表名，就需要使用${}</p>
 <ul>
-<li>M（Model：数据/业务） V（View：视图/展示）  C（Controller：控制器）</li>
-<li>C是核心，是老板，M是处理数据/业务的一个秘书，V是负责页面展示的一个秘书</li>
-<li>MVC：一个老板，调度两个秘书去做这件事</li>
+<li>日志表：专门存储日志信息的，如果每天生成一张新表，每张表以当天日期作为名称，例如：<ul>
+<li>t_log_20230130</li>
+<li>t_log_20230331</li>
+<li>….</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/1673228316367-5b7ef562-6ab4-4a34-b478-4fb221abcb77.png" alt="img"></p>
-<p><strong>三层架构</strong></p>
+</li>
+<li>如果想知道某一天的日志信息，就需要将当天的日期拼接到t_log_后面</li>
+<li>例如：今天是20230331，就将20230331拼接到t_log_后面</li>
+</ul>
+</li>
+<li><p>批量删除：一次删除多条记录</p>
 <ul>
-<li>一般一层域一层之间都使用接口</li>
-<li>之所以使用接口就是为了：<strong>降低耦合度，提高扩展力</strong></li>
-<li>数据库中的事务都在业务逻辑层进行控制</li>
-<li>一般一个业务方法对应一个完整的事务</li>
+<li>两种写法：<ul>
+<li>第一种or：delete from t_car where id=1 or id=2 or id=3;</li>
+<li>第二种in：delete from t_car where id in(1,2,3);</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/1673252217649-1d1fb712-683b-4494-bb01-be3abecf34e4.png" alt="img"></p>
+</li>
+<li>例如：delete from t-car where id in(${传入的多个id号})</li>
+</ul>
+</li>
+<li><p>模糊查询：like</p>
+<ul>
+<li>需求：根据汽车品牌进行模糊查询<ul>
+<li>select * from t_car where brand like ‘%奔驰%’;</li>
+<li>select * from t_car where brand like ‘%比亚迪%’</li>
+</ul>
+</li>
+<li>第一种方案：<ul>
+<li>‘%${brand}%’</li>
+</ul>
+</li>
+<li>第二种方案：concat函数，是mysql当中的一个函数，专门进行字符串拼接<ul>
+<li>concat(‘%’,#{brand},’%’)</li>
+</ul>
+</li>
+<li>第三种方案：<ul>
+<li>concat(‘%’,’${brand}’,’%’)</li>
+</ul>
+</li>
+<li>第四种方案：<ul>
+<li>concat(“%”,#{brand},”%”) —–&gt; 使用较多</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>起别名</p>
+<ul>
+<li>第一种方法：在mybatis-config.xml文件中可以使用 typeAlias标签对类起别名，这样的话，在SqlMapper.xml文件中书写sql语句的时候，标签里面的resultType属性就可以使用别名</li>
+<li>例如：<code> &lt;typeAlias type="caom.xiehn.mybatis.bean.Car" alias="aaa"/&gt;</code><ul>
+<li>上述代码中的type指定给哪个类型起别名</li>
+<li>上述代码中的alias指定别名</li>
+</ul>
+</li>
+<li>但是不建议这么做，代码的可读性会降低</li>
+<li>第二种方法：使用package标签 <ul>
+<li><code>&lt;package name="com.xiehn.mybatis.bean"&gt;</code></li>
+<li><strong>上述代码默认会对所有的类自动起别名，使用简名作为别名，所有起别名方式都不区分大小写</strong></li>
+</ul>
+</li>
+<li><strong>namespace不能起别名，只能写全限定类名</strong></li>
+</ul>
+</li>
+<li><p>mybatis-config.xml文件中的mapper属性：</p>
+<ul>
+<li><p><code>&lt;mapper resource="CarMapper.xml"/&gt;  要求类的根路径下必须有：CarMapper.xml</code></p>
+</li>
+<li><p><code>&lt;mapper url="file:///d:/CarMapper.xml"/&gt;  要求在D盘目录下要有CarMapper.xml文件</code></p>
+</li>
+<li><p><code>&lt;mapper class="全限定接口名，带有包名"/&gt;</code></p>
+</li>
+<li><p>mapper标签的属性可以有三个：</p>
+<ul>
+<li>resource：从类的根目录下开始查找资源，配置文件需要放到类的根路径中</li>
+<li>url：采用绝对路径的方式，不要求配置文件必须放到类路径中，但是移植性太差，很少使用</li>
+<li>class：提供的是mapper接口的全限定接口名，必须带包名，<strong>也就是说如果采用这种方式，必须保证CarMapper.xml文件和CarMapper接口在同一目录下</strong></li>
+</ul>
+</li>
+<li><p>一般直接在mappers标签中使用package属性，这种最常用</p>
+<ul>
+<li><p><code>&lt;package name="com.xiehn.mybatis.mapper"&gt;</code></p>
+</li>
+<li><p>这种方法也必须保证SqlMapper.xml文件和SqlMapper接口在同级目录下</p>
+<ul>
+<li><strong>同级目录：java目录和resource目录都是根路径，所有分别在这两个目录下新建com.xiehn.mybatis.bean包，将SqlMapper.xml文件放到resource的包下，将SqlMapper接口放在java的包下</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>提醒！！！！！！<br>    在idea的resource目录下新建多重目录的话，必须采用/的方式：com/xiehn/mybatis/mapper。<br>    不能采用 . 的方式</p>
+</li>
+<li><h3 id="resultMap结果映射"><a href="#resultMap结果映射" class="headerlink" title="resultMap结果映射"></a>resultMap结果映射</h3><ul>
+<li><p>当查询结果的列名和java对象的属性名对应不上怎么办？</p>
+<ul>
+<li>第一种方式：as 给列起别名</li>
+<li>第二种方式：使用resultMap进行结果映射</li>
+<li>第三种方式：是否开启驼峰命名自动映射（在mybatis-config.xml中配置settings标签）</li>
+</ul>
+</li>
+<li><p>使用resultMap进行结果映射：</p>
+</li>
+<li><pre><code class="xml">&lt;!--
+resultMap:
+    id：这个结果映射的标识，作为select标签的resultMap属性的值。
+    type：结果集要映射的类。可以使用别名。
+--&gt;
+&lt;resultMap id="carResultMap" type="car"&gt;
+  &lt;!--对象的唯一标识，官方解释是：为了提高mybatis的性能。建议写上。--&gt;
+  &lt;id property="id" column="id"/&gt;
+
+  &lt;result property="carNum" column="car_num"/&gt;
+  &lt;!--当属性名和数据库列名一致时，可以省略。但建议都写上。--&gt;
+  &lt;!--javaType用来指定属性类型。jdbcType用来指定列类型。一般可以省略。--&gt;
+  &lt;result property="brand" column="brand" javaType="string" jdbcType="VARCHAR"/&gt;
+  &lt;result property="guidePrice" column="guide_price"/&gt;
+  &lt;result property="produceTime" column="produce_time"/&gt;
+  &lt;result property="carType" column="car_type"/&gt;
+&lt;/resultMap&gt;
+
+&lt;!--resultMap属性的值必须和resultMap标签中id属性值一致。--&gt;
+&lt;select id="selectAllByResultMap" resultMap="carResultMap"&gt;
+  select * from t_car
+&lt;/select&gt;
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* **开启驼峰命名自动映射**</span><br><span class="line"></span><br><span class="line">  - 使用这种方式的前提是：属性名遵循Java的命名规范，数据库表的列名遵循SQL的命名规范。</span><br><span class="line"></span><br><span class="line">  - Java命名规范：首字母小写，后面每个单词首字母大写，遵循驼峰命名方式。</span><br><span class="line"></span><br><span class="line">  - SQL命名规范：全部小写，单词之间采用下划线分割。</span><br><span class="line"></span><br><span class="line">  - 例如：carNum ----&gt; car_num       produceTime ----&gt; produce_time</span><br><span class="line"></span><br><span class="line">  - 在mybatis-config.xml文件中进行配置，settings标签写在environments标签上面</span><br><span class="line"></span><br><span class="line">  - ```xml</span><br><span class="line">    &lt;!--放在properties标签后面--&gt;</span><br><span class="line">    &lt;settings&gt;</span><br><span class="line">      &lt;setting name="mapUnderscoreToCamelCase" value="true"/&gt;</span><br><span class="line">    &lt;/settings&gt;</span><br></pre></td></tr></tbody></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">如果显示版本不兼容问题，需要手动在pom.xml文件里面配置jdk版本</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">如果用的tomcat10，则需要把javax包改为jakarta包</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>关于动态生成Dao类</strong>：—&gt; 使用这种方法可以省去在项目中编写dao包</p>
+<ul>
+<li>mybatis中提供了相关的机制，可以动态生成dao接口的实现类。（代理类：dao接口的代理）</li>
+<li>mybatis中实际上采用了代理模式。在内存中生成dao接口的代理类，然后创建类的实例</li>
+<li><strong>使用mybatis这种代理机制的前提：SqlMapper.xml文件中namespace必须是dao接口的全限定名称，id必须是dao接口中的方法名</strong></li>
+</ul>
+<p>getMapper()方法——&gt; 动态生成类</p>
+<p>例如：<strong>private AccountDao accountDao = SqlSession.getMapper(AccountDao.class)</strong> </p>
 
                 
             </div>
@@ -549,7 +684,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kevin7gif.github.io/2023/09/29/mvc-jia-gou/">https://kevin7gif.github.io/2023/09/29/mvc-jia-gou/</a>
+                    <a href="https://kevin7gif.github.io/2023/09/29/mybatis-xiao-ji-qiao/">https://kevin7gif.github.io/2023/09/29/mybatis-xiao-ji-qiao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,8 +722,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaWeb/">
-                                    <span class="chip bg-color">JavaWeb</span>
+                                <a href="/tags/Mybatis/">
+                                    <span class="chip bg-color">Mybatis</span>
                                 </a>
                             
                         </div>
@@ -632,9 +767,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/09/29/mybatis-xiao-ji-qiao/">
                     <div class="card-image">
@@ -652,9 +788,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -667,6 +803,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -685,19 +822,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/29/mysql/">
+                <a href="/2023/09/29/mvc-jia-gou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MVC架构">
                         
-                        <span class="card-title">MySQL</span>
+                        <span class="card-title">MVC架构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySQL索引、性能优化、存储引擎、主从复制、分库分表等相关基础
+                            一个十分著名的架构模式，往后的项目多以此为基础进行设计
                         
                     </div>
                     <div class="publish-info">
@@ -708,8 +845,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -719,8 +856,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/JavaWeb/">
+                        <span class="chip bg-color">JavaWeb</span>
                     </a>
                     
                 </div>
