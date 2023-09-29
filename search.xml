@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MVC架构</title>
+      <link href="/2023/09/29/mvc-jia-gou/"/>
+      <url>/2023/09/29/mvc-jia-gou/</url>
+      
+        <content type="html"><![CDATA[<p>1.系统为什么要分层？</p><ul><li>希望专人干专事，职能分工明确。这样可以让代码耦合度降低，扩展力增强，组件的可复用性强</li></ul><p>2.软件的架构中，有一个很著名的架构模式：MVC架构模式</p><ul><li>M（Model：数据/业务） V（View：视图/展示）  C（Controller：控制器）</li><li>C是核心，是老板，M是处理数据/业务的一个秘书，V是负责页面展示的一个秘书</li><li>MVC：一个老板，调度两个秘书去做这件事</li></ul><p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/1673228316367-5b7ef562-6ab4-4a34-b478-4fb221abcb77.png" alt="img"></p><p><strong>三层架构</strong></p><ul><li>一般一层域一层之间都使用接口</li><li>之所以使用接口就是为了：<strong>降低耦合度，提高扩展力</strong></li><li>数据库中的事务都在业务逻辑层进行控制</li><li>一般一个业务方法对应一个完整的事务</li></ul><p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/1673252217649-1d1fb712-683b-4494-bb01-be3abecf34e4.png" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaWeb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL</title>
       <link href="/2023/09/29/mysql/"/>
       <url>/2023/09/29/mysql/</url>
