@@ -477,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    16 分
                 </div>
                 
 
@@ -504,51 +504,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><ul>
-<li><a href="#mysql">MySQL</a><ul>
-<li><a href="#%E4%B8%80%E7%B4%A2%E5%BC%95">一、索引</a><ul>
-<li><a href="#b-tree-%E5%8E%9F%E7%90%86">B+ Tree 原理</a></li>
-<li><a href="#mysql-%E7%B4%A2%E5%BC%95">MySQL 索引</a></li>
-<li><a href="#%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96">索引优化</a></li>
-<li><a href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%82%B9">索引的优点</a></li>
-<li><a href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6">索引的使用条件</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8C%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">二、查询性能优化</a><ul>
-<li><a href="#%E4%BD%BF%E7%94%A8-explain-%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90">使用 Explain 进行分析</a></li>
-<li><a href="#%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE">优化数据访问</a></li>
-<li><a href="#%E9%87%8D%E6%9E%84%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F">重构查询方式</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%89%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E">三、存储引擎</a><ul>
-<li><a href="#innodb">InnoDB</a></li>
-<li><a href="#myisam">MyISAM</a></li>
-<li><a href="#%E6%AF%94%E8%BE%83">比较</a></li>
-</ul>
-</li>
-<li><a href="#%E5%9B%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">四、数据类型</a><ul>
-<li><a href="#%E6%95%B4%E5%9E%8B">整型</a></li>
-<li><a href="#%E6%B5%AE%E7%82%B9%E6%95%B0">浮点数</a></li>
-<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
-<li><a href="#%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F">时间和日期</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%94%E5%88%87%E5%88%86">五、切分</a><ul>
-<li><a href="#%E6%B0%B4%E5%B9%B3%E5%88%87%E5%88%86">水平切分</a></li>
-<li><a href="#%E5%9E%82%E7%9B%B4%E5%88%87%E5%88%86">垂直切分</a></li>
-<li><a href="#sharding-%E7%AD%96%E7%95%A5">Sharding 策略</a></li>
-<li><a href="#sharding-%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98">Sharding 存在的问题</a></li>
-</ul>
-</li>
-<li><a href="#%E5%85%AD%E5%A4%8D%E5%88%B6">六、复制</a><ul>
-<li><a href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6">主从复制</a></li>
-<li><a href="#%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB">读写分离</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="一、索引"><a href="#一、索引" class="headerlink" title="一、索引"></a>一、索引</h2><h3 id="B-Tree-原理"><a href="#B-Tree-原理" class="headerlink" title="B+ Tree 原理"></a>B+ Tree 原理</h3><h4 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1. 数据结构"></a>1. 数据结构</h4><p>B Tree 指的是 Balance Tree，也就是平衡树。平衡树是一颗查找树，并且所有叶子节点位于同一层。</p>
+                <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、索引"><a href="#一、索引" class="headerlink" title="一、索引"></a>一、索引</h2><h3 id="B-Tree-原理"><a href="#B-Tree-原理" class="headerlink" title="B+ Tree 原理"></a>B+ Tree 原理</h3><h4 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1. 数据结构"></a>1. 数据结构</h4><p>B Tree 指的是 Balance Tree，也就是平衡树。平衡树是一颗查找树，并且所有叶子节点位于同一层。</p>
 <p>B+ Tree 是基于 B Tree 和叶子节点顺序访问指针进行实现，它具有 B Tree 的平衡性，并且通过顺序访问指针来提高区间查询的性能。</p>
 <p>在 B+ Tree 中，一个节点中的 key 从左到右非递减排列，如果某个指针的左右相邻 key 分别是 key<sub>i</sub> 和 key<sub>i+1</sub>，且不为 null，则该指针指向节点的所有 key 大于等于 key<sub>i</sub> 且小于等于 key<sub>i+1</sub>。</p>
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/33576849-9275-47bb-ada7-8ded5f5e7c73.png" width="350px"> </div><br>
@@ -1135,7 +1091,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.1k</span>&nbsp;字
+                class="white-color">4.9k</span>&nbsp;字
             
             
             
