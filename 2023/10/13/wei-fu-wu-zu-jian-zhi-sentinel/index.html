@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MVC架构, Kevin&#39;s blog">
+    <meta name="keywords" content="微服务组件之Sentinel, Kevin&#39;s blog">
     <meta name="description" content="kevin的日记本">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MVC架构 | Kevin&#39;s blog</title>
+    <title>微服务组件之Sentinel | Kevin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/16584.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -322,12 +322,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MVC架构</h1>
+                    <h1 class="description center-align post-title">微服务组件之Sentinel</h1>
                 </div>
             </div>
         </div>
@@ -443,8 +443,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JavaWeb/">
-                                <span class="chip bg-color">JavaWeb</span>
+                            <a href="/tags/SpringCloud/">
+                                <span class="chip bg-color">SpringCloud</span>
                             </a>
                         
                     </div>
@@ -455,8 +455,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                微服务
                             </a>
                         
                     </div>
@@ -468,7 +468,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-29
+                    2023-10-13
                 </div>
                 
 
@@ -477,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    210
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    11 分
                 </div>
                 
 
@@ -504,25 +504,186 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1.系统为什么要分层？</p>
+                <h1 id="Sentinel"><a href="#Sentinel" class="headerlink" title="Sentinel"></a>Sentinel</h1><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>将sentinel-dashboard.jar文件通过控制台运行</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dserver.port=8090 -Dcsp.sentinel.dashboard.server=localhost:8090 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其它启动时可配置参数可参考官方文档：<br><a target="_blank" rel="noopener" href="https://github.com/alibaba/Sentinel/wiki/%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE%E9%A1%B9">Sentinel启动配置项</a></p>
+<p>之后在浏览器输入：<a target="_blank" rel="noopener" href="https://localhost:8090/">https://localhost:8090</a> 就可以访问了</p>
+<p>账户和密码默认都是sentinel</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231013163100635.png" alt="image-20231013163100635"></p>
+<h2 id="初识"><a href="#初识" class="headerlink" title="初识"></a>初识</h2><p>Sentinel是阿里开源的项目，提供了流量控制、熔断降级、系统负载保护等多个维度来保障服务之间的稳定性。</p>
+<p><strong>Sentinel能解决什么问题</strong></p>
 <ul>
-<li>希望专人干专事，职能分工明确。这样可以让代码耦合度降低，扩展力增强，组件的可复用性强</li>
+<li>大流量请求：在秒杀和大促开始前,如果准备不充分,瞬间大量请求会造成服务提供者的不可用。</li>
+<li>硬件故障：可能为硬件损坏造成的服务器主机宕机, 网络硬件故障造成的服务提供者的不可访问。</li>
+<li>缓存击穿：一般发生在缓存应用重启, 缓存失效时高并发，所有缓存被清空时,以及短时间内大量缓存失效时。大量的缓存不命中, 使请求直击后端,造成服务提供者超负荷运行,引起服务不可用。</li>
 </ul>
-<p>2.软件的架构中，有一个很著名的架构模式：MVC架构模式</p>
+<p>在服务提供者不可用的时候，会出现大量重试的情况：用户重试、代码逻辑重试，这些重试最终导致：进一步加大请求流量。所以归根结底导致雪崩效应的最根本原因是：大量请求线程同步等待造成的资源耗尽。当服务调用者使用同步调用时, 会产生大量的等待线程占用系统资源。一旦线程资源被耗尽,服务调用者提供的服务也将处于不可用状态, 于是服务雪崩效应产生了。</p>
+<p>服务雪崩效应：因服务提供者的不可用导致服务调用者的不可用,并将不可用逐渐放大的过程，就叫服务雪崩效应</p>
+<p>==解决雪崩问题的常见方式：==</p>
 <ul>
-<li>M（Model：数据/业务） V（View：视图/展示）  C（Controller：控制器）</li>
-<li>C是核心，是老板，M是处理数据/业务的一个秘书，V是负责页面展示的一个秘书</li>
-<li>MVC：一个老板，调度两个秘书去做这件事</li>
+<li><strong>超时处理</strong>：设定超时时间，请求超过一定时间没有响应就返回错误信息，不会无休止等待</li>
+<li><strong>舱壁模式</strong>：限定每个业务能使用的线程数，避免耗尽整个tomcat的资源，因此也叫做线程隔离</li>
+<li><strong>熔断降级</strong>：由<code>断路器</code>统计业务执行的异常比例，如果超过阈值则会<code>熔断</code>该业务，拦截访问该业务的一切请求</li>
+<li><strong>流量控制</strong>：限制业务访问的QPS，避免服务因流量的徒增而故障</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/1673228316367-5b7ef562-6ab4-4a34-b478-4fb221abcb77.png" alt="img"></p>
-<p><strong>三层架构</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231008095815842.png" alt="image-20231008095815842"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231008100056437.png" alt="image-20231008100056437"></p>
+<h2 id="限流规则"><a href="#限流规则" class="headerlink" title="限流规则"></a>限流规则</h2><h3 id="流控模式"><a href="#流控模式" class="headerlink" title="流控模式"></a>流控模式</h3><p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231009102630418.png" alt="image-20231009102630418"></p>
+<h4 id="关联模式"><a href="#关联模式" class="headerlink" title="关联模式"></a>关联模式</h4><p>统计与当前资源相关的另一个资源，触发阈值时，对当前资源限流</p>
+<p>==使用场景==：比如用户支付时需要修改订单状态，同时用户要查询订单。查询和修改操作会争抢数据库锁，产生竞争。业务需求是有限支付和更新订单的业务，因此当修改订单业务触发阈值时，需要对查询订单业务限流。</p>
+<p>例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231009103137597.png" alt="image-20231009103137597"></p>
+<h4 id="链路模式"><a href="#链路模式" class="headerlink" title="链路模式"></a>链路模式</h4><p>只针对从指定链路访问到本资源的请求做统计，判断是否超过阈值。</p>
+<p>例如有两条请求链路：</p>
 <ul>
-<li>一般一层域一层之间都使用接口</li>
-<li>之所以使用接口就是为了：<strong>降低耦合度，提高扩展力</strong></li>
-<li>数据库中的事务都在业务逻辑层进行控制</li>
-<li>一般一个业务方法对应一个完整的事务</li>
+<li>/test1 —&gt; /common</li>
+<li>/test2 —&gt; /common</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/1673252217649-1d1fb712-683b-4494-bb01-be3abecf34e4.png" alt="img"></p>
+<p>如果只希望统计从/test2到/common的请求，可以进行如下配置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231009103518287.png" alt="image-20231009103518287"></p>
+<h3 id="流控效果"><a href="#流控效果" class="headerlink" title="流控效果"></a>流控效果</h3><p>流控效果是指请求达到流控阈值时应该采取的措施，包括三种：</p>
+<ul>
+<li>快速失败：达到阈值后，新的请求会被立即拒绝并抛出FlowException异常。是默认的处理方式</li>
+<li>warm up：预热模式，对超出阈值的请求同样是拒绝并抛出异常。但这种模式阈值会动态变化，从一个较小值逐渐增加到最大阈值</li>
+<li>排队等待：让所有的请求按照先后次序排队执行，两个请求的间隔不能小于指定时长</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231009103905996.png" alt="image-20231009103905996"></p>
+<h4 id="warm-up"><a href="#warm-up" class="headerlink" title="warm up"></a>warm up</h4><p>也叫做预热模式，是应对服务冷启动的一种方案，可以避免冷启动时高并发导致服务宕机。请求阈值初始值是threshold/coldFactor，持续指定时长后，逐渐提高到threshold值。而<strong>coldFactor的默认值是3</strong></p>
+<p>例如：如果设置QPS的threshold为10，预热时间是5秒，那么初始阈值就是10/3，也就是3，然后在5秒后逐渐增长到10</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231009111735654.png" alt="image-20231009111735654"></p>
+<h4 id="排队等待"><a href="#排队等待" class="headerlink" title="排队等待"></a>排队等待</h4><p>当请求超过QPS<strong>（每秒请求数）</strong>阈值时，快速失败和warm up会拒绝新的请求并抛出异常。而排队等待则是让所有请求进入一个队列中，然后按照阈值允许的时间间隔依次执行。后来的请求必须等待前面执行完成，如果请求预期的等待时间超出最大时长，则会被拒绝。</p>
+<p>例如：QPS=5,意味着每200ms处理一个队列中的请求；timeout=2000，意味着预期等待超过2000ms的请求会被拒绝并抛出异常</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231009112717425.png" alt="image-20231009112717425"></p>
+<h3 id="热点参数限流"><a href="#热点参数限流" class="headerlink" title="热点参数限流"></a>热点参数限流</h3><p>之前的限流是统计访问某个资源的所有请求，判断是否超过QPS阈值。而热点参数限流是分别统计<strong>参数值相同</strong>的请求，判断是否超过QPS阈值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011112927606.png" alt="image-20231011112927606"></p>
+<p>例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011112941963.png" alt="image-20231011112941963"></p>
+<p>上述配置的含义为：对hot这个资源的0号参数(第一个参数)做统计，每1秒<strong>相同参数值</strong>的请求数不能超过5</p>
+<p>结合上面的配置，还可以进行如下高级配置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011113204963.png" alt="image-20231011113204963"></p>
+<p>这里的含义是对0号的long类型参数限流，每1秒相同参数的QPS不能超过5，有两个例外：</p>
+<ul>
+<li>如果参数值是100，则每1秒允许的QPS为10</li>
+<li>如果参数值是101，则每1秒允许的QPS为15</li>
+</ul>
+<p>==注意：热点参数限流对SpringMVC资源不生效，如果想生效只能通过修改后端代码实现==</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011113809871.png" alt="image-20231011113809871"></p>
+<p>如果想对<code>/order/{orderId}</code>这个资源进行热点参数限流的话，只能在该方法上<strong>添加@SentinelResource注解</strong>，指定资源名称，在sentinel的控制台中资源名称填@SentinelResource注解里面指定的名称就可以了</p>
+<h2 id="隔离和降级"><a href="#隔离和降级" class="headerlink" title="隔离和降级"></a>隔离和降级</h2><p>限流可以避免因高并发而引起的服务故障，但服务还会因为其他原因而故障。要将这些故障控制在一定范围内避免雪崩，就要靠线程隔离（舱壁模式）和熔断降级手段</p>
+<p>二者都是对客户端（调用方）的保护</p>
+<p>如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011141801392.png" alt="image-20231011141801392"></p>
+<p>左为线程隔离，右为熔断降级</p>
+<p><strong>在SpringCloud中，微服务调用都是通过Feign实现的，所以哦做客户端的保护必须整合Feign和Sentinel。</strong></p>
+<p>1.修改对应的yml配置文件，开启Feign的Sentinel功能</p>
+<p>2.给FeignClient编写失败后的降级逻辑</p>
+<ul>
+<li>方式一：FallbackClass，无法对远程调用的异常做处理</li>
+<li>方式二：FallbackFactory，可以对远程调用的异常做处理</li>
+</ul>
+<p>首先需要定义一个配置类来实现FallbackFactory</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011143119990.png" alt="image-20231011143119990"></p>
+<p>然后将这个配置类注册为一个Bean，交给Spring容器管理，这里可以直接在该配置类上加@Configuration注解，也可以写一个配置类专门定义这些配置</p>
+<p>例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011145356446.png" alt="image-20231011145356446"></p>
+<p>上图的这个DefaultFeignConffiguration类并没有加@Configuration注解，但是依然交由Spring管理了，原因是在该项目的启动类上加了如下注解：<code>@EnableFeignClients(defaultConfiguration=DefaultFeignConfiguration.class)</code></p>
+<p>在FeignClient接口中使用该配置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011145255959.png" alt="image-20231011145255959"></p>
+<h3 id="线程隔离"><a href="#线程隔离" class="headerlink" title="线程隔离"></a>线程隔离</h3><p>线程隔离有两种方式：</p>
+<ul>
+<li>线程池隔离</li>
+<li>信号量隔离（Sentinel默认）</li>
+</ul>
+<p>如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231011150558658.png" alt="image-20231011150558658"></p>
+<p>前两个采用线程池隔离的方式，最后一个采用信号量隔离的方式</p>
+<ul>
+<li>线程池隔离：当有线程访问服务Ⅰ时首先进入服务A，当服务A的线程池数量满了之后才会进入服务B</li>
+<li>信号量隔离：当有线程访问服务Ⅰ时，该服务中的计数器数量会减一，当为0时服务挂掉</li>
+</ul>
+<p>==二者的优缺点==</p>
+<p><strong>线程池隔离</strong></p>
+<p>优点：支持主动超时，异步调用</p>
+<p>缺点：线程的额外开销比较大</p>
+<p>使用场景：低扇出</p>
+<p><strong>信号量隔离</strong></p>
+<p>优点：轻量级，无额外开销</p>
+<p>缺点：不支持主动超时，异步调用</p>
+<p>使用场景：高频调用，高扇出</p>
+<p>之前在sentinel控制台添加限流规则时有如下界面：<br><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231013163154944.png" alt="image-20231013163154944"></p>
+<p>QPS：每秒的请求数</p>
+<p>线程数：是该资源能使用的tomcat线程数的最大值。也就是限制线程数量，实现<strong>舱壁模式</strong></p>
+<h3 id="熔断降级"><a href="#熔断降级" class="headerlink" title="熔断降级"></a>熔断降级</h3><p>熔断降级是解决雪崩问题的重要手段。其思路是由<strong>断路器</strong>统计服务调用的异常比例、慢请求比例，如果超出阈值则会<strong>熔断</strong>该服务。即拦截访问该服务的一切请求；当服务恢复时，断路器会放行访问该服务的请求</p>
+<p>下图是断路器的工作原理</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231012101837263.png" alt="image-20231012101837263"></p>
+<h4 id="熔断策略"><a href="#熔断策略" class="headerlink" title="熔断策略"></a>熔断策略</h4><ul>
+<li><p><strong>慢调用：</strong>业务的响应时长（RT）大于指定时长的请求认定为慢调用请求。在指定时间内，如果请求数量超过设定的最小数量，慢调用比例大于设定的阈值，则触发熔断。</p>
+<ul>
+<li>如图：<img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231012102420908.png" alt="image-20231012102420908"></li>
+<li>上图的意思就是当RT超过500ms的调用是慢调用，统计最近10000ms内的请求，如果请求量超过10次，并且慢调用比例不低于0.5，则触发熔断，熔断时长为5秒。然后进入half-open状态，放行一次请求做测试</li>
+</ul>
+</li>
+<li><p><strong>异常比例或异常数：</strong>统计制度那个时间内的调用，如果调用次数超过指定请求数，并且出现异常的比例达到设定的比例阈值（或超过指定异常数），则触发熔断</p>
+<ul>
+<li>如图：<img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231012110359148.png" alt="image-20231012110359148"></li>
+<li>上图的意思是统计最近1000ms内的请求，如果请求超所10次，并且异常比例不低于0.5，则触发熔断，熔断时长为5秒。然后进入half-open状态，放行一次请求做测试</li>
+</ul>
+</li>
+</ul>
+<h2 id="授权规则"><a href="#授权规则" class="headerlink" title="授权规则"></a>授权规则</h2><p>之前在gateway网关中已经学过了授权鉴权，Sentinel的授权是在网关之后的，如果一些微服务的地址被泄露，就可以绕过网关，这时候就要用到Sentinel来鉴权了，他可以判断这个服务调用者的来源是否合法</p>
+<p>授权规则可以对调用方的来源做控制，有白名单和黑名单两种方式</p>
+<ul>
+<li>白名单：来源（origin）在白名单内的调用者允许访问</li>
+<li>黑名单：来源（origin）在黑名单内的调用者不允许访问</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231012111345190.png" alt="image-20231012111345190"></p>
+<p>这里的流控应用填的是请求头中orign对应的值。</p>
+<p>例如：现在有如下场景：网关端口号为1111，服务的端口号为2222。你只希望你的服务通过网关（端口1111）来调用，而不能直接通过浏览器（端口2222）调用。</p>
+<p>那么就可以在网关的配置中加上一个默认的请求头，名称为orign，值为gateway。sentinel中要<strong>实现获取调用者来源</strong>的功能就要实现<strong>RequestOrignParser</strong>这个接口，例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231012112515174.png" alt="image-20231012112515174"></p>
+<p>而后在sentinel控制台这里对应的流控应用就填gateway</p>
+<p>配置完成之后。在浏览器中测试发现<strong>端口1111可以访问，端口2222不能正常访问</strong>，会抛出异常</p>
+<h3 id="自定义异常结果"><a href="#自定义异常结果" class="headerlink" title="自定义异常结果"></a>自定义异常结果</h3><p>默认情况下，发生限流、降级、授权拦截时，都会抛出异常到调用方。如果要自定义异常时的返回结果，就需要<strong>实现BlockExceptionHandler接口</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231012113112900.png" alt="image-20231012113112900"></p>
+<p>BlockExceptionHandler异常又包含很多子类异常，对应不同的应用场景：</p>
+<table>
+<thead>
+<tr>
+<th align="center">异常</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">FlowException</td>
+<td align="center">限流异常</td>
+</tr>
+<tr>
+<td align="center">ParamFlowException</td>
+<td align="center">热点参数限流的异常</td>
+</tr>
+<tr>
+<td align="center">DegradeException</td>
+<td align="center">降级异常</td>
+</tr>
+<tr>
+<td align="center">AuthorityException</td>
+<td align="center">授权规则异常</td>
+</tr>
+<tr>
+<td align="center">SystemBlockException</td>
+<td align="center">系统规则异常</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231012114024795.png" alt="image-20231012114024795"></p>
+<h2 id="规则持久化"><a href="#规则持久化" class="headerlink" title="规则持久化"></a>规则持久化</h2><h3 id="规则管理模式"><a href="#规则管理模式" class="headerlink" title="规则管理模式"></a>规则管理模式</h3><h4 id="原始模式"><a href="#原始模式" class="headerlink" title="原始模式"></a>原始模式</h4><p>Sentinel的默认管理模式，将规则保存在内存中，重启服务会丢失</p>
+<h4 id="pull模式"><a href="#pull模式" class="headerlink" title="pull模式"></a>pull模式</h4><p>控制台将配置的规则推送到Sentinel客户端，而客户端会将配置规则爆破存在本地文件或数据库中。以后会定时去本地文件或数据库中查询，更新本地规则</p>
+<img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231013161446893.png">
+
+<p>当多个服务同时发起一个规则时，sentinel客户端会去定时轮询这个本地存储规则的文件数据库，如果检测到对应的规则更新了那么会刷新服务对应的规则缓存</p>
+<h4 id="push模式（推荐）"><a href="#push模式（推荐）" class="headerlink" title="push模式（推荐）"></a>push模式（推荐）</h4><p>控制台将配置规则推送到远程配置中心，例如Nacos、Zookeeper等。Sentinel客户端监听Nacos，获取配置变更的推送消息，完成本地配置更新</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kevin7gif/photo@main/image-20231013161446893.png" alt="image-20231013161446893"></p>
 
                 
             </div>
@@ -549,7 +710,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kevin7gif.github.io/2023/09/29/mvc-jia-gou/">https://kevin7gif.github.io/2023/09/29/mvc-jia-gou/</a>
+                    <a href="https://kevin7gif.github.io/2023/10/13/wei-fu-wu-zu-jian-zhi-sentinel/">https://kevin7gif.github.io/2023/10/13/wei-fu-wu-zu-jian-zhi-sentinel/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,8 +748,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaWeb/">
-                                    <span class="chip bg-color">JavaWeb</span>
+                                <a href="/tags/SpringCloud/">
+                                    <span class="chip bg-color">SpringCloud</span>
                                 </a>
                             
                         </div>
@@ -632,46 +793,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/29/mybatis-xiao-ji-qiao/">
+                <a href="/2023/10/13/wei-fu-wu-zu-jian-zhi-sentinel/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Mybatis小技巧">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="微服务组件之Sentinel">
                         
-                        <span class="card-title">Mybatis小技巧</span>
+                        <span class="card-title">微服务组件之Sentinel</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Mybatis是一个持久层框架，这里罗列了一些在开发中使用的技巧
+                            Sentinel是阿里巴巴开源的一个项目，SpringCloud中用来维持服务稳定性的一个重要组件
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/SSM%E6%A1%86%E6%9E%B6/" class="post-category">
-                                    SSM框架
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    微服务
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/SpringCloud/">
+                        <span class="chip bg-color">SpringCloud</span>
                     </a>
                     
                 </div>
@@ -685,31 +848,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/29/mysql/">
+                <a href="/2023/10/12/dui-dai-li-mo-shi-de-li-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="对代理模式的理解">
                         
-                        <span class="card-title">MySQL</span>
+                        <span class="card-title">对代理模式的理解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySQL索引、性能优化、存储引擎、主从复制、分库分表等相关基础
+                            Java23种设计模式之一，也是Spring框架中用到的一种设计模式
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
                                 </a>
                             
                             
@@ -719,8 +882,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>
