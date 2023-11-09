@@ -358,9 +358,7 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
 
@@ -554,7 +552,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2022-10","2022-11","2022-12","2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10"]
+            data: ["2022-11","2022-12","2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11"]
         },
         yAxis: {
             type: 'value',
@@ -564,7 +562,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,5,2],
+                data: [0,0,0,0,0,0,0,0,0,0,5,2,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -606,7 +604,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"操作系统","value":1},{"name":"Java","value":1},{"name":"数据库","value":1},{"name":"SSM框架","value":1},{"name":"欢迎页","value":1},{"name":"设计模式","value":1},{"name":"微服务","value":1}],
+                data: [{"name":"Java","value":1},{"name":"操作系统","value":1},{"name":"数据库","value":1},{"name":"SSM框架","value":1},{"name":"欢迎页","value":1},{"name":"设计模式","value":1},{"name":"微服务","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -630,7 +628,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Linux","JavaWeb","MySQL","Mybatis","welcome","Spring","SpringCloud"]
+                data: ["JavaWeb","Linux","MySQL","Mybatis","welcome","Spring","SpringCloud"]
             }
         ],
         yAxis: [
@@ -813,14 +811,14 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Linux/">
-                <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
+            <a href="/tags/JavaWeb/">
+                <span class="chip center-align waves-effect waves-light chip-default">JavaWeb</span>
             </a>
             
             
             
-            <a href="/tags/JavaWeb/">
-                <span class="chip center-align waves-effect waves-light chip-default">JavaWeb</span>
+            <a href="/tags/Linux/">
+                <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
             </a>
             
             
